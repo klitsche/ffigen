@@ -1,0 +1,8 @@
+headerFiles:
+  - snappy-c.h
+libraryFile: libsnappy.so.1
+outputPath: ./
+excludeConstants:
+  - /^(?!(FFI|SNAPPY)_).*/
+excludeMethods:
+namespace: Klitsche\FFIGen\Examples\Snappy

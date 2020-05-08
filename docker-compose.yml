@@ -1,0 +1,19 @@
+version: '3'
+
+networks:
+  ffigen:
+
+services:
+  php74:
+    build:
+      context: resources/docker
+    image: php74-ffigen-examples
+    volumes:
+      - .:/app
+    networks:
+      - ffigen
+    environment:
+      XDEBUG_CONFIG: "remote_enable=1 remote_mode=req remote_port=9000 remote_host=host.docker.internal remote_connect_back=0 idekey=PHPSTORM"
+      PHP_IDE_CONFIG: "serverName=127.0.0.1"
+#    devices:
+#      - /dev/snd

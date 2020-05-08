@@ -1,0 +1,11 @@
+headerFiles:
+  - test.h
+libraryFile: AnyLibrary
+parserClass: Some\Parser
+generatorClass: Some\Generator
+outputPath:
+excludeConstants:
+  - /^AnyConstants/
+excludeMethods:
+  - /^AnyMethods/
+namespace: AnyNamespace

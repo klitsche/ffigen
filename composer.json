@@ -1,0 +1,49 @@
+{
+    "name": "klitsche/ffigen",
+    "type": "library",
+    "description": "FFI binding generator",
+    "keywords": [
+        "ffi",
+        "generator",
+        "binding"
+    ],
+    "homepage": "https://klitsche.github.io/ffigen/",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Dirk Adler",
+            "email": "dirx@klitsche.de"
+        }
+    ],
+    "bin": [
+        "bin/ffigen"
+    ],
+    "require": {
+        "php": "^7.4",
+        "ext-ffi": "*",
+        "ircmaxell/php-c-parser": "dev-master",
+        "nikic/iter": "^2.0",
+        "symfony/yaml": "^5.0",
+        "symfony/filesystem": "^5.0",
+        "symfony/console": "^5.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Klitsche\\FFIGen\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Klitsche\\FFIGen\\": "tests",
+            "Klitsche\\FFIGen\\Examples\\": "examples"
+        }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.1",
+        "symplify/easy-coding-standard": "^7.3"
+    },
+    "scripts": {
+        "test" : "vendor/bin/phpunit",
+        "cs" : "vendor/bin/ecs check src tests --fix"
+    }
+}

@@ -1,0 +1,10 @@
+headerFiles:
+  - librdkafka/rdkafka.h
+  - librdkafka/rdkafka_mock.h
+libraryFile: librdkafka.so.1
+parserClass: Klitsche\FFIGen\Examples\RdKafka\FFIGen\Parser
+outputPath: ./
+excludeConstants:
+  - /^(?!(FFI|RD)_).*/
+excludeMethods:
+namespace: Klitsche\FFIGen\Examples\RdKafka

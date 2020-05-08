@@ -1,0 +1,9 @@
+headerFiles:
+  - uuid/uuid.h
+libraryFile: libuuid.so.1
+parserClass: Klitsche\FFIGen\Examples\UUID\FFIGen\Parser
+outputPath: ./
+excludeConstants:
+  - /^(?!(FFI|UUID)_).*/
+excludeMethods:
+namespace: Klitsche\FFIGen\Examples\UUID

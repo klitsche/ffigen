@@ -1,0 +1,19 @@
+#!/usr/bin/env php
+<?php
+
+use Klitsche\FFIGen\Cli\GenerateCommand;
+use Symfony\Component\Console\Application;
+
+const FFIGEN_VERSION = 'dev-master';
+
+foreach ([__DIR__ . '/../../../autoload.php', __DIR__ . '/../vendor/autoload.php'] as $file) {
+    if (file_exists($file)) {
+        require $file;
+        break;
+    }
+}
+
+$application = new Application('ffigen', FFIGEN_VERSION);
+$application->add(new GenerateCommand('generate'));
+$application->setDefaultCommand('generate');
+$application->run();
