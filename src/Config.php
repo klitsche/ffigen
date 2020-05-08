@@ -61,7 +61,7 @@ class Config implements ConfigInterface
 
         // handle relative output path to config file
         if ($filesystem->isAbsolutePath($config->outputPath) === false) {
-            $config->outputPath = dirname($configYamlFile) . rtrim('/', '/' . $config->outputPath);
+            $config->outputPath = dirname($configYamlFile) . rtrim('/' . $config->outputPath, '/');
         }
 
         return $config;
