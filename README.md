@@ -1,4 +1,4 @@
-# ffigen - a FFI binding generator for PHP
+# ffigen - a FFI bindings generator for PHP
 
 `ffigen` is a simple cli helper to quickly generate and update PHP FFI bindings for C libraries. 
 
