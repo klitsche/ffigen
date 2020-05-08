@@ -3,7 +3,7 @@ headerFiles:
 libraryFile: AnyLibrary
 parserClass: Some\Parser
 generatorClass: Some\Generator
-outputPath:
+outputPath: temp
 excludeConstants:
   - /^AnyConstants/
 excludeMethods:

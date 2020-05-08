@@ -15,7 +15,7 @@ class ConfigTest extends TestCase
     {
         $config = COnfig::fromFile(__DIR__ . '/test.yml', __DIR__);
 
-        $this->assertSame(__DIR__, $config->getOutputPath());
+        $this->assertSame(__DIR__ . '/temp', $config->getOutputPath());
         $this->assertSame(['test.h'], $config->getHeaderFiles());
         $this->assertSame([], $config->getHeaderSearchPaths());
         $this->assertSame('Some\Parser', $config->getParserClass());
