@@ -9,7 +9,7 @@ namespace Klitsche\FFIGen\Examples\RdKafka;
 
 trait Methods
 {
-    abstract public static function getFFI():\FFI;
+    abstract public static function getFFI(): \FFI;
 
     /**
      * @return int|null int

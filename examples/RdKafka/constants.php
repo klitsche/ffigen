@@ -2,7 +2,7 @@
 /**
  * This file is generated! Do not edit directly.
  */
- 
+
 declare(strict_types=1);
 
 namespace Klitsche\FFIGen\Examples\RdKafka;

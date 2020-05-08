@@ -11,7 +11,7 @@ class ConstantsPrinter
     /**
      * This file is generated! Do not edit directly.
      */
-     
+    
     declare(strict_types=1);
     
     namespace {{namespace}};

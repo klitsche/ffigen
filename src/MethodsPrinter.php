@@ -18,7 +18,7 @@ class MethodsPrinter
 
     trait Methods
     {
-        abstract public static function getFFI():\FFI;
+        abstract public static function getFFI(): \FFI;
 
     {{methods}}
     }

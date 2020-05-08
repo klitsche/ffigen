@@ -63,6 +63,8 @@ const UUID_TYPE_MASK = 15;
  * #define
  */
 const UUID_STR_LEN = 37;
+/**
+ */
 const FFI_CDEF = 'typedef long time_t;
 typedef unsigned char uuid_t[16];
 extern void uuid_clear(uuid_t uu);
@@ -84,4 +86,6 @@ extern int uuid_type(const uuid_t uu);
 extern int uuid_variant(const uuid_t uu);
 const extern uuid_t *uuid_get_template(const char *alias);
 ';
+/**
+ */
 const FFI_LIB = 'libuuid.so.1';
