@@ -18,7 +18,7 @@ __WIP__: Expect breaking changes along all 0.* pre-releases.
 ## Requirements
 
 * PHP ^7.4
-* For examples: FFI extension must be available an enabled
+* For examples: FFI extension must be available and enabled
 
 ## Quick Start
 
