@@ -103,7 +103,7 @@ class Parser extends \Klitsche\FFIGen\Adapter\PHPCParser\Parser
 
 Do not forget to register the Parser namespace in your composer.json for autoloading (dev is okay):
 
-```jso
+```json
     "autoload-dev": {
         "psr-4": {
             "Klitsche\\FFIGen\\Examples\\": "examples"
@@ -126,7 +126,7 @@ This generates the two files in the output path:
 
 Do not forget to add `constants.php` to your compose.json for autoloading:
 
-```jso
+```json
     "autoload": {
         "files": [
           "tweak-path-to/constants.php",
