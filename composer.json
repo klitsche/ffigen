@@ -20,7 +20,6 @@
     ],
     "require": {
         "php": "^7.4",
-        "ext-ffi": "*",
         "ircmaxell/php-c-parser": "dev-master",
         "symfony/yaml": "^5.0",
         "symfony/filesystem": "^5.0",

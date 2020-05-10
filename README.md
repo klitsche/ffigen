@@ -11,6 +11,11 @@ It is heavily inspired by [FFIMe](https://github.com/ircmaxell/FFIMe) and depend
 
 __WIP__: Expect breaking changes along all 0.* pre-releases.
 
+## Requirements
+
+* PHP ^7.4
+* For examples: FFI extension must be available an enabled
+
 ## Quick Start
 
 Install in your project:
