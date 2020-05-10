@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Klitsche\FFIGen;
 
 use Klitsche\FFIGen\Types\Builtin;
+use Klitsche\FFIGen\Types\Pointer;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -32,5 +33,16 @@ class MethodReturnParameterTest extends TestCase
         $this->assertSame('void', $parameter->getPhpCodeType());
         $this->assertSame('     * @return void some desc', $parameter->getDocBlock('    '));
         $this->assertTrue($parameter->isVoid());
+    }
+
+    public function testGetterForVoidPointer(): void
+    {
+        $parameter = new MethodReturnParameter(new Pointer(new Builtin('void')), 'some desc');
+
+        $this->assertSame('', $parameter->getPhpCode());
+        $this->assertSame('\FFI\CData|object|string|null', $parameter->getDocBlockType());
+        $this->assertSame('', $parameter->getPhpCodeType());
+        $this->assertSame('     * @return \FFI\CData|object|string|null some desc', $parameter->getDocBlock('    '));
+        $this->assertFalse($parameter->isVoid());
     }
 }

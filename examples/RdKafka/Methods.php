@@ -691,10 +691,11 @@ trait Methods
 
     /**
      * @param \FFI\CData|null $rk rd_kafka_t*
+     * @return \FFI\CData|object|string|null void*
      */
     public static function rd_kafka_opaque(?\FFI\CData $rk)
     {
-        static::getFFI()->rd_kafka_opaque($rk);
+        return static::getFFI()->rd_kafka_opaque($rk);
     }
 
     /**
@@ -1055,10 +1056,11 @@ trait Methods
 
     /**
      * @param \FFI\CData|null $rkt rd_kafka_topic_t*
+     * @return \FFI\CData|object|string|null void*
      */
     public static function rd_kafka_topic_opaque(?\FFI\CData $rkt)
     {
-        static::getFFI()->rd_kafka_topic_opaque($rkt);
+        return static::getFFI()->rd_kafka_topic_opaque($rkt);
     }
 
     /**
@@ -1854,10 +1856,11 @@ trait Methods
 
     /**
      * @param \FFI\CData|null $rkev rd_kafka_event_t*
+     * @return \FFI\CData|object|string|null void*
      */
     public static function rd_kafka_event_opaque(?\FFI\CData $rkev)
     {
-        static::getFFI()->rd_kafka_event_opaque($rkev);
+        return static::getFFI()->rd_kafka_event_opaque($rkev);
     }
 
     /**
@@ -2004,11 +2007,12 @@ trait Methods
     }
 
     /**
+     * @param \FFI\CData|object|string|null $ic_opaque void*
      * @return int rd_kafka_resp_err_t
      */
-    public static function rd_kafka_interceptor_f_on_conf_destroy_t(): int
+    public static function rd_kafka_interceptor_f_on_conf_destroy_t($ic_opaque): int
     {
-        return static::getFFI()->rd_kafka_interceptor_f_on_conf_destroy_t();
+        return static::getFFI()->rd_kafka_interceptor_f_on_conf_destroy_t($ic_opaque);
     }
 
     /**

@@ -36,7 +36,8 @@ class MethodReturnParameter
 
     public function isVoid(): bool
     {
-        return $this->type !== null && $this->type->getCName() === 'void';
+        return $this->type !== null
+            && $this->type->getCType() === 'void';
     }
 
     public function getDocBlock(string $ident = ''): string
