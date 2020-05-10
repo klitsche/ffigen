@@ -24,6 +24,14 @@ class Enum extends Type
         return 'int';
     }
 
+    public function getCType(string $pointer = ''): string
+    {
+        if ($this->hasDeclarationName()) {
+            return parent::getCType($pointer);
+        }
+        return 'enum ' . parent::getCType($pointer);
+    }
+
     /**
      * @param string|int|array|float|null $value
      */

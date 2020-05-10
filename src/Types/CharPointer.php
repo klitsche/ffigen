@@ -13,6 +13,11 @@ use FFI\CData;
  */
 class CharPointer extends Pointer
 {
+    public function __construct(Builtin $type)
+    {
+        parent::__construct($type);
+    }
+
     public function getCName(): string
     {
         return $this->type->getCName();
@@ -20,7 +25,13 @@ class CharPointer extends Pointer
 
     public function getCType(string $pointer = ''): string
     {
-        return $this->type->getCType($pointer . '*');
+        if (parent::isConst() && $this->type->isConst() === false) {
+            $const = 'const ';
+        } else {
+            $const = '';
+        }
+
+        return $const . $this->type->getCType($pointer . '*');
     }
 
     public function getPhpTypes(): string

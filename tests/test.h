@@ -32,7 +32,6 @@ typedef long baz[][];
 // function pointer
 typedef char *(*(**hairy[][8])())[];
 
-
 // function
 extern char** func1(char_t arg1, hairy arg2);
 void func2(void);

@@ -11,9 +11,24 @@ class FunctionPointer extends Pointer
         parent::__construct($type);
     }
 
+    public function hasDeclarationName(): bool
+    {
+        return parent::hasDeclarationName() || $this->type->hasDeclarationName();
+    }
+
+    public function getDeclarationName(): string
+    {
+        return parent::getDeclarationName() ?: $this->type->getDeclarationName();
+    }
+
     public function getCType(string $pointer = ''): string
     {
-        return $this->type->getCType($pointer . '*');
+        $type = $this->type;
+        if ($this->hasDeclarationName()) {
+            $type = $type->withDeclarationName($this->getDeclarationName());
+        }
+
+        return $type->getCType($pointer . '*');
     }
 
     public function getPhpTypes(): string

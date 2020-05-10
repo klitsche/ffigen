@@ -12,7 +12,7 @@ trait Methods
     abstract public static function getFFI(): \FFI;
 
     /**
-     * @param string|null $input char*
+     * @param string|null $input const char*
      * @param int|null $input_length size_t
      * @param \FFI\CData|null $compressed char*
      * @param \FFI\CData|null $compressed_length size_t*
@@ -24,7 +24,7 @@ trait Methods
     }
 
     /**
-     * @param string|null $compressed char*
+     * @param string|null $compressed const char*
      * @param int|null $compressed_length size_t
      * @param \FFI\CData|null $uncompressed char*
      * @param \FFI\CData|null $uncompressed_length size_t*
@@ -45,7 +45,7 @@ trait Methods
     }
 
     /**
-     * @param string|null $compressed char*
+     * @param string|null $compressed const char*
      * @param int|null $compressed_length size_t
      * @param \FFI\CData|null $result size_t*
      * @return int snappy_status
@@ -56,7 +56,7 @@ trait Methods
     }
 
     /**
-     * @param string|null $compressed char*
+     * @param string|null $compressed const char*
      * @param int|null $compressed_length size_t
      * @return int snappy_status
      */

@@ -74,7 +74,7 @@ trait Methods
     /**
      * @param \FFI\CData|null $out unsigned char[16]
      * @param \FFI\CData|null $ns unsigned char[16]
-     * @param string|null $name char*
+     * @param string|null $name const char*
      * @param int|null $len size_t
      */
     public static function uuid_generate_md5(?\FFI\CData $out, ?\FFI\CData $ns, ?string $name, ?int $len): void
@@ -85,7 +85,7 @@ trait Methods
     /**
      * @param \FFI\CData|null $out unsigned char[16]
      * @param \FFI\CData|null $ns unsigned char[16]
-     * @param string|null $name char*
+     * @param string|null $name const char*
      * @param int|null $len size_t
      */
     public static function uuid_generate_sha1(?\FFI\CData $out, ?\FFI\CData $ns, ?string $name, ?int $len): void
@@ -103,7 +103,7 @@ trait Methods
     }
 
     /**
-     * @param string|null $in char*
+     * @param string|null $in const char*
      * @param \FFI\CData|null $uu unsigned char[16]
      * @return int|null int
      */
@@ -141,8 +141,8 @@ trait Methods
 
     /**
      * @param \FFI\CData|null $uu unsigned char[16]
-     * @param \FFI\CData|null $ret_tv timeval*
-     * @return int|null long
+     * @param \FFI\CData|null $ret_tv struct timeval*
+     * @return int|null time_t
      */
     public static function uuid_time(?\FFI\CData $uu, ?\FFI\CData $ret_tv): ?int
     {
@@ -168,7 +168,7 @@ trait Methods
     }
 
     /**
-     * @param string|null $alias char*
+     * @param string|null $alias const char*
      * @return \FFI\CData|null *(unsigned char)[16]
      */
     public static function uuid_get_template(?string $alias): ?\FFI\CData

@@ -33,9 +33,8 @@ class DefinesCollector
             do {
                 if ($next instanceof Token && $next->type === Token::IDENTIFIER) {
                     // cast basic types, eg ((int32_t)-1) => ((int)-1)
-                    $mapped = Builtin::map($next->value);
-                    if ($mapped !== null) {
-                        $value .= $mapped;
+                    if (Builtin::isMappable($next->value)) {
+                        $value .= Builtin::map($next->value);
                     } else {
                         continue 2;
                     }

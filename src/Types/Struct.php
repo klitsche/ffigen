@@ -18,6 +18,14 @@ class Struct extends Type
         $this->layout = [];
     }
 
+    public function getCType(string $pointer = ''): string
+    {
+        if ($this->hasDeclarationName()) {
+            return parent::getCType($pointer);
+        }
+        return ($this->isUnion ? 'union ' : 'struct ') . parent::getCType($pointer);
+    }
+
     public function getPhpTypes(): string
     {
         return '?\\' . CData::class;
@@ -32,6 +40,11 @@ class Struct extends Type
     {
         $this->layout[$name] = $type;
         return $this;
+    }
+
+    public function getLayout(): array
+    {
+        return $this->layout;
     }
 
     public function isUnion(): bool

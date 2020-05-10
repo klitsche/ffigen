@@ -27,7 +27,7 @@ abstract class Type
 
     public function getCType(string $pointer = ''): string
     {
-        return ($this->const ? 'const ' : '') . $this->getName() . $pointer;
+        return ($this->isConst() ? 'const ' : '') . $this->getName() . $pointer;
     }
 
     abstract public function getPhpTypes(): string;
@@ -46,7 +46,7 @@ abstract class Type
         return $this->const;
     }
 
-    public function withDeclarationName(string $name)
+    public function withDeclarationName(string $name): self
     {
         $cloned = clone $this;
         $cloned->declarationName = $name;

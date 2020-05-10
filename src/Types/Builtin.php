@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace Klitsche\FFIGen\Types;
 
-use LogicException;
-
 class Builtin extends Type
 {
     private const C_PHP_MAP = [
@@ -51,11 +49,8 @@ class Builtin extends Type
 
     public function __construct(string $cName)
     {
-        if (self::isMappable($cName) === false) {
-            throw new LogicException(sprintf('Can not map ctype %s to native php type', $cName));
-        }
         parent::__construct($cName);
-        $this->phpType = self::C_PHP_MAP[$cName];
+        $this->phpType = self::map($cName);
     }
 
     public static function isMappable(string $cName): bool
@@ -63,14 +58,12 @@ class Builtin extends Type
         return isset(self::C_PHP_MAP[$cName]);
     }
 
-    public static function map(string $cName): ?string
+    public static function map(string $cName): string
     {
-        return self::C_PHP_MAP[$cName] ?? null;
-    }
-
-    public function getCType(string $pointer = ''): string
-    {
-        return ($this->const ? 'const ' : '') . $this->getCName() . $pointer;
+        if (self::isMappable($cName) === false) {
+            throw new \InvalidArgumentException(sprintf('Cannot map %s to native php type', $cName));
+        }
+        return self::C_PHP_MAP[$cName];
     }
 
     public function getPhpTypes(): string

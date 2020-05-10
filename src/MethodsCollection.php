@@ -54,13 +54,20 @@ class MethodsCollection implements \IteratorAggregate, \Countable
     {
         $params = [];
         foreach ($type->getParams() as $name => $paramType) {
-            $params[] = new MethodParameter($paramType, $name, $paramType->getCType());
+            $params[] = new MethodParameter(
+                $paramType,
+                $name,
+                $paramType->getCType()
+            );
         }
         if ($type->isVariadic()) {
             $params[] = new MethodParameter(null, 'args', '', true);
         }
 
-        $return = new MethodReturnParameter($type->getReturn(), $type->getReturn()->getCType());
+        $return = new MethodReturnParameter(
+            $type->getReturn(),
+            $type->getReturn()->getCType()
+        );
 
         yield $type->getName() => new Method($type->getName(), $params, $return, '');
     }
