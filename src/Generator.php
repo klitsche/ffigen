@@ -28,7 +28,7 @@ class Generator implements GeneratorInterface
             $this->config->getExcludeConstants()
         );
         $constants->add(new Constant('FFI_CDEF', $this->parser->getCDef(), implode(', ', $this->config->getHeaderFiles())));
-        $constants->add(new Constant('FFI_LIB', $this->config->getLibraryFile()));
+        $constants->add(new Constant('FFI_LIB', $this->config->getLibraryFile(), 'c library file name'));
 
         $filesystem = new Filesystem();
 

@@ -44,7 +44,7 @@
     "scripts": {
         "test" : "vendor/bin/phpunit",
         "test-coverage" : "vendor/bin/phpunit --coverage-text --coverage-clover=clover.xml",
-        "cs" : "vendor/bin/ecs check src tests --ansi",
-        "cs-fix" : "vendor/bin/ecs check src tests --ansi --fix"
+        "cs" : "vendor/bin/ecs check src tests examples --ansi",
+        "cs-fix" : "vendor/bin/ecs check src tests examples --ansi --fix"
     }
 }

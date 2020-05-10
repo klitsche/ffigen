@@ -103,5 +103,6 @@ const extern uuid_t *uuid_get_template(const char *alias);
 ';
 
 /**
+ * c library file name
  */
 const FFI_LIB = 'libuuid.so.1';

@@ -40,5 +40,6 @@ snappy_status snappy_validate_compressed_buffer(const char *compressed, size_t c
 ';
 
 /**
+ * c library file name
  */
 const FFI_LIB = 'libsnappy.so.1';

@@ -1771,5 +1771,6 @@ rd_kafka_resp_err_t rd_kafka_mock_set_apiversion(rd_kafka_mock_cluster_t *mclust
 ';
 
 /**
+ * c library file name
  */
 const FFI_LIB = 'librdkafka.so.1';
