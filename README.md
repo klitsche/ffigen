@@ -4,7 +4,7 @@
 [![Test Coverage](https://api.codeclimate.com/v1/badges/74ba131ab73c58dc2864/test_coverage)](https://codeclimate.com/github/klitsche/ffigen/test_coverage)
 [![Maintainability](https://api.codeclimate.com/v1/badges/74ba131ab73c58dc2864/maintainability)](https://codeclimate.com/github/klitsche/ffigen/maintainability)
 
-`ffigen` is a simple cli helper to quickly generate and update PHP FFI bindings for C libraries. 
+`ffigen` is a simple cli helper to quickly generate and update low level PHP FFI bindings for C libraries. 
 
 It generates two PHP files out of provided C header file(s):
 
@@ -122,7 +122,7 @@ Run ffigen to generate binding files
 This generates the two files in the output path:
 
 * `constants.php` - add this to your autoloading
-* `Methods.php` - add this to your own Class context
+* `Methods.php` - add this to your own class context and use it within your own high level php library
 
 Do not forget to add `constants.php` to your compose.json for autoloading:
 
@@ -139,16 +139,16 @@ Do not forget to add `constants.php` to your compose.json for autoloading:
 Build docker image with preinstalled c libraries (uuid, snappy & librdkafka):
 
      docker-compose build php74
-     
-Run snappy example
-
-    docker-compose run --rm php74 bin/ffigen generate -c examples/Snappy/.ffigen.yml
-    docker-compose run --rm php74 php examples/Snappy/test.php
         
 Run uuid example
 
     docker-compose run --rm php74 php bin/ffigen generate -c examples/UUID/.ffigen.yml
     docker-compose run --rm php74 php examples/UUID/test.php
+    
+Run snappy example (see Snappy class for a simple high level example)
+
+    docker-compose run --rm php74 bin/ffigen generate -c examples/Snappy/.ffigen.yml
+    docker-compose run --rm php74 php examples/Snappy/test.php
         
 Run rdkafka example (librdkafka 1.4.0 & mock cluster)
 
@@ -157,8 +157,8 @@ Run rdkafka example (librdkafka 1.4.0 & mock cluster)
         
 ## Todos
 
+* [x] Add travis 
 * [ ] Add more tests 
-* [ ] Add travis 
 * [ ] Add documentation
 * [ ] Add support for Windows, macOS
 * [ ] Add more examples (and learn from them)
