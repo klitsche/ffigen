@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Klitsche\FFIGen;
 
+use Brick\VarExporter\VarExporter;
+
 class Constant
 {
     private string $name;
@@ -14,6 +16,9 @@ class Constant
     private string $description;
     private array $docBlockTags;
 
+    /**
+     * @param int|string|array $value
+     */
     public function __construct(string $name, $value, string $description = '')
     {
         $this->name = $name;
@@ -46,11 +51,13 @@ class Constant
 
         if ($ident !== '') {
             $parts = explode("\n", $code);
-            $code = '';
+            $identParts = [];
             foreach ($parts as $part) {
-                $code .= trim($ident . $part) . "\n";
+                $identParts[] = $ident . rtrim($part);
             }
+            $code = implode("\n", $identParts);
         }
+
         return $code;
     }
 
@@ -74,9 +81,8 @@ class Constant
 
     private function getPhpValue(): string
     {
-        return var_export($this->value, true);
+        return VarExporter::export($this->value);
     }
-
 
     public function getName(): string
     {

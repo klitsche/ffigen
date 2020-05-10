@@ -27,7 +27,7 @@ class Generator implements GeneratorInterface
             $types,
             $this->config->getExcludeConstants()
         );
-        $constants->add(new Constant('FFI_CDEF', $this->parser->getCDef()));
+        $constants->add(new Constant('FFI_CDEF', $this->parser->getCDef(), implode(', ', $this->config->getHeaderFiles())));
         $constants->add(new Constant('FFI_LIB', $this->config->getLibraryFile()));
 
         $filesystem = new Filesystem();
@@ -37,7 +37,6 @@ class Generator implements GeneratorInterface
             $this->config->getOutputPath() . '/constants.php',
             $constantsPrinter->print($this->config->getNamespace())
         );
-//        file_put_contents($this->config->getOutputPath() . '/constants.php', $constantsPrinter->print($this->config->getNamespace()));
 
         $methods = new MethodsCollection($types, $this->config->getExcludeMethods());
         $methodsPrinter = new MethodsPrinter($methods);
@@ -45,6 +44,5 @@ class Generator implements GeneratorInterface
             $this->config->getOutputPath() . '/Methods.php',
             $methodsPrinter->print($this->config->getNamespace())
         );
-//        file_put_contents($this->config->getOutputPath() . '/Methods.php', $methodsPrinter->print($this->config->getNamespace()));
     }
 }

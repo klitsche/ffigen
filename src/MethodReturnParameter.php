@@ -6,24 +6,25 @@ namespace Klitsche\FFIGen;
 
 use Klitsche\FFIGen\Types\Type;
 
-class MethodParameter
+class MethodReturnParameter
 {
     private ?Type $type;
-    private string $name;
-    private string $description;
-    private bool $isVariadic;
 
-    public function __construct(?Type $type, string $name, string $description, bool $isVariadic = false)
+    private string $description;
+
+    public function __construct(?Type $type, string $description)
     {
         $this->type = $type;
-        $this->name = $name;
         $this->description = $description;
-        $this->isVariadic = $isVariadic;
     }
 
     public function getPhpCode(): string
     {
-        return trim(sprintf('%s %s', $this->getPhpCodeType(), $this->getPhpVar()));
+        $type = $this->getPhpCodeType();
+        if ($type === '') {
+            return '';
+        }
+        return sprintf(': %s', $type);
     }
 
     public function getPhpCodeType(): string
@@ -33,11 +34,6 @@ class MethodParameter
             : '';
     }
 
-    public function getPhpVar(): string
-    {
-        return sprintf('%s$%s', $this->isVariadic ? '...' : '', $this->name);
-    }
-
     public function isVoid(): bool
     {
         return $this->type !== null && $this->type->getCName() === 'void';
@@ -45,7 +41,7 @@ class MethodParameter
 
     public function getDocBlock(string $ident = ''): string
     {
-        return sprintf('%s * @param %s %s %s', $ident, $this->getDocBlockType(), $this->getPhpVar(), $this->description);
+        return sprintf('%s * @return %s %s', $ident, $this->getDocBlockType(), $this->description);
     }
 
     public function getDocBlockType(): string

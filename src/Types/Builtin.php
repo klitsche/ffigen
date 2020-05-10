@@ -47,9 +47,7 @@ class Builtin extends Type
         'void' => 'void', // return type only
     ];
 
-
     private string $phpType;
-
 
     public function __construct(string $cName)
     {

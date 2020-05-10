@@ -13,7 +13,6 @@ class Compiler implements CompilerInterface
      * @var TranslatorInterface[]
      */
     private array $translators;
-
     /**
      * @var Type[]
      */

@@ -25,4 +25,31 @@ class ConfigTest extends TestCase
         $this->assertSame('AnyLibrary', $config->getLibraryFile());
         $this->assertSame('AnyNamespace', $config->getNamespace());
     }
+
+    public function testRequiredParameters(): void
+    {
+        $this->expectException(\InvalidArgumentException::class);
+        $this->expectExceptionMessageMatches('/headerFiles/');
+        $this->expectExceptionMessageMatches('/libraryFile/');
+        $this->expectExceptionMessageMatches('/outputPath/');
+        $this->expectExceptionMessageMatches('/namespace/');
+
+        new Config([]);
+    }
+
+    public function testUnknownParameter(): void
+    {
+        $this->expectException(\InvalidArgumentException::class);
+        $this->expectExceptionMessageMatches('/anyOther/');
+
+        new Config(
+            [
+                'anyOther' => 'value',
+                'headerFiles' => [],
+                'libraryFile' => 'anylib',
+                'outputPath' => '',
+                'namespace' => 'Any',
+            ]
+        );
+    }
 }

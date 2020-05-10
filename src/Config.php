@@ -27,13 +27,13 @@ class Config implements ConfigInterface
         // check required
         $missing = array_diff(['headerFiles', 'libraryFile', 'outputPath', 'namespace'], array_keys($config));
         if (empty($missing) === false) {
-            throw new \RuntimeException(sprintf('Missing required config parameter: %s', implode(', ', $missing)));
+            throw new \InvalidArgumentException(sprintf('Missing required config parameter: %s', implode(', ', $missing)));
         }
 
         // map values
         foreach ($config as $parameter => $value) {
             if (property_exists($this, $parameter) === false) {
-                throw new \RuntimeException(sprintf('Unknown config parameter: %s', $parameter));
+                throw new \InvalidArgumentException(sprintf('Unknown config parameter: %s', $parameter));
             }
             if ($value === null) {
                 continue;

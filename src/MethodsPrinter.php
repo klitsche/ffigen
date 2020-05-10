@@ -40,7 +40,7 @@ class MethodsPrinter
             [
                 '{{namespace}}' => $namespace,
                 '{{methods}}' => implode(
-                    "\n",
+                    "\n\n",
                     array_map(
                         fn (Method $method) => $method->getPhpCode($ident),
                         iterator_to_array($this->methods)

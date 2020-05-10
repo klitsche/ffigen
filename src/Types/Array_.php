@@ -27,8 +27,6 @@ class Array_ extends Type
         return $this->getDeclarationName() ?: $this->type->getName();
     }
 
-    // array of numbers: int (* ptr)[5] = NULL; data type (*var name)[size of array];
-    //  array to pointers: int *ptr[3]; int *var_name[array_size];
     public function getCType(string $pointer = ''): string
     {
         if ($pointer === '') {

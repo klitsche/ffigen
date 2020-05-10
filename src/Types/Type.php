@@ -4,24 +4,6 @@ declare(strict_types=1);
 
 namespace Klitsche\FFIGen\Types;
 
-/*
-
-typedef (type) declaration
-    typedef (signed long int) int64_t;
-    typedef (struct rd_s) rd_t;
-
-type declaration(type|declaration var_name, type|declaration declaration(type|declaration var_name, ))
-    rd_kafka_headers_t * rd_kafka_fatal_error(rd_kafka_t *rk, int(*cmp)(const void *a, const void *b, void *opaque));
-
-type (keyword:enum|struct|union, etc) name type layout declaration
-    typedef struct rd_kafka_topic_partition_list_s {
-      int cnt;
-      int size;
-      rd_kafka_topic_partition_t *elems;
-    } rd_kafka_topic_partition_list_t;
-
- */
-
 abstract class Type
 {
     protected string $cName;

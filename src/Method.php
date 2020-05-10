@@ -7,18 +7,18 @@ namespace Klitsche\FFIGen;
 class Method
 {
     private string $name;
-
     private string $description;
-
     private array $docBlockTags;
     /**
      * @var MethodParameter[]
      */
     private array $params;
+    private ?MethodReturnParameter $return;
 
-    private ?MethodParameter $return;
-
-    public function __construct(string $name, array $params, ?MethodParameter $return, string $description)
+    /**
+     * @param MethodParameter[] $params
+     */
+    public function __construct(string $name, array $params, ?MethodReturnParameter $return, string $description)
     {
         $this->name = $name;
         $this->params = $params;
@@ -54,19 +54,20 @@ class Method
             $template,
             $this->getDocBlock(),
             $this->name,
-            $this->getPhpCodeParams($this->params),
+            $this->getPhpCodeParams(),
             $this->return->getPhpCode(),
             $this->return->isVoid() ? '' : 'return ',
             $this->name,
-            $this->getPhpVarParams($this->params),
+            $this->getPhpVarParams(),
         );
 
         if ($ident !== '') {
             $parts = explode("\n", $code);
-            $code = '';
+            $identParts = [];
             foreach ($parts as $part) {
-                $code .= $ident . $part . "\n";
+                $identParts[] = $ident . rtrim($part);
             }
+            $code = implode("\n", $identParts);
         }
         return $code;
     }
@@ -102,7 +103,6 @@ class Method
         return false;
     }
 
-
     public function getDocBlock(): string
     {
         $template = <<<PHPDOC
@@ -128,7 +128,6 @@ class Method
 
         return sprintf($template, empty($lines) ? '' : "\n" . implode("\n", $lines));
     }
-
 
     public function getName(): string
     {

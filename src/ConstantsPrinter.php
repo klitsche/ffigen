@@ -20,7 +20,6 @@ class ConstantsPrinter
     
     PHPTMP;
 
-
     private ConstantsCollection $constants;
 
     public function __construct(ConstantsCollection $constants)
@@ -35,7 +34,7 @@ class ConstantsPrinter
             [
                 '{{namespace}}' => $namespace,
                 '{{constants}}' => implode(
-                    "\n",
+                    "\n\n",
                     array_map(
                         fn (Constant $constant) => $constant->getPhpCode($ident),
                         iterator_to_array($this->constants)

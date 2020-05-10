@@ -43,9 +43,6 @@ class CharPointer extends Pointer
 
     public function isConst(): bool
     {
-        // Note: CParser handles const char * differently - so we have to look at both here
-        // function return:  pointer > const attribute > char
-        // param: const attribute > pointer > char
         return parent::isConst() || $this->type->isConst();
     }
 }

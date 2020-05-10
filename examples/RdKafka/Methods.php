@@ -14,7 +14,7 @@ trait Methods
     /**
      * @return int|null int
      */
-    public static function rd_kafka_version(): ?int 
+    public static function rd_kafka_version(): ?int
     {
         return static::getFFI()->rd_kafka_version();
     }
@@ -22,7 +22,7 @@ trait Methods
     /**
      * @return string|null const char*
      */
-    public static function rd_kafka_version_str(): ?string 
+    public static function rd_kafka_version_str(): ?string
     {
         return static::getFFI()->rd_kafka_version_str();
     }
@@ -30,7 +30,7 @@ trait Methods
     /**
      * @return string|null const char*
      */
-    public static function rd_kafka_get_debug_contexts(): ?string 
+    public static function rd_kafka_get_debug_contexts(): ?string
     {
         return static::getFFI()->rd_kafka_get_debug_contexts();
     }
@@ -39,7 +39,7 @@ trait Methods
      * @param \FFI\CData|null $errdescs rd_kafka_err_desc**
      * @param \FFI\CData|null $cntp size_t*
      */
-    public static function rd_kafka_get_err_descs(?\FFI\CData $errdescs, ?\FFI\CData $cntp): void 
+    public static function rd_kafka_get_err_descs(?\FFI\CData $errdescs, ?\FFI\CData $cntp): void
     {
         static::getFFI()->rd_kafka_get_err_descs($errdescs, $cntp);
     }
@@ -48,7 +48,7 @@ trait Methods
      * @param int $err rd_kafka_resp_err_t
      * @return string|null const char*
      */
-    public static function rd_kafka_err2str(int $err): ?string 
+    public static function rd_kafka_err2str(int $err): ?string
     {
         return static::getFFI()->rd_kafka_err2str($err);
     }
@@ -57,7 +57,7 @@ trait Methods
      * @param int $err rd_kafka_resp_err_t
      * @return string|null const char*
      */
-    public static function rd_kafka_err2name(int $err): ?string 
+    public static function rd_kafka_err2name(int $err): ?string
     {
         return static::getFFI()->rd_kafka_err2name($err);
     }
@@ -65,7 +65,7 @@ trait Methods
     /**
      * @return int rd_kafka_resp_err_t
      */
-    public static function rd_kafka_last_error(): int 
+    public static function rd_kafka_last_error(): int
     {
         return static::getFFI()->rd_kafka_last_error();
     }
@@ -74,7 +74,7 @@ trait Methods
      * @param int|null $errnox int
      * @return int rd_kafka_resp_err_t
      */
-    public static function rd_kafka_errno2err(?int $errnox): int 
+    public static function rd_kafka_errno2err(?int $errnox): int
     {
         return static::getFFI()->rd_kafka_errno2err($errnox);
     }
@@ -82,7 +82,7 @@ trait Methods
     /**
      * @return int|null int
      */
-    public static function rd_kafka_errno(): ?int 
+    public static function rd_kafka_errno(): ?int
     {
         return static::getFFI()->rd_kafka_errno();
     }
@@ -93,7 +93,7 @@ trait Methods
      * @param int|null $errstr_size size_t
      * @return int rd_kafka_resp_err_t
      */
-    public static function rd_kafka_fatal_error(?\FFI\CData $rk, ?\FFI\CData $errstr, ?int $errstr_size): int 
+    public static function rd_kafka_fatal_error(?\FFI\CData $rk, ?\FFI\CData $errstr, ?int $errstr_size): int
     {
         return static::getFFI()->rd_kafka_fatal_error($rk, $errstr, $errstr_size);
     }
@@ -104,7 +104,7 @@ trait Methods
      * @param string|null $reason char*
      * @return int rd_kafka_resp_err_t
      */
-    public static function rd_kafka_test_fatal_error(?\FFI\CData $rk, int $err, ?string $reason): int 
+    public static function rd_kafka_test_fatal_error(?\FFI\CData $rk, int $err, ?string $reason): int
     {
         return static::getFFI()->rd_kafka_test_fatal_error($rk, $err, $reason);
     }
@@ -113,7 +113,7 @@ trait Methods
      * @param \FFI\CData|null $error rd_kafka_error_t*
      * @return int rd_kafka_resp_err_t
      */
-    public static function rd_kafka_error_code(?\FFI\CData $error): int 
+    public static function rd_kafka_error_code(?\FFI\CData $error): int
     {
         return static::getFFI()->rd_kafka_error_code($error);
     }
@@ -122,7 +122,7 @@ trait Methods
      * @param \FFI\CData|null $error rd_kafka_error_t*
      * @return string|null const char*
      */
-    public static function rd_kafka_error_name(?\FFI\CData $error): ?string 
+    public static function rd_kafka_error_name(?\FFI\CData $error): ?string
     {
         return static::getFFI()->rd_kafka_error_name($error);
     }
@@ -131,7 +131,7 @@ trait Methods
      * @param \FFI\CData|null $error rd_kafka_error_t*
      * @return string|null const char*
      */
-    public static function rd_kafka_error_string(?\FFI\CData $error): ?string 
+    public static function rd_kafka_error_string(?\FFI\CData $error): ?string
     {
         return static::getFFI()->rd_kafka_error_string($error);
     }
@@ -140,7 +140,7 @@ trait Methods
      * @param \FFI\CData|null $error rd_kafka_error_t*
      * @return int|null int
      */
-    public static function rd_kafka_error_is_fatal(?\FFI\CData $error): ?int 
+    public static function rd_kafka_error_is_fatal(?\FFI\CData $error): ?int
     {
         return static::getFFI()->rd_kafka_error_is_fatal($error);
     }
@@ -149,7 +149,7 @@ trait Methods
      * @param \FFI\CData|null $error rd_kafka_error_t*
      * @return int|null int
      */
-    public static function rd_kafka_error_is_retriable(?\FFI\CData $error): ?int 
+    public static function rd_kafka_error_is_retriable(?\FFI\CData $error): ?int
     {
         return static::getFFI()->rd_kafka_error_is_retriable($error);
     }
@@ -158,7 +158,7 @@ trait Methods
      * @param \FFI\CData|null $error rd_kafka_error_t*
      * @return int|null int
      */
-    public static function rd_kafka_error_txn_requires_abort(?\FFI\CData $error): ?int 
+    public static function rd_kafka_error_txn_requires_abort(?\FFI\CData $error): ?int
     {
         return static::getFFI()->rd_kafka_error_txn_requires_abort($error);
     }
@@ -166,7 +166,7 @@ trait Methods
     /**
      * @param \FFI\CData|null $error rd_kafka_error_t*
      */
-    public static function rd_kafka_error_destroy(?\FFI\CData $error): void 
+    public static function rd_kafka_error_destroy(?\FFI\CData $error): void
     {
         static::getFFI()->rd_kafka_error_destroy($error);
     }
@@ -174,10 +174,10 @@ trait Methods
     /**
      * @param int $code rd_kafka_resp_err_t
      * @param string|null $fmt char*
-     * @param mixed ...$args 
+     * @param mixed ...$args
      * @return \FFI\CData|null rd_kafka_error_t*
      */
-    public static function rd_kafka_error_new(int $code, ?string $fmt, ...$args): ?\FFI\CData 
+    public static function rd_kafka_error_new(int $code, ?string $fmt, ...$args): ?\FFI\CData
     {
         return static::getFFI()->rd_kafka_error_new($code, $fmt, ...$args);
     }
@@ -185,7 +185,7 @@ trait Methods
     /**
      * @param \FFI\CData|null $rktpar rd_kafka_topic_partition_t*
      */
-    public static function rd_kafka_topic_partition_destroy(?\FFI\CData $rktpar): void 
+    public static function rd_kafka_topic_partition_destroy(?\FFI\CData $rktpar): void
     {
         static::getFFI()->rd_kafka_topic_partition_destroy($rktpar);
     }
@@ -194,7 +194,7 @@ trait Methods
      * @param int|null $size int
      * @return \FFI\CData|null rd_kafka_topic_partition_list_t*
      */
-    public static function rd_kafka_topic_partition_list_new(?int $size): ?\FFI\CData 
+    public static function rd_kafka_topic_partition_list_new(?int $size): ?\FFI\CData
     {
         return static::getFFI()->rd_kafka_topic_partition_list_new($size);
     }
@@ -202,7 +202,7 @@ trait Methods
     /**
      * @param \FFI\CData|null $rkparlist rd_kafka_topic_partition_list_t*
      */
-    public static function rd_kafka_topic_partition_list_destroy(?\FFI\CData $rkparlist): void 
+    public static function rd_kafka_topic_partition_list_destroy(?\FFI\CData $rkparlist): void
     {
         static::getFFI()->rd_kafka_topic_partition_list_destroy($rkparlist);
     }
@@ -213,7 +213,7 @@ trait Methods
      * @param int|null $partition signed int
      * @return \FFI\CData|null rd_kafka_topic_partition_t*
      */
-    public static function rd_kafka_topic_partition_list_add(?\FFI\CData $rktparlist, ?string $topic, ?int $partition): ?\FFI\CData 
+    public static function rd_kafka_topic_partition_list_add(?\FFI\CData $rktparlist, ?string $topic, ?int $partition): ?\FFI\CData
     {
         return static::getFFI()->rd_kafka_topic_partition_list_add($rktparlist, $topic, $partition);
     }
@@ -224,7 +224,7 @@ trait Methods
      * @param int|null $start signed int
      * @param int|null $stop signed int
      */
-    public static function rd_kafka_topic_partition_list_add_range(?\FFI\CData $rktparlist, ?string $topic, ?int $start, ?int $stop): void 
+    public static function rd_kafka_topic_partition_list_add_range(?\FFI\CData $rktparlist, ?string $topic, ?int $start, ?int $stop): void
     {
         static::getFFI()->rd_kafka_topic_partition_list_add_range($rktparlist, $topic, $start, $stop);
     }
@@ -235,7 +235,7 @@ trait Methods
      * @param int|null $partition signed int
      * @return int|null int
      */
-    public static function rd_kafka_topic_partition_list_del(?\FFI\CData $rktparlist, ?string $topic, ?int $partition): ?int 
+    public static function rd_kafka_topic_partition_list_del(?\FFI\CData $rktparlist, ?string $topic, ?int $partition): ?int
     {
         return static::getFFI()->rd_kafka_topic_partition_list_del($rktparlist, $topic, $partition);
     }
@@ -245,7 +245,7 @@ trait Methods
      * @param int|null $idx int
      * @return int|null int
      */
-    public static function rd_kafka_topic_partition_list_del_by_idx(?\FFI\CData $rktparlist, ?int $idx): ?int 
+    public static function rd_kafka_topic_partition_list_del_by_idx(?\FFI\CData $rktparlist, ?int $idx): ?int
     {
         return static::getFFI()->rd_kafka_topic_partition_list_del_by_idx($rktparlist, $idx);
     }
@@ -254,7 +254,7 @@ trait Methods
      * @param \FFI\CData|null $src rd_kafka_topic_partition_list_t*
      * @return \FFI\CData|null rd_kafka_topic_partition_list_t*
      */
-    public static function rd_kafka_topic_partition_list_copy(?\FFI\CData $src): ?\FFI\CData 
+    public static function rd_kafka_topic_partition_list_copy(?\FFI\CData $src): ?\FFI\CData
     {
         return static::getFFI()->rd_kafka_topic_partition_list_copy($src);
     }
@@ -266,7 +266,7 @@ trait Methods
      * @param int|null $offset signed long int
      * @return int rd_kafka_resp_err_t
      */
-    public static function rd_kafka_topic_partition_list_set_offset(?\FFI\CData $rktparlist, ?string $topic, ?int $partition, ?int $offset): int 
+    public static function rd_kafka_topic_partition_list_set_offset(?\FFI\CData $rktparlist, ?string $topic, ?int $partition, ?int $offset): int
     {
         return static::getFFI()->rd_kafka_topic_partition_list_set_offset($rktparlist, $topic, $partition, $offset);
     }
@@ -277,7 +277,7 @@ trait Methods
      * @param int|null $partition signed int
      * @return \FFI\CData|null rd_kafka_topic_partition_t*
      */
-    public static function rd_kafka_topic_partition_list_find(?\FFI\CData $rktparlist, ?string $topic, ?int $partition): ?\FFI\CData 
+    public static function rd_kafka_topic_partition_list_find(?\FFI\CData $rktparlist, ?string $topic, ?int $partition): ?\FFI\CData
     {
         return static::getFFI()->rd_kafka_topic_partition_list_find($rktparlist, $topic, $partition);
     }
@@ -287,7 +287,7 @@ trait Methods
      * @param \FFI\CData|\Closure $cmp int(*)(void*, void*, void*)
      * @param \FFI\CData|object|string|null $cmp_opaque void*
      */
-    public static function rd_kafka_topic_partition_list_sort(?\FFI\CData $rktparlist, $cmp, $cmp_opaque): void 
+    public static function rd_kafka_topic_partition_list_sort(?\FFI\CData $rktparlist, $cmp, $cmp_opaque): void
     {
         static::getFFI()->rd_kafka_topic_partition_list_sort($rktparlist, $cmp, $cmp_opaque);
     }
@@ -296,7 +296,7 @@ trait Methods
      * @param int|null $initial_count size_t
      * @return \FFI\CData|null rd_kafka_headers_t*
      */
-    public static function rd_kafka_headers_new(?int $initial_count): ?\FFI\CData 
+    public static function rd_kafka_headers_new(?int $initial_count): ?\FFI\CData
     {
         return static::getFFI()->rd_kafka_headers_new($initial_count);
     }
@@ -304,7 +304,7 @@ trait Methods
     /**
      * @param \FFI\CData|null $hdrs rd_kafka_headers_t*
      */
-    public static function rd_kafka_headers_destroy(?\FFI\CData $hdrs): void 
+    public static function rd_kafka_headers_destroy(?\FFI\CData $hdrs): void
     {
         static::getFFI()->rd_kafka_headers_destroy($hdrs);
     }
@@ -313,7 +313,7 @@ trait Methods
      * @param \FFI\CData|null $src rd_kafka_headers_t*
      * @return \FFI\CData|null rd_kafka_headers_t*
      */
-    public static function rd_kafka_headers_copy(?\FFI\CData $src): ?\FFI\CData 
+    public static function rd_kafka_headers_copy(?\FFI\CData $src): ?\FFI\CData
     {
         return static::getFFI()->rd_kafka_headers_copy($src);
     }
@@ -326,7 +326,7 @@ trait Methods
      * @param int|null $value_size long int
      * @return int rd_kafka_resp_err_t
      */
-    public static function rd_kafka_header_add(?\FFI\CData $hdrs, ?string $name, ?int $name_size, $value, ?int $value_size): int 
+    public static function rd_kafka_header_add(?\FFI\CData $hdrs, ?string $name, ?int $name_size, $value, ?int $value_size): int
     {
         return static::getFFI()->rd_kafka_header_add($hdrs, $name, $name_size, $value, $value_size);
     }
@@ -336,7 +336,7 @@ trait Methods
      * @param string|null $name char*
      * @return int rd_kafka_resp_err_t
      */
-    public static function rd_kafka_header_remove(?\FFI\CData $hdrs, ?string $name): int 
+    public static function rd_kafka_header_remove(?\FFI\CData $hdrs, ?string $name): int
     {
         return static::getFFI()->rd_kafka_header_remove($hdrs, $name);
     }
@@ -348,7 +348,7 @@ trait Methods
      * @param \FFI\CData|null $sizep size_t*
      * @return int rd_kafka_resp_err_t
      */
-    public static function rd_kafka_header_get_last(?\FFI\CData $hdrs, ?string $name, $valuep, ?\FFI\CData $sizep): int 
+    public static function rd_kafka_header_get_last(?\FFI\CData $hdrs, ?string $name, $valuep, ?\FFI\CData $sizep): int
     {
         return static::getFFI()->rd_kafka_header_get_last($hdrs, $name, $valuep, $sizep);
     }
@@ -361,7 +361,7 @@ trait Methods
      * @param \FFI\CData|null $sizep size_t*
      * @return int rd_kafka_resp_err_t
      */
-    public static function rd_kafka_header_get(?\FFI\CData $hdrs, ?int $idx, ?string $name, $valuep, ?\FFI\CData $sizep): int 
+    public static function rd_kafka_header_get(?\FFI\CData $hdrs, ?int $idx, ?string $name, $valuep, ?\FFI\CData $sizep): int
     {
         return static::getFFI()->rd_kafka_header_get($hdrs, $idx, $name, $valuep, $sizep);
     }
@@ -374,7 +374,7 @@ trait Methods
      * @param \FFI\CData|null $sizep size_t*
      * @return int rd_kafka_resp_err_t
      */
-    public static function rd_kafka_header_get_all(?\FFI\CData $hdrs, ?int $idx, ?\FFI\CData $namep, $valuep, ?\FFI\CData $sizep): int 
+    public static function rd_kafka_header_get_all(?\FFI\CData $hdrs, ?int $idx, ?\FFI\CData $namep, $valuep, ?\FFI\CData $sizep): int
     {
         return static::getFFI()->rd_kafka_header_get_all($hdrs, $idx, $namep, $valuep, $sizep);
     }
@@ -382,7 +382,7 @@ trait Methods
     /**
      * @param \FFI\CData|null $rkmessage rd_kafka_message_t*
      */
-    public static function rd_kafka_message_destroy(?\FFI\CData $rkmessage): void 
+    public static function rd_kafka_message_destroy(?\FFI\CData $rkmessage): void
     {
         static::getFFI()->rd_kafka_message_destroy($rkmessage);
     }
@@ -392,7 +392,7 @@ trait Methods
      * @param \FFI\CData|null $tstype rd_kafka_timestamp_type_t*
      * @return int|null signed long int
      */
-    public static function rd_kafka_message_timestamp(?\FFI\CData $rkmessage, ?\FFI\CData $tstype): ?int 
+    public static function rd_kafka_message_timestamp(?\FFI\CData $rkmessage, ?\FFI\CData $tstype): ?int
     {
         return static::getFFI()->rd_kafka_message_timestamp($rkmessage, $tstype);
     }
@@ -401,7 +401,7 @@ trait Methods
      * @param \FFI\CData|null $rkmessage rd_kafka_message_t*
      * @return int|null signed long int
      */
-    public static function rd_kafka_message_latency(?\FFI\CData $rkmessage): ?int 
+    public static function rd_kafka_message_latency(?\FFI\CData $rkmessage): ?int
     {
         return static::getFFI()->rd_kafka_message_latency($rkmessage);
     }
@@ -411,7 +411,7 @@ trait Methods
      * @param \FFI\CData|null $hdrsp rd_kafka_headers_t**
      * @return int rd_kafka_resp_err_t
      */
-    public static function rd_kafka_message_headers(?\FFI\CData $rkmessage, ?\FFI\CData $hdrsp): int 
+    public static function rd_kafka_message_headers(?\FFI\CData $rkmessage, ?\FFI\CData $hdrsp): int
     {
         return static::getFFI()->rd_kafka_message_headers($rkmessage, $hdrsp);
     }
@@ -421,7 +421,7 @@ trait Methods
      * @param \FFI\CData|null $hdrsp rd_kafka_headers_t**
      * @return int rd_kafka_resp_err_t
      */
-    public static function rd_kafka_message_detach_headers(?\FFI\CData $rkmessage, ?\FFI\CData $hdrsp): int 
+    public static function rd_kafka_message_detach_headers(?\FFI\CData $rkmessage, ?\FFI\CData $hdrsp): int
     {
         return static::getFFI()->rd_kafka_message_detach_headers($rkmessage, $hdrsp);
     }
@@ -430,7 +430,7 @@ trait Methods
      * @param \FFI\CData|null $rkmessage rd_kafka_message_t*
      * @param \FFI\CData|null $hdrs rd_kafka_headers_t*
      */
-    public static function rd_kafka_message_set_headers(?\FFI\CData $rkmessage, ?\FFI\CData $hdrs): void 
+    public static function rd_kafka_message_set_headers(?\FFI\CData $rkmessage, ?\FFI\CData $hdrs): void
     {
         static::getFFI()->rd_kafka_message_set_headers($rkmessage, $hdrs);
     }
@@ -439,7 +439,7 @@ trait Methods
      * @param \FFI\CData|null $hdrs rd_kafka_headers_t*
      * @return int|null size_t
      */
-    public static function rd_kafka_header_cnt(?\FFI\CData $hdrs): ?int 
+    public static function rd_kafka_header_cnt(?\FFI\CData $hdrs): ?int
     {
         return static::getFFI()->rd_kafka_header_cnt($hdrs);
     }
@@ -448,7 +448,7 @@ trait Methods
      * @param \FFI\CData|null $rkmessage rd_kafka_message_t*
      * @return int rd_kafka_msg_status_t
      */
-    public static function rd_kafka_message_status(?\FFI\CData $rkmessage): int 
+    public static function rd_kafka_message_status(?\FFI\CData $rkmessage): int
     {
         return static::getFFI()->rd_kafka_message_status($rkmessage);
     }
@@ -456,7 +456,7 @@ trait Methods
     /**
      * @return \FFI\CData|null rd_kafka_conf_t*
      */
-    public static function rd_kafka_conf_new(): ?\FFI\CData 
+    public static function rd_kafka_conf_new(): ?\FFI\CData
     {
         return static::getFFI()->rd_kafka_conf_new();
     }
@@ -464,7 +464,7 @@ trait Methods
     /**
      * @param \FFI\CData|null $conf rd_kafka_conf_t*
      */
-    public static function rd_kafka_conf_destroy(?\FFI\CData $conf): void 
+    public static function rd_kafka_conf_destroy(?\FFI\CData $conf): void
     {
         static::getFFI()->rd_kafka_conf_destroy($conf);
     }
@@ -473,7 +473,7 @@ trait Methods
      * @param \FFI\CData|null $conf rd_kafka_conf_t*
      * @return \FFI\CData|null rd_kafka_conf_t*
      */
-    public static function rd_kafka_conf_dup(?\FFI\CData $conf): ?\FFI\CData 
+    public static function rd_kafka_conf_dup(?\FFI\CData $conf): ?\FFI\CData
     {
         return static::getFFI()->rd_kafka_conf_dup($conf);
     }
@@ -484,7 +484,7 @@ trait Methods
      * @param \FFI\CData|null $filter char**
      * @return \FFI\CData|null rd_kafka_conf_t*
      */
-    public static function rd_kafka_conf_dup_filter(?\FFI\CData $conf, ?int $filter_cnt, ?\FFI\CData $filter): ?\FFI\CData 
+    public static function rd_kafka_conf_dup_filter(?\FFI\CData $conf, ?int $filter_cnt, ?\FFI\CData $filter): ?\FFI\CData
     {
         return static::getFFI()->rd_kafka_conf_dup_filter($conf, $filter_cnt, $filter);
     }
@@ -493,7 +493,7 @@ trait Methods
      * @param \FFI\CData|null $rk rd_kafka_t*
      * @return \FFI\CData|null const rd_kafka_conf_t*
      */
-    public static function rd_kafka_conf(?\FFI\CData $rk): ?\FFI\CData 
+    public static function rd_kafka_conf(?\FFI\CData $rk): ?\FFI\CData
     {
         return static::getFFI()->rd_kafka_conf($rk);
     }
@@ -506,7 +506,7 @@ trait Methods
      * @param int|null $errstr_size size_t
      * @return int rd_kafka_conf_res_t
      */
-    public static function rd_kafka_conf_set(?\FFI\CData $conf, ?string $name, ?string $value, ?\FFI\CData $errstr, ?int $errstr_size): int 
+    public static function rd_kafka_conf_set(?\FFI\CData $conf, ?string $name, ?string $value, ?\FFI\CData $errstr, ?int $errstr_size): int
     {
         return static::getFFI()->rd_kafka_conf_set($conf, $name, $value, $errstr, $errstr_size);
     }
@@ -515,7 +515,7 @@ trait Methods
      * @param \FFI\CData|null $conf const rd_kafka_conf_t*
      * @param int|null $events int
      */
-    public static function rd_kafka_conf_set_events(?\FFI\CData $conf, ?int $events): void 
+    public static function rd_kafka_conf_set_events(?\FFI\CData $conf, ?int $events): void
     {
         static::getFFI()->rd_kafka_conf_set_events($conf, $events);
     }
@@ -524,7 +524,7 @@ trait Methods
      * @param \FFI\CData|null $conf const rd_kafka_conf_t*
      * @param \FFI\CData|\Closure $event_cb void(*)(rd_kafka_t*, rd_kafka_event_t*, void*)
      */
-    public static function rd_kafka_conf_set_background_event_cb(?\FFI\CData $conf, $event_cb): void 
+    public static function rd_kafka_conf_set_background_event_cb(?\FFI\CData $conf, $event_cb): void
     {
         static::getFFI()->rd_kafka_conf_set_background_event_cb($conf, $event_cb);
     }
@@ -533,7 +533,7 @@ trait Methods
      * @param \FFI\CData|null $conf const rd_kafka_conf_t*
      * @param \FFI\CData|\Closure $dr_cb void(*)(rd_kafka_t*, void*, size_t, rd_kafka_resp_err_t, void*, void*)
      */
-    public static function rd_kafka_conf_set_dr_cb(?\FFI\CData $conf, $dr_cb): void 
+    public static function rd_kafka_conf_set_dr_cb(?\FFI\CData $conf, $dr_cb): void
     {
         static::getFFI()->rd_kafka_conf_set_dr_cb($conf, $dr_cb);
     }
@@ -542,7 +542,7 @@ trait Methods
      * @param \FFI\CData|null $conf const rd_kafka_conf_t*
      * @param \FFI\CData|\Closure $dr_msg_cb void(*)(rd_kafka_t*, rd_kafka_message_t*, void*)
      */
-    public static function rd_kafka_conf_set_dr_msg_cb(?\FFI\CData $conf, $dr_msg_cb): void 
+    public static function rd_kafka_conf_set_dr_msg_cb(?\FFI\CData $conf, $dr_msg_cb): void
     {
         static::getFFI()->rd_kafka_conf_set_dr_msg_cb($conf, $dr_msg_cb);
     }
@@ -551,7 +551,7 @@ trait Methods
      * @param \FFI\CData|null $conf const rd_kafka_conf_t*
      * @param \FFI\CData|\Closure $consume_cb void(*)(rd_kafka_message_t*, void*)
      */
-    public static function rd_kafka_conf_set_consume_cb(?\FFI\CData $conf, $consume_cb): void 
+    public static function rd_kafka_conf_set_consume_cb(?\FFI\CData $conf, $consume_cb): void
     {
         static::getFFI()->rd_kafka_conf_set_consume_cb($conf, $consume_cb);
     }
@@ -560,7 +560,7 @@ trait Methods
      * @param \FFI\CData|null $conf const rd_kafka_conf_t*
      * @param \FFI\CData|\Closure $rebalance_cb void(*)(rd_kafka_t*, rd_kafka_resp_err_t, rd_kafka_topic_partition_list_t*, void*)
      */
-    public static function rd_kafka_conf_set_rebalance_cb(?\FFI\CData $conf, $rebalance_cb): void 
+    public static function rd_kafka_conf_set_rebalance_cb(?\FFI\CData $conf, $rebalance_cb): void
     {
         static::getFFI()->rd_kafka_conf_set_rebalance_cb($conf, $rebalance_cb);
     }
@@ -569,7 +569,7 @@ trait Methods
      * @param \FFI\CData|null $conf const rd_kafka_conf_t*
      * @param \FFI\CData|\Closure $offset_commit_cb void(*)(rd_kafka_t*, rd_kafka_resp_err_t, rd_kafka_topic_partition_list_t*, void*)
      */
-    public static function rd_kafka_conf_set_offset_commit_cb(?\FFI\CData $conf, $offset_commit_cb): void 
+    public static function rd_kafka_conf_set_offset_commit_cb(?\FFI\CData $conf, $offset_commit_cb): void
     {
         static::getFFI()->rd_kafka_conf_set_offset_commit_cb($conf, $offset_commit_cb);
     }
@@ -578,7 +578,7 @@ trait Methods
      * @param \FFI\CData|null $conf const rd_kafka_conf_t*
      * @param \FFI\CData|\Closure $error_cb void(*)(rd_kafka_t*, int, char*, void*)
      */
-    public static function rd_kafka_conf_set_error_cb(?\FFI\CData $conf, $error_cb): void 
+    public static function rd_kafka_conf_set_error_cb(?\FFI\CData $conf, $error_cb): void
     {
         static::getFFI()->rd_kafka_conf_set_error_cb($conf, $error_cb);
     }
@@ -587,7 +587,7 @@ trait Methods
      * @param \FFI\CData|null $conf const rd_kafka_conf_t*
      * @param \FFI\CData|\Closure $throttle_cb void(*)(rd_kafka_t*, char*, signed int, int, void*)
      */
-    public static function rd_kafka_conf_set_throttle_cb(?\FFI\CData $conf, $throttle_cb): void 
+    public static function rd_kafka_conf_set_throttle_cb(?\FFI\CData $conf, $throttle_cb): void
     {
         static::getFFI()->rd_kafka_conf_set_throttle_cb($conf, $throttle_cb);
     }
@@ -596,7 +596,7 @@ trait Methods
      * @param \FFI\CData|null $conf const rd_kafka_conf_t*
      * @param \FFI\CData|\Closure $log_cb void(*)(rd_kafka_t*, int, char*, char*)
      */
-    public static function rd_kafka_conf_set_log_cb(?\FFI\CData $conf, $log_cb): void 
+    public static function rd_kafka_conf_set_log_cb(?\FFI\CData $conf, $log_cb): void
     {
         static::getFFI()->rd_kafka_conf_set_log_cb($conf, $log_cb);
     }
@@ -605,7 +605,7 @@ trait Methods
      * @param \FFI\CData|null $conf const rd_kafka_conf_t*
      * @param \FFI\CData|\Closure $stats_cb int(*)(rd_kafka_t*, char*, size_t, void*)
      */
-    public static function rd_kafka_conf_set_stats_cb(?\FFI\CData $conf, $stats_cb): void 
+    public static function rd_kafka_conf_set_stats_cb(?\FFI\CData $conf, $stats_cb): void
     {
         static::getFFI()->rd_kafka_conf_set_stats_cb($conf, $stats_cb);
     }
@@ -614,7 +614,7 @@ trait Methods
      * @param \FFI\CData|null $conf const rd_kafka_conf_t*
      * @param \FFI\CData|\Closure $oauthbearer_token_refresh_cb void(*)(rd_kafka_t*, char*, void*)
      */
-    public static function rd_kafka_conf_set_oauthbearer_token_refresh_cb(?\FFI\CData $conf, $oauthbearer_token_refresh_cb): void 
+    public static function rd_kafka_conf_set_oauthbearer_token_refresh_cb(?\FFI\CData $conf, $oauthbearer_token_refresh_cb): void
     {
         static::getFFI()->rd_kafka_conf_set_oauthbearer_token_refresh_cb($conf, $oauthbearer_token_refresh_cb);
     }
@@ -623,7 +623,7 @@ trait Methods
      * @param \FFI\CData|null $conf const rd_kafka_conf_t*
      * @param \FFI\CData|\Closure $socket_cb int(*)(int, int, int, void*)
      */
-    public static function rd_kafka_conf_set_socket_cb(?\FFI\CData $conf, $socket_cb): void 
+    public static function rd_kafka_conf_set_socket_cb(?\FFI\CData $conf, $socket_cb): void
     {
         static::getFFI()->rd_kafka_conf_set_socket_cb($conf, $socket_cb);
     }
@@ -632,7 +632,7 @@ trait Methods
      * @param \FFI\CData|null $conf const rd_kafka_conf_t*
      * @param \FFI\CData|\Closure $connect_cb int(*)(int, sockaddr*, int, char*, void*)
      */
-    public static function rd_kafka_conf_set_connect_cb(?\FFI\CData $conf, $connect_cb): void 
+    public static function rd_kafka_conf_set_connect_cb(?\FFI\CData $conf, $connect_cb): void
     {
         static::getFFI()->rd_kafka_conf_set_connect_cb($conf, $connect_cb);
     }
@@ -641,7 +641,7 @@ trait Methods
      * @param \FFI\CData|null $conf const rd_kafka_conf_t*
      * @param \FFI\CData|\Closure $closesocket_cb int(*)(int, void*)
      */
-    public static function rd_kafka_conf_set_closesocket_cb(?\FFI\CData $conf, $closesocket_cb): void 
+    public static function rd_kafka_conf_set_closesocket_cb(?\FFI\CData $conf, $closesocket_cb): void
     {
         static::getFFI()->rd_kafka_conf_set_closesocket_cb($conf, $closesocket_cb);
     }
@@ -650,7 +650,7 @@ trait Methods
      * @param \FFI\CData|null $conf const rd_kafka_conf_t*
      * @param \FFI\CData|\Closure $open_cb int(*)(char*, int, long int, void*)
      */
-    public static function rd_kafka_conf_set_open_cb(?\FFI\CData $conf, $open_cb): void 
+    public static function rd_kafka_conf_set_open_cb(?\FFI\CData $conf, $open_cb): void
     {
         static::getFFI()->rd_kafka_conf_set_open_cb($conf, $open_cb);
     }
@@ -660,7 +660,7 @@ trait Methods
      * @param \FFI\CData|\Closure $ssl_cert_verify_cb int(*)(rd_kafka_t*, char*, signed int, int*, int, char*, size_t, char*, size_t, void*)
      * @return int rd_kafka_conf_res_t
      */
-    public static function rd_kafka_conf_set_ssl_cert_verify_cb(?\FFI\CData $conf, $ssl_cert_verify_cb): int 
+    public static function rd_kafka_conf_set_ssl_cert_verify_cb(?\FFI\CData $conf, $ssl_cert_verify_cb): int
     {
         return static::getFFI()->rd_kafka_conf_set_ssl_cert_verify_cb($conf, $ssl_cert_verify_cb);
     }
@@ -675,7 +675,7 @@ trait Methods
      * @param int|null $errstr_size size_t
      * @return int rd_kafka_conf_res_t
      */
-    public static function rd_kafka_conf_set_ssl_cert(?\FFI\CData $conf, int $cert_type, int $cert_enc, $buffer, ?int $size, ?\FFI\CData $errstr, ?int $errstr_size): int 
+    public static function rd_kafka_conf_set_ssl_cert(?\FFI\CData $conf, int $cert_type, int $cert_enc, $buffer, ?int $size, ?\FFI\CData $errstr, ?int $errstr_size): int
     {
         return static::getFFI()->rd_kafka_conf_set_ssl_cert($conf, $cert_type, $cert_enc, $buffer, $size, $errstr, $errstr_size);
     }
@@ -684,7 +684,7 @@ trait Methods
      * @param \FFI\CData|null $conf const rd_kafka_conf_t*
      * @param \FFI\CData|object|string|null $opaque void*
      */
-    public static function rd_kafka_conf_set_opaque(?\FFI\CData $conf, $opaque): void 
+    public static function rd_kafka_conf_set_opaque(?\FFI\CData $conf, $opaque): void
     {
         static::getFFI()->rd_kafka_conf_set_opaque($conf, $opaque);
     }
@@ -692,7 +692,7 @@ trait Methods
     /**
      * @param \FFI\CData|null $rk rd_kafka_t*
      */
-    public static function rd_kafka_opaque(?\FFI\CData $rk) 
+    public static function rd_kafka_opaque(?\FFI\CData $rk)
     {
         static::getFFI()->rd_kafka_opaque($rk);
     }
@@ -701,7 +701,7 @@ trait Methods
      * @param \FFI\CData|null $conf const rd_kafka_conf_t*
      * @param \FFI\CData|null $tconf rd_kafka_topic_conf_t*
      */
-    public static function rd_kafka_conf_set_default_topic_conf(?\FFI\CData $conf, ?\FFI\CData $tconf): void 
+    public static function rd_kafka_conf_set_default_topic_conf(?\FFI\CData $conf, ?\FFI\CData $tconf): void
     {
         static::getFFI()->rd_kafka_conf_set_default_topic_conf($conf, $tconf);
     }
@@ -713,7 +713,7 @@ trait Methods
      * @param \FFI\CData|null $dest_size size_t*
      * @return int rd_kafka_conf_res_t
      */
-    public static function rd_kafka_conf_get(?\FFI\CData $conf, ?string $name, ?\FFI\CData $dest, ?\FFI\CData $dest_size): int 
+    public static function rd_kafka_conf_get(?\FFI\CData $conf, ?string $name, ?\FFI\CData $dest, ?\FFI\CData $dest_size): int
     {
         return static::getFFI()->rd_kafka_conf_get($conf, $name, $dest, $dest_size);
     }
@@ -725,7 +725,7 @@ trait Methods
      * @param \FFI\CData|null $dest_size size_t*
      * @return int rd_kafka_conf_res_t
      */
-    public static function rd_kafka_topic_conf_get(?\FFI\CData $conf, ?string $name, ?\FFI\CData $dest, ?\FFI\CData $dest_size): int 
+    public static function rd_kafka_topic_conf_get(?\FFI\CData $conf, ?string $name, ?\FFI\CData $dest, ?\FFI\CData $dest_size): int
     {
         return static::getFFI()->rd_kafka_topic_conf_get($conf, $name, $dest, $dest_size);
     }
@@ -735,7 +735,7 @@ trait Methods
      * @param \FFI\CData|null $cntp size_t*
      * @return \FFI\CData|null const char**
      */
-    public static function rd_kafka_conf_dump(?\FFI\CData $conf, ?\FFI\CData $cntp): ?\FFI\CData 
+    public static function rd_kafka_conf_dump(?\FFI\CData $conf, ?\FFI\CData $cntp): ?\FFI\CData
     {
         return static::getFFI()->rd_kafka_conf_dump($conf, $cntp);
     }
@@ -745,7 +745,7 @@ trait Methods
      * @param \FFI\CData|null $cntp size_t*
      * @return \FFI\CData|null const char**
      */
-    public static function rd_kafka_topic_conf_dump(?\FFI\CData $conf, ?\FFI\CData $cntp): ?\FFI\CData 
+    public static function rd_kafka_topic_conf_dump(?\FFI\CData $conf, ?\FFI\CData $cntp): ?\FFI\CData
     {
         return static::getFFI()->rd_kafka_topic_conf_dump($conf, $cntp);
     }
@@ -754,7 +754,7 @@ trait Methods
      * @param \FFI\CData|null $arr char**
      * @param int|null $cnt size_t
      */
-    public static function rd_kafka_conf_dump_free(?\FFI\CData $arr, ?int $cnt): void 
+    public static function rd_kafka_conf_dump_free(?\FFI\CData $arr, ?int $cnt): void
     {
         static::getFFI()->rd_kafka_conf_dump_free($arr, $cnt);
     }
@@ -762,7 +762,7 @@ trait Methods
     /**
      * @param \FFI\CData|null $fp FILE*
      */
-    public static function rd_kafka_conf_properties_show(?\FFI\CData $fp): void 
+    public static function rd_kafka_conf_properties_show(?\FFI\CData $fp): void
     {
         static::getFFI()->rd_kafka_conf_properties_show($fp);
     }
@@ -770,7 +770,7 @@ trait Methods
     /**
      * @return \FFI\CData|null rd_kafka_topic_conf_t*
      */
-    public static function rd_kafka_topic_conf_new(): ?\FFI\CData 
+    public static function rd_kafka_topic_conf_new(): ?\FFI\CData
     {
         return static::getFFI()->rd_kafka_topic_conf_new();
     }
@@ -779,7 +779,7 @@ trait Methods
      * @param \FFI\CData|null $conf rd_kafka_topic_conf_t*
      * @return \FFI\CData|null rd_kafka_topic_conf_t*
      */
-    public static function rd_kafka_topic_conf_dup(?\FFI\CData $conf): ?\FFI\CData 
+    public static function rd_kafka_topic_conf_dup(?\FFI\CData $conf): ?\FFI\CData
     {
         return static::getFFI()->rd_kafka_topic_conf_dup($conf);
     }
@@ -788,7 +788,7 @@ trait Methods
      * @param \FFI\CData|null $rk rd_kafka_t*
      * @return \FFI\CData|null rd_kafka_topic_conf_t*
      */
-    public static function rd_kafka_default_topic_conf_dup(?\FFI\CData $rk): ?\FFI\CData 
+    public static function rd_kafka_default_topic_conf_dup(?\FFI\CData $rk): ?\FFI\CData
     {
         return static::getFFI()->rd_kafka_default_topic_conf_dup($rk);
     }
@@ -796,7 +796,7 @@ trait Methods
     /**
      * @param \FFI\CData|null $topic_conf rd_kafka_topic_conf_t*
      */
-    public static function rd_kafka_topic_conf_destroy(?\FFI\CData $topic_conf): void 
+    public static function rd_kafka_topic_conf_destroy(?\FFI\CData $topic_conf): void
     {
         static::getFFI()->rd_kafka_topic_conf_destroy($topic_conf);
     }
@@ -809,7 +809,7 @@ trait Methods
      * @param int|null $errstr_size size_t
      * @return int rd_kafka_conf_res_t
      */
-    public static function rd_kafka_topic_conf_set(?\FFI\CData $conf, ?string $name, ?string $value, ?\FFI\CData $errstr, ?int $errstr_size): int 
+    public static function rd_kafka_topic_conf_set(?\FFI\CData $conf, ?string $name, ?string $value, ?\FFI\CData $errstr, ?int $errstr_size): int
     {
         return static::getFFI()->rd_kafka_topic_conf_set($conf, $name, $value, $errstr, $errstr_size);
     }
@@ -818,7 +818,7 @@ trait Methods
      * @param \FFI\CData|null $conf rd_kafka_topic_conf_t*
      * @param \FFI\CData|object|string|null $rkt_opaque void*
      */
-    public static function rd_kafka_topic_conf_set_opaque(?\FFI\CData $conf, $rkt_opaque): void 
+    public static function rd_kafka_topic_conf_set_opaque(?\FFI\CData $conf, $rkt_opaque): void
     {
         static::getFFI()->rd_kafka_topic_conf_set_opaque($conf, $rkt_opaque);
     }
@@ -827,7 +827,7 @@ trait Methods
      * @param \FFI\CData|null $topic_conf rd_kafka_topic_conf_t*
      * @param \FFI\CData|\Closure $partitioner signed int(*)(rd_kafka_topic_t*, void*, size_t, signed int, void*, void*)
      */
-    public static function rd_kafka_topic_conf_set_partitioner_cb(?\FFI\CData $topic_conf, $partitioner): void 
+    public static function rd_kafka_topic_conf_set_partitioner_cb(?\FFI\CData $topic_conf, $partitioner): void
     {
         static::getFFI()->rd_kafka_topic_conf_set_partitioner_cb($topic_conf, $partitioner);
     }
@@ -836,7 +836,7 @@ trait Methods
      * @param \FFI\CData|null $topic_conf rd_kafka_topic_conf_t*
      * @param \FFI\CData|\Closure $msg_order_cmp int(*)(rd_kafka_message_t*, rd_kafka_message_t*)
      */
-    public static function rd_kafka_topic_conf_set_msg_order_cmp(?\FFI\CData $topic_conf, $msg_order_cmp): void 
+    public static function rd_kafka_topic_conf_set_msg_order_cmp(?\FFI\CData $topic_conf, $msg_order_cmp): void
     {
         static::getFFI()->rd_kafka_topic_conf_set_msg_order_cmp($topic_conf, $msg_order_cmp);
     }
@@ -846,7 +846,7 @@ trait Methods
      * @param int|null $partition signed int
      * @return int|null int
      */
-    public static function rd_kafka_topic_partition_available(?\FFI\CData $rkt, ?int $partition): ?int 
+    public static function rd_kafka_topic_partition_available(?\FFI\CData $rkt, ?int $partition): ?int
     {
         return static::getFFI()->rd_kafka_topic_partition_available($rkt, $partition);
     }
@@ -860,7 +860,7 @@ trait Methods
      * @param \FFI\CData|object|string|null $msg_opaque void*
      * @return int|null signed int
      */
-    public static function rd_kafka_msg_partitioner_random(?\FFI\CData $rkt, $key, ?int $keylen, ?int $partition_cnt, $rkt_opaque, $msg_opaque): ?int 
+    public static function rd_kafka_msg_partitioner_random(?\FFI\CData $rkt, $key, ?int $keylen, ?int $partition_cnt, $rkt_opaque, $msg_opaque): ?int
     {
         return static::getFFI()->rd_kafka_msg_partitioner_random($rkt, $key, $keylen, $partition_cnt, $rkt_opaque, $msg_opaque);
     }
@@ -874,7 +874,7 @@ trait Methods
      * @param \FFI\CData|object|string|null $msg_opaque void*
      * @return int|null signed int
      */
-    public static function rd_kafka_msg_partitioner_consistent(?\FFI\CData $rkt, $key, ?int $keylen, ?int $partition_cnt, $rkt_opaque, $msg_opaque): ?int 
+    public static function rd_kafka_msg_partitioner_consistent(?\FFI\CData $rkt, $key, ?int $keylen, ?int $partition_cnt, $rkt_opaque, $msg_opaque): ?int
     {
         return static::getFFI()->rd_kafka_msg_partitioner_consistent($rkt, $key, $keylen, $partition_cnt, $rkt_opaque, $msg_opaque);
     }
@@ -888,7 +888,7 @@ trait Methods
      * @param \FFI\CData|object|string|null $msg_opaque void*
      * @return int|null signed int
      */
-    public static function rd_kafka_msg_partitioner_consistent_random(?\FFI\CData $rkt, $key, ?int $keylen, ?int $partition_cnt, $rkt_opaque, $msg_opaque): ?int 
+    public static function rd_kafka_msg_partitioner_consistent_random(?\FFI\CData $rkt, $key, ?int $keylen, ?int $partition_cnt, $rkt_opaque, $msg_opaque): ?int
     {
         return static::getFFI()->rd_kafka_msg_partitioner_consistent_random($rkt, $key, $keylen, $partition_cnt, $rkt_opaque, $msg_opaque);
     }
@@ -902,7 +902,7 @@ trait Methods
      * @param \FFI\CData|object|string|null $msg_opaque void*
      * @return int|null signed int
      */
-    public static function rd_kafka_msg_partitioner_murmur2(?\FFI\CData $rkt, $key, ?int $keylen, ?int $partition_cnt, $rkt_opaque, $msg_opaque): ?int 
+    public static function rd_kafka_msg_partitioner_murmur2(?\FFI\CData $rkt, $key, ?int $keylen, ?int $partition_cnt, $rkt_opaque, $msg_opaque): ?int
     {
         return static::getFFI()->rd_kafka_msg_partitioner_murmur2($rkt, $key, $keylen, $partition_cnt, $rkt_opaque, $msg_opaque);
     }
@@ -916,7 +916,7 @@ trait Methods
      * @param \FFI\CData|object|string|null $msg_opaque void*
      * @return int|null signed int
      */
-    public static function rd_kafka_msg_partitioner_murmur2_random(?\FFI\CData $rkt, $key, ?int $keylen, ?int $partition_cnt, $rkt_opaque, $msg_opaque): ?int 
+    public static function rd_kafka_msg_partitioner_murmur2_random(?\FFI\CData $rkt, $key, ?int $keylen, ?int $partition_cnt, $rkt_opaque, $msg_opaque): ?int
     {
         return static::getFFI()->rd_kafka_msg_partitioner_murmur2_random($rkt, $key, $keylen, $partition_cnt, $rkt_opaque, $msg_opaque);
     }
@@ -930,7 +930,7 @@ trait Methods
      * @param \FFI\CData|object|string|null $msg_opaque void*
      * @return int|null signed int
      */
-    public static function rd_kafka_msg_partitioner_fnv1a(?\FFI\CData $rkt, $key, ?int $keylen, ?int $partition_cnt, $rkt_opaque, $msg_opaque): ?int 
+    public static function rd_kafka_msg_partitioner_fnv1a(?\FFI\CData $rkt, $key, ?int $keylen, ?int $partition_cnt, $rkt_opaque, $msg_opaque): ?int
     {
         return static::getFFI()->rd_kafka_msg_partitioner_fnv1a($rkt, $key, $keylen, $partition_cnt, $rkt_opaque, $msg_opaque);
     }
@@ -944,7 +944,7 @@ trait Methods
      * @param \FFI\CData|object|string|null $msg_opaque void*
      * @return int|null signed int
      */
-    public static function rd_kafka_msg_partitioner_fnv1a_random(?\FFI\CData $rkt, $key, ?int $keylen, ?int $partition_cnt, $rkt_opaque, $msg_opaque): ?int 
+    public static function rd_kafka_msg_partitioner_fnv1a_random(?\FFI\CData $rkt, $key, ?int $keylen, ?int $partition_cnt, $rkt_opaque, $msg_opaque): ?int
     {
         return static::getFFI()->rd_kafka_msg_partitioner_fnv1a_random($rkt, $key, $keylen, $partition_cnt, $rkt_opaque, $msg_opaque);
     }
@@ -956,7 +956,7 @@ trait Methods
      * @param int|null $errstr_size size_t
      * @return \FFI\CData|null rd_kafka_t*
      */
-    public static function rd_kafka_new(int $type, ?\FFI\CData $conf, ?\FFI\CData $errstr, ?int $errstr_size): ?\FFI\CData 
+    public static function rd_kafka_new(int $type, ?\FFI\CData $conf, ?\FFI\CData $errstr, ?int $errstr_size): ?\FFI\CData
     {
         return static::getFFI()->rd_kafka_new($type, $conf, $errstr, $errstr_size);
     }
@@ -964,7 +964,7 @@ trait Methods
     /**
      * @param \FFI\CData|null $rk rd_kafka_t*
      */
-    public static function rd_kafka_destroy(?\FFI\CData $rk): void 
+    public static function rd_kafka_destroy(?\FFI\CData $rk): void
     {
         static::getFFI()->rd_kafka_destroy($rk);
     }
@@ -973,7 +973,7 @@ trait Methods
      * @param \FFI\CData|null $rk rd_kafka_t*
      * @param int|null $flags int
      */
-    public static function rd_kafka_destroy_flags(?\FFI\CData $rk, ?int $flags): void 
+    public static function rd_kafka_destroy_flags(?\FFI\CData $rk, ?int $flags): void
     {
         static::getFFI()->rd_kafka_destroy_flags($rk, $flags);
     }
@@ -982,7 +982,7 @@ trait Methods
      * @param \FFI\CData|null $rk rd_kafka_t*
      * @return string|null const char*
      */
-    public static function rd_kafka_name(?\FFI\CData $rk): ?string 
+    public static function rd_kafka_name(?\FFI\CData $rk): ?string
     {
         return static::getFFI()->rd_kafka_name($rk);
     }
@@ -991,7 +991,7 @@ trait Methods
      * @param \FFI\CData|null $rk rd_kafka_t*
      * @return int rd_kafka_type_t
      */
-    public static function rd_kafka_type(?\FFI\CData $rk): int 
+    public static function rd_kafka_type(?\FFI\CData $rk): int
     {
         return static::getFFI()->rd_kafka_type($rk);
     }
@@ -1000,7 +1000,7 @@ trait Methods
      * @param \FFI\CData|null $rk rd_kafka_t*
      * @return \FFI\CData|null char*
      */
-    public static function rd_kafka_memberid(?\FFI\CData $rk): ?\FFI\CData 
+    public static function rd_kafka_memberid(?\FFI\CData $rk): ?\FFI\CData
     {
         return static::getFFI()->rd_kafka_memberid($rk);
     }
@@ -1010,7 +1010,7 @@ trait Methods
      * @param int|null $timeout_ms int
      * @return \FFI\CData|null char*
      */
-    public static function rd_kafka_clusterid(?\FFI\CData $rk, ?int $timeout_ms): ?\FFI\CData 
+    public static function rd_kafka_clusterid(?\FFI\CData $rk, ?int $timeout_ms): ?\FFI\CData
     {
         return static::getFFI()->rd_kafka_clusterid($rk, $timeout_ms);
     }
@@ -1020,7 +1020,7 @@ trait Methods
      * @param int|null $timeout_ms int
      * @return int|null signed int
      */
-    public static function rd_kafka_controllerid(?\FFI\CData $rk, ?int $timeout_ms): ?int 
+    public static function rd_kafka_controllerid(?\FFI\CData $rk, ?int $timeout_ms): ?int
     {
         return static::getFFI()->rd_kafka_controllerid($rk, $timeout_ms);
     }
@@ -1031,7 +1031,7 @@ trait Methods
      * @param \FFI\CData|null $conf rd_kafka_topic_conf_t*
      * @return \FFI\CData|null rd_kafka_topic_t*
      */
-    public static function rd_kafka_topic_new(?\FFI\CData $rk, ?string $topic, ?\FFI\CData $conf): ?\FFI\CData 
+    public static function rd_kafka_topic_new(?\FFI\CData $rk, ?string $topic, ?\FFI\CData $conf): ?\FFI\CData
     {
         return static::getFFI()->rd_kafka_topic_new($rk, $topic, $conf);
     }
@@ -1039,7 +1039,7 @@ trait Methods
     /**
      * @param \FFI\CData|null $rkt rd_kafka_topic_t*
      */
-    public static function rd_kafka_topic_destroy(?\FFI\CData $rkt): void 
+    public static function rd_kafka_topic_destroy(?\FFI\CData $rkt): void
     {
         static::getFFI()->rd_kafka_topic_destroy($rkt);
     }
@@ -1048,7 +1048,7 @@ trait Methods
      * @param \FFI\CData|null $rkt rd_kafka_topic_t*
      * @return string|null const char*
      */
-    public static function rd_kafka_topic_name(?\FFI\CData $rkt): ?string 
+    public static function rd_kafka_topic_name(?\FFI\CData $rkt): ?string
     {
         return static::getFFI()->rd_kafka_topic_name($rkt);
     }
@@ -1056,7 +1056,7 @@ trait Methods
     /**
      * @param \FFI\CData|null $rkt rd_kafka_topic_t*
      */
-    public static function rd_kafka_topic_opaque(?\FFI\CData $rkt) 
+    public static function rd_kafka_topic_opaque(?\FFI\CData $rkt)
     {
         static::getFFI()->rd_kafka_topic_opaque($rkt);
     }
@@ -1066,7 +1066,7 @@ trait Methods
      * @param int|null $timeout_ms int
      * @return int|null int
      */
-    public static function rd_kafka_poll(?\FFI\CData $rk, ?int $timeout_ms): ?int 
+    public static function rd_kafka_poll(?\FFI\CData $rk, ?int $timeout_ms): ?int
     {
         return static::getFFI()->rd_kafka_poll($rk, $timeout_ms);
     }
@@ -1074,7 +1074,7 @@ trait Methods
     /**
      * @param \FFI\CData|null $rk rd_kafka_t*
      */
-    public static function rd_kafka_yield(?\FFI\CData $rk): void 
+    public static function rd_kafka_yield(?\FFI\CData $rk): void
     {
         static::getFFI()->rd_kafka_yield($rk);
     }
@@ -1084,7 +1084,7 @@ trait Methods
      * @param \FFI\CData|null $partitions rd_kafka_topic_partition_list_t*
      * @return int rd_kafka_resp_err_t
      */
-    public static function rd_kafka_pause_partitions(?\FFI\CData $rk, ?\FFI\CData $partitions): int 
+    public static function rd_kafka_pause_partitions(?\FFI\CData $rk, ?\FFI\CData $partitions): int
     {
         return static::getFFI()->rd_kafka_pause_partitions($rk, $partitions);
     }
@@ -1094,7 +1094,7 @@ trait Methods
      * @param \FFI\CData|null $partitions rd_kafka_topic_partition_list_t*
      * @return int rd_kafka_resp_err_t
      */
-    public static function rd_kafka_resume_partitions(?\FFI\CData $rk, ?\FFI\CData $partitions): int 
+    public static function rd_kafka_resume_partitions(?\FFI\CData $rk, ?\FFI\CData $partitions): int
     {
         return static::getFFI()->rd_kafka_resume_partitions($rk, $partitions);
     }
@@ -1108,7 +1108,7 @@ trait Methods
      * @param int|null $timeout_ms int
      * @return int rd_kafka_resp_err_t
      */
-    public static function rd_kafka_query_watermark_offsets(?\FFI\CData $rk, ?string $topic, ?int $partition, ?\FFI\CData $low, ?\FFI\CData $high, ?int $timeout_ms): int 
+    public static function rd_kafka_query_watermark_offsets(?\FFI\CData $rk, ?string $topic, ?int $partition, ?\FFI\CData $low, ?\FFI\CData $high, ?int $timeout_ms): int
     {
         return static::getFFI()->rd_kafka_query_watermark_offsets($rk, $topic, $partition, $low, $high, $timeout_ms);
     }
@@ -1121,7 +1121,7 @@ trait Methods
      * @param \FFI\CData|null $high signed long int*
      * @return int rd_kafka_resp_err_t
      */
-    public static function rd_kafka_get_watermark_offsets(?\FFI\CData $rk, ?string $topic, ?int $partition, ?\FFI\CData $low, ?\FFI\CData $high): int 
+    public static function rd_kafka_get_watermark_offsets(?\FFI\CData $rk, ?string $topic, ?int $partition, ?\FFI\CData $low, ?\FFI\CData $high): int
     {
         return static::getFFI()->rd_kafka_get_watermark_offsets($rk, $topic, $partition, $low, $high);
     }
@@ -1132,7 +1132,7 @@ trait Methods
      * @param int|null $timeout_ms int
      * @return int rd_kafka_resp_err_t
      */
-    public static function rd_kafka_offsets_for_times(?\FFI\CData $rk, ?\FFI\CData $offsets, ?int $timeout_ms): int 
+    public static function rd_kafka_offsets_for_times(?\FFI\CData $rk, ?\FFI\CData $offsets, ?int $timeout_ms): int
     {
         return static::getFFI()->rd_kafka_offsets_for_times($rk, $offsets, $timeout_ms);
     }
@@ -1141,7 +1141,7 @@ trait Methods
      * @param \FFI\CData|null $rk rd_kafka_t*
      * @param \FFI\CData|object|string|null $ptr void*
      */
-    public static function rd_kafka_mem_free(?\FFI\CData $rk, $ptr): void 
+    public static function rd_kafka_mem_free(?\FFI\CData $rk, $ptr): void
     {
         static::getFFI()->rd_kafka_mem_free($rk, $ptr);
     }
@@ -1150,7 +1150,7 @@ trait Methods
      * @param \FFI\CData|null $rk rd_kafka_t*
      * @return \FFI\CData|null rd_kafka_queue_t*
      */
-    public static function rd_kafka_queue_new(?\FFI\CData $rk): ?\FFI\CData 
+    public static function rd_kafka_queue_new(?\FFI\CData $rk): ?\FFI\CData
     {
         return static::getFFI()->rd_kafka_queue_new($rk);
     }
@@ -1158,7 +1158,7 @@ trait Methods
     /**
      * @param \FFI\CData|null $rkqu rd_kafka_queue_t*
      */
-    public static function rd_kafka_queue_destroy(?\FFI\CData $rkqu): void 
+    public static function rd_kafka_queue_destroy(?\FFI\CData $rkqu): void
     {
         static::getFFI()->rd_kafka_queue_destroy($rkqu);
     }
@@ -1167,7 +1167,7 @@ trait Methods
      * @param \FFI\CData|null $rk rd_kafka_t*
      * @return \FFI\CData|null rd_kafka_queue_t*
      */
-    public static function rd_kafka_queue_get_main(?\FFI\CData $rk): ?\FFI\CData 
+    public static function rd_kafka_queue_get_main(?\FFI\CData $rk): ?\FFI\CData
     {
         return static::getFFI()->rd_kafka_queue_get_main($rk);
     }
@@ -1176,7 +1176,7 @@ trait Methods
      * @param \FFI\CData|null $rk rd_kafka_t*
      * @return \FFI\CData|null rd_kafka_queue_t*
      */
-    public static function rd_kafka_queue_get_consumer(?\FFI\CData $rk): ?\FFI\CData 
+    public static function rd_kafka_queue_get_consumer(?\FFI\CData $rk): ?\FFI\CData
     {
         return static::getFFI()->rd_kafka_queue_get_consumer($rk);
     }
@@ -1187,7 +1187,7 @@ trait Methods
      * @param int|null $partition signed int
      * @return \FFI\CData|null rd_kafka_queue_t*
      */
-    public static function rd_kafka_queue_get_partition(?\FFI\CData $rk, ?string $topic, ?int $partition): ?\FFI\CData 
+    public static function rd_kafka_queue_get_partition(?\FFI\CData $rk, ?string $topic, ?int $partition): ?\FFI\CData
     {
         return static::getFFI()->rd_kafka_queue_get_partition($rk, $topic, $partition);
     }
@@ -1196,7 +1196,7 @@ trait Methods
      * @param \FFI\CData|null $rk rd_kafka_t*
      * @return \FFI\CData|null rd_kafka_queue_t*
      */
-    public static function rd_kafka_queue_get_background(?\FFI\CData $rk): ?\FFI\CData 
+    public static function rd_kafka_queue_get_background(?\FFI\CData $rk): ?\FFI\CData
     {
         return static::getFFI()->rd_kafka_queue_get_background($rk);
     }
@@ -1205,7 +1205,7 @@ trait Methods
      * @param \FFI\CData|null $src rd_kafka_queue_t*
      * @param \FFI\CData|null $dst rd_kafka_queue_t*
      */
-    public static function rd_kafka_queue_forward(?\FFI\CData $src, ?\FFI\CData $dst): void 
+    public static function rd_kafka_queue_forward(?\FFI\CData $src, ?\FFI\CData $dst): void
     {
         static::getFFI()->rd_kafka_queue_forward($src, $dst);
     }
@@ -1215,7 +1215,7 @@ trait Methods
      * @param \FFI\CData|null $rkqu rd_kafka_queue_t*
      * @return int rd_kafka_resp_err_t
      */
-    public static function rd_kafka_set_log_queue(?\FFI\CData $rk, ?\FFI\CData $rkqu): int 
+    public static function rd_kafka_set_log_queue(?\FFI\CData $rk, ?\FFI\CData $rkqu): int
     {
         return static::getFFI()->rd_kafka_set_log_queue($rk, $rkqu);
     }
@@ -1224,7 +1224,7 @@ trait Methods
      * @param \FFI\CData|null $rkqu rd_kafka_queue_t*
      * @return int|null size_t
      */
-    public static function rd_kafka_queue_length(?\FFI\CData $rkqu): ?int 
+    public static function rd_kafka_queue_length(?\FFI\CData $rkqu): ?int
     {
         return static::getFFI()->rd_kafka_queue_length($rkqu);
     }
@@ -1235,7 +1235,7 @@ trait Methods
      * @param \FFI\CData|object|string|null $payload void*
      * @param int|null $size size_t
      */
-    public static function rd_kafka_queue_io_event_enable(?\FFI\CData $rkqu, ?int $fd, $payload, ?int $size): void 
+    public static function rd_kafka_queue_io_event_enable(?\FFI\CData $rkqu, ?int $fd, $payload, ?int $size): void
     {
         static::getFFI()->rd_kafka_queue_io_event_enable($rkqu, $fd, $payload, $size);
     }
@@ -1245,7 +1245,7 @@ trait Methods
      * @param \FFI\CData|\Closure $event_cb void(*)(rd_kafka_t*, void*)
      * @param \FFI\CData|object|string|null $qev_opaque void*
      */
-    public static function rd_kafka_queue_cb_event_enable(?\FFI\CData $rkqu, $event_cb, $qev_opaque): void 
+    public static function rd_kafka_queue_cb_event_enable(?\FFI\CData $rkqu, $event_cb, $qev_opaque): void
     {
         static::getFFI()->rd_kafka_queue_cb_event_enable($rkqu, $event_cb, $qev_opaque);
     }
@@ -1256,7 +1256,7 @@ trait Methods
      * @param int|null $offset signed long int
      * @return int|null int
      */
-    public static function rd_kafka_consume_start(?\FFI\CData $rkt, ?int $partition, ?int $offset): ?int 
+    public static function rd_kafka_consume_start(?\FFI\CData $rkt, ?int $partition, ?int $offset): ?int
     {
         return static::getFFI()->rd_kafka_consume_start($rkt, $partition, $offset);
     }
@@ -1268,7 +1268,7 @@ trait Methods
      * @param \FFI\CData|null $rkqu rd_kafka_queue_t*
      * @return int|null int
      */
-    public static function rd_kafka_consume_start_queue(?\FFI\CData $rkt, ?int $partition, ?int $offset, ?\FFI\CData $rkqu): ?int 
+    public static function rd_kafka_consume_start_queue(?\FFI\CData $rkt, ?int $partition, ?int $offset, ?\FFI\CData $rkqu): ?int
     {
         return static::getFFI()->rd_kafka_consume_start_queue($rkt, $partition, $offset, $rkqu);
     }
@@ -1278,7 +1278,7 @@ trait Methods
      * @param int|null $partition signed int
      * @return int|null int
      */
-    public static function rd_kafka_consume_stop(?\FFI\CData $rkt, ?int $partition): ?int 
+    public static function rd_kafka_consume_stop(?\FFI\CData $rkt, ?int $partition): ?int
     {
         return static::getFFI()->rd_kafka_consume_stop($rkt, $partition);
     }
@@ -1290,7 +1290,7 @@ trait Methods
      * @param int|null $timeout_ms int
      * @return int rd_kafka_resp_err_t
      */
-    public static function rd_kafka_seek(?\FFI\CData $rkt, ?int $partition, ?int $offset, ?int $timeout_ms): int 
+    public static function rd_kafka_seek(?\FFI\CData $rkt, ?int $partition, ?int $offset, ?int $timeout_ms): int
     {
         return static::getFFI()->rd_kafka_seek($rkt, $partition, $offset, $timeout_ms);
     }
@@ -1301,7 +1301,7 @@ trait Methods
      * @param int|null $timeout_ms int
      * @return \FFI\CData|null rd_kafka_message_t*
      */
-    public static function rd_kafka_consume(?\FFI\CData $rkt, ?int $partition, ?int $timeout_ms): ?\FFI\CData 
+    public static function rd_kafka_consume(?\FFI\CData $rkt, ?int $partition, ?int $timeout_ms): ?\FFI\CData
     {
         return static::getFFI()->rd_kafka_consume($rkt, $partition, $timeout_ms);
     }
@@ -1314,7 +1314,7 @@ trait Methods
      * @param int|null $rkmessages_size size_t
      * @return int|null long int
      */
-    public static function rd_kafka_consume_batch(?\FFI\CData $rkt, ?int $partition, ?int $timeout_ms, ?\FFI\CData $rkmessages, ?int $rkmessages_size): ?int 
+    public static function rd_kafka_consume_batch(?\FFI\CData $rkt, ?int $partition, ?int $timeout_ms, ?\FFI\CData $rkmessages, ?int $rkmessages_size): ?int
     {
         return static::getFFI()->rd_kafka_consume_batch($rkt, $partition, $timeout_ms, $rkmessages, $rkmessages_size);
     }
@@ -1327,7 +1327,7 @@ trait Methods
      * @param \FFI\CData|object|string|null $commit_opaque void*
      * @return int|null int
      */
-    public static function rd_kafka_consume_callback(?\FFI\CData $rkt, ?int $partition, ?int $timeout_ms, $consume_cb, $commit_opaque): ?int 
+    public static function rd_kafka_consume_callback(?\FFI\CData $rkt, ?int $partition, ?int $timeout_ms, $consume_cb, $commit_opaque): ?int
     {
         return static::getFFI()->rd_kafka_consume_callback($rkt, $partition, $timeout_ms, $consume_cb, $commit_opaque);
     }
@@ -1337,7 +1337,7 @@ trait Methods
      * @param int|null $timeout_ms int
      * @return \FFI\CData|null rd_kafka_message_t*
      */
-    public static function rd_kafka_consume_queue(?\FFI\CData $rkqu, ?int $timeout_ms): ?\FFI\CData 
+    public static function rd_kafka_consume_queue(?\FFI\CData $rkqu, ?int $timeout_ms): ?\FFI\CData
     {
         return static::getFFI()->rd_kafka_consume_queue($rkqu, $timeout_ms);
     }
@@ -1349,7 +1349,7 @@ trait Methods
      * @param int|null $rkmessages_size size_t
      * @return int|null long int
      */
-    public static function rd_kafka_consume_batch_queue(?\FFI\CData $rkqu, ?int $timeout_ms, ?\FFI\CData $rkmessages, ?int $rkmessages_size): ?int 
+    public static function rd_kafka_consume_batch_queue(?\FFI\CData $rkqu, ?int $timeout_ms, ?\FFI\CData $rkmessages, ?int $rkmessages_size): ?int
     {
         return static::getFFI()->rd_kafka_consume_batch_queue($rkqu, $timeout_ms, $rkmessages, $rkmessages_size);
     }
@@ -1361,7 +1361,7 @@ trait Methods
      * @param \FFI\CData|object|string|null $commit_opaque void*
      * @return int|null int
      */
-    public static function rd_kafka_consume_callback_queue(?\FFI\CData $rkqu, ?int $timeout_ms, $consume_cb, $commit_opaque): ?int 
+    public static function rd_kafka_consume_callback_queue(?\FFI\CData $rkqu, ?int $timeout_ms, $consume_cb, $commit_opaque): ?int
     {
         return static::getFFI()->rd_kafka_consume_callback_queue($rkqu, $timeout_ms, $consume_cb, $commit_opaque);
     }
@@ -1372,7 +1372,7 @@ trait Methods
      * @param int|null $offset signed long int
      * @return int rd_kafka_resp_err_t
      */
-    public static function rd_kafka_offset_store(?\FFI\CData $rkt, ?int $partition, ?int $offset): int 
+    public static function rd_kafka_offset_store(?\FFI\CData $rkt, ?int $partition, ?int $offset): int
     {
         return static::getFFI()->rd_kafka_offset_store($rkt, $partition, $offset);
     }
@@ -1382,7 +1382,7 @@ trait Methods
      * @param \FFI\CData|null $offsets rd_kafka_topic_partition_list_t*
      * @return int rd_kafka_resp_err_t
      */
-    public static function rd_kafka_offsets_store(?\FFI\CData $rk, ?\FFI\CData $offsets): int 
+    public static function rd_kafka_offsets_store(?\FFI\CData $rk, ?\FFI\CData $offsets): int
     {
         return static::getFFI()->rd_kafka_offsets_store($rk, $offsets);
     }
@@ -1392,7 +1392,7 @@ trait Methods
      * @param \FFI\CData|null $topics rd_kafka_topic_partition_list_t*
      * @return int rd_kafka_resp_err_t
      */
-    public static function rd_kafka_subscribe(?\FFI\CData $rk, ?\FFI\CData $topics): int 
+    public static function rd_kafka_subscribe(?\FFI\CData $rk, ?\FFI\CData $topics): int
     {
         return static::getFFI()->rd_kafka_subscribe($rk, $topics);
     }
@@ -1401,7 +1401,7 @@ trait Methods
      * @param \FFI\CData|null $rk rd_kafka_t*
      * @return int rd_kafka_resp_err_t
      */
-    public static function rd_kafka_unsubscribe(?\FFI\CData $rk): int 
+    public static function rd_kafka_unsubscribe(?\FFI\CData $rk): int
     {
         return static::getFFI()->rd_kafka_unsubscribe($rk);
     }
@@ -1411,7 +1411,7 @@ trait Methods
      * @param \FFI\CData|null $topics rd_kafka_topic_partition_list_t**
      * @return int rd_kafka_resp_err_t
      */
-    public static function rd_kafka_subscription(?\FFI\CData $rk, ?\FFI\CData $topics): int 
+    public static function rd_kafka_subscription(?\FFI\CData $rk, ?\FFI\CData $topics): int
     {
         return static::getFFI()->rd_kafka_subscription($rk, $topics);
     }
@@ -1421,7 +1421,7 @@ trait Methods
      * @param int|null $timeout_ms int
      * @return \FFI\CData|null rd_kafka_message_t*
      */
-    public static function rd_kafka_consumer_poll(?\FFI\CData $rk, ?int $timeout_ms): ?\FFI\CData 
+    public static function rd_kafka_consumer_poll(?\FFI\CData $rk, ?int $timeout_ms): ?\FFI\CData
     {
         return static::getFFI()->rd_kafka_consumer_poll($rk, $timeout_ms);
     }
@@ -1430,7 +1430,7 @@ trait Methods
      * @param \FFI\CData|null $rk rd_kafka_t*
      * @return int rd_kafka_resp_err_t
      */
-    public static function rd_kafka_consumer_close(?\FFI\CData $rk): int 
+    public static function rd_kafka_consumer_close(?\FFI\CData $rk): int
     {
         return static::getFFI()->rd_kafka_consumer_close($rk);
     }
@@ -1440,7 +1440,7 @@ trait Methods
      * @param \FFI\CData|null $partitions rd_kafka_topic_partition_list_t*
      * @return int rd_kafka_resp_err_t
      */
-    public static function rd_kafka_assign(?\FFI\CData $rk, ?\FFI\CData $partitions): int 
+    public static function rd_kafka_assign(?\FFI\CData $rk, ?\FFI\CData $partitions): int
     {
         return static::getFFI()->rd_kafka_assign($rk, $partitions);
     }
@@ -1450,7 +1450,7 @@ trait Methods
      * @param \FFI\CData|null $partitions rd_kafka_topic_partition_list_t**
      * @return int rd_kafka_resp_err_t
      */
-    public static function rd_kafka_assignment(?\FFI\CData $rk, ?\FFI\CData $partitions): int 
+    public static function rd_kafka_assignment(?\FFI\CData $rk, ?\FFI\CData $partitions): int
     {
         return static::getFFI()->rd_kafka_assignment($rk, $partitions);
     }
@@ -1461,7 +1461,7 @@ trait Methods
      * @param int|null $async int
      * @return int rd_kafka_resp_err_t
      */
-    public static function rd_kafka_commit(?\FFI\CData $rk, ?\FFI\CData $offsets, ?int $async): int 
+    public static function rd_kafka_commit(?\FFI\CData $rk, ?\FFI\CData $offsets, ?int $async): int
     {
         return static::getFFI()->rd_kafka_commit($rk, $offsets, $async);
     }
@@ -1472,7 +1472,7 @@ trait Methods
      * @param int|null $async int
      * @return int rd_kafka_resp_err_t
      */
-    public static function rd_kafka_commit_message(?\FFI\CData $rk, ?\FFI\CData $rkmessage, ?int $async): int 
+    public static function rd_kafka_commit_message(?\FFI\CData $rk, ?\FFI\CData $rkmessage, ?int $async): int
     {
         return static::getFFI()->rd_kafka_commit_message($rk, $rkmessage, $async);
     }
@@ -1485,7 +1485,7 @@ trait Methods
      * @param \FFI\CData|object|string|null $commit_opaque void*
      * @return int rd_kafka_resp_err_t
      */
-    public static function rd_kafka_commit_queue(?\FFI\CData $rk, ?\FFI\CData $offsets, ?\FFI\CData $rkqu, $cb, $commit_opaque): int 
+    public static function rd_kafka_commit_queue(?\FFI\CData $rk, ?\FFI\CData $offsets, ?\FFI\CData $rkqu, $cb, $commit_opaque): int
     {
         return static::getFFI()->rd_kafka_commit_queue($rk, $offsets, $rkqu, $cb, $commit_opaque);
     }
@@ -1496,7 +1496,7 @@ trait Methods
      * @param int|null $timeout_ms int
      * @return int rd_kafka_resp_err_t
      */
-    public static function rd_kafka_committed(?\FFI\CData $rk, ?\FFI\CData $partitions, ?int $timeout_ms): int 
+    public static function rd_kafka_committed(?\FFI\CData $rk, ?\FFI\CData $partitions, ?int $timeout_ms): int
     {
         return static::getFFI()->rd_kafka_committed($rk, $partitions, $timeout_ms);
     }
@@ -1506,7 +1506,7 @@ trait Methods
      * @param \FFI\CData|null $partitions rd_kafka_topic_partition_list_t*
      * @return int rd_kafka_resp_err_t
      */
-    public static function rd_kafka_position(?\FFI\CData $rk, ?\FFI\CData $partitions): int 
+    public static function rd_kafka_position(?\FFI\CData $rk, ?\FFI\CData $partitions): int
     {
         return static::getFFI()->rd_kafka_position($rk, $partitions);
     }
@@ -1515,7 +1515,7 @@ trait Methods
      * @param \FFI\CData|null $rk rd_kafka_t*
      * @return \FFI\CData|null rd_kafka_consumer_group_metadata_t*
      */
-    public static function rd_kafka_consumer_group_metadata(?\FFI\CData $rk): ?\FFI\CData 
+    public static function rd_kafka_consumer_group_metadata(?\FFI\CData $rk): ?\FFI\CData
     {
         return static::getFFI()->rd_kafka_consumer_group_metadata($rk);
     }
@@ -1524,7 +1524,7 @@ trait Methods
      * @param string|null $group_id char*
      * @return \FFI\CData|null rd_kafka_consumer_group_metadata_t*
      */
-    public static function rd_kafka_consumer_group_metadata_new(?string $group_id): ?\FFI\CData 
+    public static function rd_kafka_consumer_group_metadata_new(?string $group_id): ?\FFI\CData
     {
         return static::getFFI()->rd_kafka_consumer_group_metadata_new($group_id);
     }
@@ -1532,7 +1532,7 @@ trait Methods
     /**
      * @param \FFI\CData|null $arg0 rd_kafka_consumer_group_metadata_t*
      */
-    public static function rd_kafka_consumer_group_metadata_destroy(?\FFI\CData $arg0): void 
+    public static function rd_kafka_consumer_group_metadata_destroy(?\FFI\CData $arg0): void
     {
         static::getFFI()->rd_kafka_consumer_group_metadata_destroy($arg0);
     }
@@ -1543,7 +1543,7 @@ trait Methods
      * @param \FFI\CData|null $sizep size_t*
      * @return \FFI\CData|null rd_kafka_error_t*
      */
-    public static function rd_kafka_consumer_group_metadata_write(?\FFI\CData $cgmd, $bufferp, ?\FFI\CData $sizep): ?\FFI\CData 
+    public static function rd_kafka_consumer_group_metadata_write(?\FFI\CData $cgmd, $bufferp, ?\FFI\CData $sizep): ?\FFI\CData
     {
         return static::getFFI()->rd_kafka_consumer_group_metadata_write($cgmd, $bufferp, $sizep);
     }
@@ -1554,7 +1554,7 @@ trait Methods
      * @param int|null $size size_t
      * @return \FFI\CData|null rd_kafka_error_t*
      */
-    public static function rd_kafka_consumer_group_metadata_read(?\FFI\CData $cgmdp, $buffer, ?int $size): ?\FFI\CData 
+    public static function rd_kafka_consumer_group_metadata_read(?\FFI\CData $cgmdp, $buffer, ?int $size): ?\FFI\CData
     {
         return static::getFFI()->rd_kafka_consumer_group_metadata_read($cgmdp, $buffer, $size);
     }
@@ -1570,17 +1570,17 @@ trait Methods
      * @param \FFI\CData|object|string|null $msg_opaque void*
      * @return int|null int
      */
-    public static function rd_kafka_produce(?\FFI\CData $rkt, ?int $partition, ?int $msgflags, $payload, ?int $len, $key, ?int $keylen, $msg_opaque): ?int 
+    public static function rd_kafka_produce(?\FFI\CData $rkt, ?int $partition, ?int $msgflags, $payload, ?int $len, $key, ?int $keylen, $msg_opaque): ?int
     {
         return static::getFFI()->rd_kafka_produce($rkt, $partition, $msgflags, $payload, $len, $key, $keylen, $msg_opaque);
     }
 
     /**
      * @param \FFI\CData|null $rk rd_kafka_t*
-     * @param mixed ...$args 
+     * @param mixed ...$args
      * @return int rd_kafka_resp_err_t
      */
-    public static function rd_kafka_producev(?\FFI\CData $rk, ...$args): int 
+    public static function rd_kafka_producev(?\FFI\CData $rk, ...$args): int
     {
         return static::getFFI()->rd_kafka_producev($rk, ...$args);
     }
@@ -1593,7 +1593,7 @@ trait Methods
      * @param int|null $message_cnt int
      * @return int|null int
      */
-    public static function rd_kafka_produce_batch(?\FFI\CData $rkt, ?int $partition, ?int $msgflags, ?\FFI\CData $rkmessages, ?int $message_cnt): ?int 
+    public static function rd_kafka_produce_batch(?\FFI\CData $rkt, ?int $partition, ?int $msgflags, ?\FFI\CData $rkmessages, ?int $message_cnt): ?int
     {
         return static::getFFI()->rd_kafka_produce_batch($rkt, $partition, $msgflags, $rkmessages, $message_cnt);
     }
@@ -1603,7 +1603,7 @@ trait Methods
      * @param int|null $timeout_ms int
      * @return int rd_kafka_resp_err_t
      */
-    public static function rd_kafka_flush(?\FFI\CData $rk, ?int $timeout_ms): int 
+    public static function rd_kafka_flush(?\FFI\CData $rk, ?int $timeout_ms): int
     {
         return static::getFFI()->rd_kafka_flush($rk, $timeout_ms);
     }
@@ -1613,7 +1613,7 @@ trait Methods
      * @param int|null $purge_flags int
      * @return int rd_kafka_resp_err_t
      */
-    public static function rd_kafka_purge(?\FFI\CData $rk, ?int $purge_flags): int 
+    public static function rd_kafka_purge(?\FFI\CData $rk, ?int $purge_flags): int
     {
         return static::getFFI()->rd_kafka_purge($rk, $purge_flags);
     }
@@ -1626,7 +1626,7 @@ trait Methods
      * @param int|null $timeout_ms int
      * @return int rd_kafka_resp_err_t
      */
-    public static function rd_kafka_metadata(?\FFI\CData $rk, ?int $all_topics, ?\FFI\CData $only_rkt, ?\FFI\CData $metadatap, ?int $timeout_ms): int 
+    public static function rd_kafka_metadata(?\FFI\CData $rk, ?int $all_topics, ?\FFI\CData $only_rkt, ?\FFI\CData $metadatap, ?int $timeout_ms): int
     {
         return static::getFFI()->rd_kafka_metadata($rk, $all_topics, $only_rkt, $metadatap, $timeout_ms);
     }
@@ -1634,7 +1634,7 @@ trait Methods
     /**
      * @param \FFI\CData|\Closure $metadata rd_kafka_resp_err_t(rd_kafka_metadata*)(rd_kafka_t*, int, rd_kafka_topic_t*, rd_kafka_metadata**, int)
      */
-    public static function rd_kafka_metadata_destroy($metadata): void 
+    public static function rd_kafka_metadata_destroy($metadata): void
     {
         static::getFFI()->rd_kafka_metadata_destroy($metadata);
     }
@@ -1646,7 +1646,7 @@ trait Methods
      * @param int|null $timeout_ms int
      * @return int rd_kafka_resp_err_t
      */
-    public static function rd_kafka_list_groups(?\FFI\CData $rk, ?string $group, ?\FFI\CData $grplistp, ?int $timeout_ms): int 
+    public static function rd_kafka_list_groups(?\FFI\CData $rk, ?string $group, ?\FFI\CData $grplistp, ?int $timeout_ms): int
     {
         return static::getFFI()->rd_kafka_list_groups($rk, $group, $grplistp, $timeout_ms);
     }
@@ -1654,7 +1654,7 @@ trait Methods
     /**
      * @param \FFI\CData|null $grplist rd_kafka_group_list*
      */
-    public static function rd_kafka_group_list_destroy(?\FFI\CData $grplist): void 
+    public static function rd_kafka_group_list_destroy(?\FFI\CData $grplist): void
     {
         static::getFFI()->rd_kafka_group_list_destroy($grplist);
     }
@@ -1664,7 +1664,7 @@ trait Methods
      * @param string|null $brokerlist char*
      * @return int|null int
      */
-    public static function rd_kafka_brokers_add(?\FFI\CData $rk, ?string $brokerlist): ?int 
+    public static function rd_kafka_brokers_add(?\FFI\CData $rk, ?string $brokerlist): ?int
     {
         return static::getFFI()->rd_kafka_brokers_add($rk, $brokerlist);
     }
@@ -1673,7 +1673,7 @@ trait Methods
      * @param \FFI\CData|null $rk rd_kafka_t*
      * @param \FFI\CData|\Closure $func void(*)(rd_kafka_t*, int, char*, char*)
      */
-    public static function rd_kafka_set_logger(?\FFI\CData $rk, $func): void 
+    public static function rd_kafka_set_logger(?\FFI\CData $rk, $func): void
     {
         static::getFFI()->rd_kafka_set_logger($rk, $func);
     }
@@ -1682,7 +1682,7 @@ trait Methods
      * @param \FFI\CData|null $rk rd_kafka_t*
      * @param int|null $level int
      */
-    public static function rd_kafka_set_log_level(?\FFI\CData $rk, ?int $level): void 
+    public static function rd_kafka_set_log_level(?\FFI\CData $rk, ?int $level): void
     {
         static::getFFI()->rd_kafka_set_log_level($rk, $level);
     }
@@ -1693,7 +1693,7 @@ trait Methods
      * @param string|null $fac char*
      * @param string|null $buf char*
      */
-    public static function rd_kafka_log_print(?\FFI\CData $rk, ?int $level, ?string $fac, ?string $buf): void 
+    public static function rd_kafka_log_print(?\FFI\CData $rk, ?int $level, ?string $fac, ?string $buf): void
     {
         static::getFFI()->rd_kafka_log_print($rk, $level, $fac, $buf);
     }
@@ -1704,7 +1704,7 @@ trait Methods
      * @param string|null $fac char*
      * @param string|null $buf char*
      */
-    public static function rd_kafka_log_syslog(?\FFI\CData $rk, ?int $level, ?string $fac, ?string $buf): void 
+    public static function rd_kafka_log_syslog(?\FFI\CData $rk, ?int $level, ?string $fac, ?string $buf): void
     {
         static::getFFI()->rd_kafka_log_syslog($rk, $level, $fac, $buf);
     }
@@ -1713,7 +1713,7 @@ trait Methods
      * @param \FFI\CData|null $rk rd_kafka_t*
      * @return int|null int
      */
-    public static function rd_kafka_outq_len(?\FFI\CData $rk): ?int 
+    public static function rd_kafka_outq_len(?\FFI\CData $rk): ?int
     {
         return static::getFFI()->rd_kafka_outq_len($rk);
     }
@@ -1722,7 +1722,7 @@ trait Methods
      * @param \FFI\CData|null $fp FILE*
      * @param \FFI\CData|null $rk rd_kafka_t*
      */
-    public static function rd_kafka_dump(?\FFI\CData $fp, ?\FFI\CData $rk): void 
+    public static function rd_kafka_dump(?\FFI\CData $fp, ?\FFI\CData $rk): void
     {
         static::getFFI()->rd_kafka_dump($fp, $rk);
     }
@@ -1730,7 +1730,7 @@ trait Methods
     /**
      * @return int|null int
      */
-    public static function rd_kafka_thread_cnt(): ?int 
+    public static function rd_kafka_thread_cnt(): ?int
     {
         return static::getFFI()->rd_kafka_thread_cnt();
     }
@@ -1739,7 +1739,7 @@ trait Methods
      * @param int|null $timeout_ms int
      * @return int|null int
      */
-    public static function rd_kafka_wait_destroyed(?int $timeout_ms): ?int 
+    public static function rd_kafka_wait_destroyed(?int $timeout_ms): ?int
     {
         return static::getFFI()->rd_kafka_wait_destroyed($timeout_ms);
     }
@@ -1747,7 +1747,7 @@ trait Methods
     /**
      * @return int|null int
      */
-    public static function rd_kafka_unittest(): ?int 
+    public static function rd_kafka_unittest(): ?int
     {
         return static::getFFI()->rd_kafka_unittest();
     }
@@ -1756,7 +1756,7 @@ trait Methods
      * @param \FFI\CData|null $rk rd_kafka_t*
      * @return int rd_kafka_resp_err_t
      */
-    public static function rd_kafka_poll_set_consumer(?\FFI\CData $rk): int 
+    public static function rd_kafka_poll_set_consumer(?\FFI\CData $rk): int
     {
         return static::getFFI()->rd_kafka_poll_set_consumer($rk);
     }
@@ -1765,7 +1765,7 @@ trait Methods
      * @param \FFI\CData|null $rkev rd_kafka_event_t*
      * @return int|null int
      */
-    public static function rd_kafka_event_type(?\FFI\CData $rkev): ?int 
+    public static function rd_kafka_event_type(?\FFI\CData $rkev): ?int
     {
         return static::getFFI()->rd_kafka_event_type($rkev);
     }
@@ -1774,7 +1774,7 @@ trait Methods
      * @param \FFI\CData|null $rkev rd_kafka_event_t*
      * @return string|null const char*
      */
-    public static function rd_kafka_event_name(?\FFI\CData $rkev): ?string 
+    public static function rd_kafka_event_name(?\FFI\CData $rkev): ?string
     {
         return static::getFFI()->rd_kafka_event_name($rkev);
     }
@@ -1782,7 +1782,7 @@ trait Methods
     /**
      * @param \FFI\CData|null $rkev rd_kafka_event_t*
      */
-    public static function rd_kafka_event_destroy(?\FFI\CData $rkev): void 
+    public static function rd_kafka_event_destroy(?\FFI\CData $rkev): void
     {
         static::getFFI()->rd_kafka_event_destroy($rkev);
     }
@@ -1791,7 +1791,7 @@ trait Methods
      * @param \FFI\CData|null $rkev rd_kafka_event_t*
      * @return \FFI\CData|null const rd_kafka_message_t*
      */
-    public static function rd_kafka_event_message_next(?\FFI\CData $rkev): ?\FFI\CData 
+    public static function rd_kafka_event_message_next(?\FFI\CData $rkev): ?\FFI\CData
     {
         return static::getFFI()->rd_kafka_event_message_next($rkev);
     }
@@ -1802,7 +1802,7 @@ trait Methods
      * @param int|null $size size_t
      * @return int|null size_t
      */
-    public static function rd_kafka_event_message_array(?\FFI\CData $rkev, ?\FFI\CData $rkmessages, ?int $size): ?int 
+    public static function rd_kafka_event_message_array(?\FFI\CData $rkev, ?\FFI\CData $rkmessages, ?int $size): ?int
     {
         return static::getFFI()->rd_kafka_event_message_array($rkev, $rkmessages, $size);
     }
@@ -1811,7 +1811,7 @@ trait Methods
      * @param \FFI\CData|null $rkev rd_kafka_event_t*
      * @return int|null size_t
      */
-    public static function rd_kafka_event_message_count(?\FFI\CData $rkev): ?int 
+    public static function rd_kafka_event_message_count(?\FFI\CData $rkev): ?int
     {
         return static::getFFI()->rd_kafka_event_message_count($rkev);
     }
@@ -1820,7 +1820,7 @@ trait Methods
      * @param \FFI\CData|null $rkev rd_kafka_event_t*
      * @return string|null const char*
      */
-    public static function rd_kafka_event_config_string(?\FFI\CData $rkev): ?string 
+    public static function rd_kafka_event_config_string(?\FFI\CData $rkev): ?string
     {
         return static::getFFI()->rd_kafka_event_config_string($rkev);
     }
@@ -1829,7 +1829,7 @@ trait Methods
      * @param \FFI\CData|null $rkev rd_kafka_event_t*
      * @return int rd_kafka_resp_err_t
      */
-    public static function rd_kafka_event_error(?\FFI\CData $rkev): int 
+    public static function rd_kafka_event_error(?\FFI\CData $rkev): int
     {
         return static::getFFI()->rd_kafka_event_error($rkev);
     }
@@ -1838,7 +1838,7 @@ trait Methods
      * @param \FFI\CData|null $rkev rd_kafka_event_t*
      * @return string|null const char*
      */
-    public static function rd_kafka_event_error_string(?\FFI\CData $rkev): ?string 
+    public static function rd_kafka_event_error_string(?\FFI\CData $rkev): ?string
     {
         return static::getFFI()->rd_kafka_event_error_string($rkev);
     }
@@ -1847,7 +1847,7 @@ trait Methods
      * @param \FFI\CData|null $rkev rd_kafka_event_t*
      * @return int|null int
      */
-    public static function rd_kafka_event_error_is_fatal(?\FFI\CData $rkev): ?int 
+    public static function rd_kafka_event_error_is_fatal(?\FFI\CData $rkev): ?int
     {
         return static::getFFI()->rd_kafka_event_error_is_fatal($rkev);
     }
@@ -1855,7 +1855,7 @@ trait Methods
     /**
      * @param \FFI\CData|null $rkev rd_kafka_event_t*
      */
-    public static function rd_kafka_event_opaque(?\FFI\CData $rkev) 
+    public static function rd_kafka_event_opaque(?\FFI\CData $rkev)
     {
         static::getFFI()->rd_kafka_event_opaque($rkev);
     }
@@ -1867,7 +1867,7 @@ trait Methods
      * @param \FFI\CData|null $level int*
      * @return int|null int
      */
-    public static function rd_kafka_event_log(?\FFI\CData $rkev, ?\FFI\CData $fac, ?\FFI\CData $str, ?\FFI\CData $level): ?int 
+    public static function rd_kafka_event_log(?\FFI\CData $rkev, ?\FFI\CData $fac, ?\FFI\CData $str, ?\FFI\CData $level): ?int
     {
         return static::getFFI()->rd_kafka_event_log($rkev, $fac, $str, $level);
     }
@@ -1876,7 +1876,7 @@ trait Methods
      * @param \FFI\CData|null $rkev rd_kafka_event_t*
      * @return string|null const char*
      */
-    public static function rd_kafka_event_stats(?\FFI\CData $rkev): ?string 
+    public static function rd_kafka_event_stats(?\FFI\CData $rkev): ?string
     {
         return static::getFFI()->rd_kafka_event_stats($rkev);
     }
@@ -1885,7 +1885,7 @@ trait Methods
      * @param \FFI\CData|null $rkev rd_kafka_event_t*
      * @return \FFI\CData|null rd_kafka_topic_partition_list_t*
      */
-    public static function rd_kafka_event_topic_partition_list(?\FFI\CData $rkev): ?\FFI\CData 
+    public static function rd_kafka_event_topic_partition_list(?\FFI\CData $rkev): ?\FFI\CData
     {
         return static::getFFI()->rd_kafka_event_topic_partition_list($rkev);
     }
@@ -1894,7 +1894,7 @@ trait Methods
      * @param \FFI\CData|null $rkev rd_kafka_event_t*
      * @return \FFI\CData|null rd_kafka_topic_partition_t*
      */
-    public static function rd_kafka_event_topic_partition(?\FFI\CData $rkev): ?\FFI\CData 
+    public static function rd_kafka_event_topic_partition(?\FFI\CData $rkev): ?\FFI\CData
     {
         return static::getFFI()->rd_kafka_event_topic_partition($rkev);
     }
@@ -1903,7 +1903,7 @@ trait Methods
      * @param \FFI\CData|null $rkev rd_kafka_event_t*
      * @return \FFI\CData|null const rd_kafka_CreateTopics_result_t*
      */
-    public static function rd_kafka_event_CreateTopics_result(?\FFI\CData $rkev): ?\FFI\CData 
+    public static function rd_kafka_event_CreateTopics_result(?\FFI\CData $rkev): ?\FFI\CData
     {
         return static::getFFI()->rd_kafka_event_CreateTopics_result($rkev);
     }
@@ -1912,7 +1912,7 @@ trait Methods
      * @param \FFI\CData|null $rkev rd_kafka_event_t*
      * @return \FFI\CData|null const rd_kafka_DeleteTopics_result_t*
      */
-    public static function rd_kafka_event_DeleteTopics_result(?\FFI\CData $rkev): ?\FFI\CData 
+    public static function rd_kafka_event_DeleteTopics_result(?\FFI\CData $rkev): ?\FFI\CData
     {
         return static::getFFI()->rd_kafka_event_DeleteTopics_result($rkev);
     }
@@ -1921,7 +1921,7 @@ trait Methods
      * @param \FFI\CData|null $rkev rd_kafka_event_t*
      * @return \FFI\CData|null const rd_kafka_CreatePartitions_result_t*
      */
-    public static function rd_kafka_event_CreatePartitions_result(?\FFI\CData $rkev): ?\FFI\CData 
+    public static function rd_kafka_event_CreatePartitions_result(?\FFI\CData $rkev): ?\FFI\CData
     {
         return static::getFFI()->rd_kafka_event_CreatePartitions_result($rkev);
     }
@@ -1930,7 +1930,7 @@ trait Methods
      * @param \FFI\CData|null $rkev rd_kafka_event_t*
      * @return \FFI\CData|null const rd_kafka_AlterConfigs_result_t*
      */
-    public static function rd_kafka_event_AlterConfigs_result(?\FFI\CData $rkev): ?\FFI\CData 
+    public static function rd_kafka_event_AlterConfigs_result(?\FFI\CData $rkev): ?\FFI\CData
     {
         return static::getFFI()->rd_kafka_event_AlterConfigs_result($rkev);
     }
@@ -1939,7 +1939,7 @@ trait Methods
      * @param \FFI\CData|null $rkev rd_kafka_event_t*
      * @return \FFI\CData|null const rd_kafka_DescribeConfigs_result_t*
      */
-    public static function rd_kafka_event_DescribeConfigs_result(?\FFI\CData $rkev): ?\FFI\CData 
+    public static function rd_kafka_event_DescribeConfigs_result(?\FFI\CData $rkev): ?\FFI\CData
     {
         return static::getFFI()->rd_kafka_event_DescribeConfigs_result($rkev);
     }
@@ -1949,7 +1949,7 @@ trait Methods
      * @param int|null $timeout_ms int
      * @return \FFI\CData|null rd_kafka_event_t*
      */
-    public static function rd_kafka_queue_poll(?\FFI\CData $rkqu, ?int $timeout_ms): ?\FFI\CData 
+    public static function rd_kafka_queue_poll(?\FFI\CData $rkqu, ?int $timeout_ms): ?\FFI\CData
     {
         return static::getFFI()->rd_kafka_queue_poll($rkqu, $timeout_ms);
     }
@@ -1959,7 +1959,7 @@ trait Methods
      * @param int|null $timeout_ms int
      * @return int|null int
      */
-    public static function rd_kafka_queue_poll_callback(?\FFI\CData $rkqu, ?int $timeout_ms): ?int 
+    public static function rd_kafka_queue_poll_callback(?\FFI\CData $rkqu, ?int $timeout_ms): ?int
     {
         return static::getFFI()->rd_kafka_queue_poll_callback($rkqu, $timeout_ms);
     }
@@ -1971,7 +1971,7 @@ trait Methods
      * @param int|null $errstr_size size_t
      * @return int rd_kafka_resp_err_t
      */
-    public static function rd_kafka_plugin_f_conf_init_t(?\FFI\CData $conf, $plug_opaquep, ?\FFI\CData $errstr, ?int $errstr_size): int 
+    public static function rd_kafka_plugin_f_conf_init_t(?\FFI\CData $conf, $plug_opaquep, ?\FFI\CData $errstr, ?int $errstr_size): int
     {
         return static::getFFI()->rd_kafka_plugin_f_conf_init_t($conf, $plug_opaquep, $errstr, $errstr_size);
     }
@@ -1985,7 +1985,7 @@ trait Methods
      * @param \FFI\CData|object|string|null $ic_opaque void*
      * @return int rd_kafka_conf_res_t
      */
-    public static function rd_kafka_interceptor_f_on_conf_set_t(?\FFI\CData $conf, ?string $name, ?string $val, ?\FFI\CData $errstr, ?int $errstr_size, $ic_opaque): int 
+    public static function rd_kafka_interceptor_f_on_conf_set_t(?\FFI\CData $conf, ?string $name, ?string $val, ?\FFI\CData $errstr, ?int $errstr_size, $ic_opaque): int
     {
         return static::getFFI()->rd_kafka_interceptor_f_on_conf_set_t($conf, $name, $val, $errstr, $errstr_size, $ic_opaque);
     }
@@ -1998,7 +1998,7 @@ trait Methods
      * @param \FFI\CData|object|string|null $ic_opaque void*
      * @return int rd_kafka_resp_err_t
      */
-    public static function rd_kafka_interceptor_f_on_conf_dup_t(?\FFI\CData $new_conf, ?\FFI\CData $old_conf, ?int $filter_cnt, ?\FFI\CData $filter, $ic_opaque): int 
+    public static function rd_kafka_interceptor_f_on_conf_dup_t(?\FFI\CData $new_conf, ?\FFI\CData $old_conf, ?int $filter_cnt, ?\FFI\CData $filter, $ic_opaque): int
     {
         return static::getFFI()->rd_kafka_interceptor_f_on_conf_dup_t($new_conf, $old_conf, $filter_cnt, $filter, $ic_opaque);
     }
@@ -2006,7 +2006,7 @@ trait Methods
     /**
      * @return int rd_kafka_resp_err_t
      */
-    public static function rd_kafka_interceptor_f_on_conf_destroy_t(): int 
+    public static function rd_kafka_interceptor_f_on_conf_destroy_t(): int
     {
         return static::getFFI()->rd_kafka_interceptor_f_on_conf_destroy_t();
     }
@@ -2019,7 +2019,7 @@ trait Methods
      * @param int|null $errstr_size size_t
      * @return int rd_kafka_resp_err_t
      */
-    public static function rd_kafka_interceptor_f_on_new_t(?\FFI\CData $rk, ?\FFI\CData $conf, $ic_opaque, ?\FFI\CData $errstr, ?int $errstr_size): int 
+    public static function rd_kafka_interceptor_f_on_new_t(?\FFI\CData $rk, ?\FFI\CData $conf, $ic_opaque, ?\FFI\CData $errstr, ?int $errstr_size): int
     {
         return static::getFFI()->rd_kafka_interceptor_f_on_new_t($rk, $conf, $ic_opaque, $errstr, $errstr_size);
     }
@@ -2029,7 +2029,7 @@ trait Methods
      * @param \FFI\CData|object|string|null $ic_opaque void*
      * @return int rd_kafka_resp_err_t
      */
-    public static function rd_kafka_interceptor_f_on_destroy_t(?\FFI\CData $rk, $ic_opaque): int 
+    public static function rd_kafka_interceptor_f_on_destroy_t(?\FFI\CData $rk, $ic_opaque): int
     {
         return static::getFFI()->rd_kafka_interceptor_f_on_destroy_t($rk, $ic_opaque);
     }
@@ -2040,7 +2040,7 @@ trait Methods
      * @param \FFI\CData|object|string|null $ic_opaque void*
      * @return int rd_kafka_resp_err_t
      */
-    public static function rd_kafka_interceptor_f_on_send_t(?\FFI\CData $rk, ?\FFI\CData $rkmessage, $ic_opaque): int 
+    public static function rd_kafka_interceptor_f_on_send_t(?\FFI\CData $rk, ?\FFI\CData $rkmessage, $ic_opaque): int
     {
         return static::getFFI()->rd_kafka_interceptor_f_on_send_t($rk, $rkmessage, $ic_opaque);
     }
@@ -2051,7 +2051,7 @@ trait Methods
      * @param \FFI\CData|object|string|null $ic_opaque void*
      * @return int rd_kafka_resp_err_t
      */
-    public static function rd_kafka_interceptor_f_on_acknowledgement_t(?\FFI\CData $rk, ?\FFI\CData $rkmessage, $ic_opaque): int 
+    public static function rd_kafka_interceptor_f_on_acknowledgement_t(?\FFI\CData $rk, ?\FFI\CData $rkmessage, $ic_opaque): int
     {
         return static::getFFI()->rd_kafka_interceptor_f_on_acknowledgement_t($rk, $rkmessage, $ic_opaque);
     }
@@ -2062,7 +2062,7 @@ trait Methods
      * @param \FFI\CData|object|string|null $ic_opaque void*
      * @return int rd_kafka_resp_err_t
      */
-    public static function rd_kafka_interceptor_f_on_consume_t(?\FFI\CData $rk, ?\FFI\CData $rkmessage, $ic_opaque): int 
+    public static function rd_kafka_interceptor_f_on_consume_t(?\FFI\CData $rk, ?\FFI\CData $rkmessage, $ic_opaque): int
     {
         return static::getFFI()->rd_kafka_interceptor_f_on_consume_t($rk, $rkmessage, $ic_opaque);
     }
@@ -2074,7 +2074,7 @@ trait Methods
      * @param \FFI\CData|object|string|null $ic_opaque void*
      * @return int rd_kafka_resp_err_t
      */
-    public static function rd_kafka_interceptor_f_on_commit_t(?\FFI\CData $rk, ?\FFI\CData $offsets, int $err, $ic_opaque): int 
+    public static function rd_kafka_interceptor_f_on_commit_t(?\FFI\CData $rk, ?\FFI\CData $offsets, int $err, $ic_opaque): int
     {
         return static::getFFI()->rd_kafka_interceptor_f_on_commit_t($rk, $offsets, $err, $ic_opaque);
     }
@@ -2091,7 +2091,7 @@ trait Methods
      * @param \FFI\CData|object|string|null $ic_opaque void*
      * @return int rd_kafka_resp_err_t
      */
-    public static function rd_kafka_interceptor_f_on_request_sent_t(?\FFI\CData $rk, ?int $sockfd, ?string $brokername, ?int $brokerid, ?int $ApiKey, ?int $ApiVersion, ?int $CorrId, ?int $size, $ic_opaque): int 
+    public static function rd_kafka_interceptor_f_on_request_sent_t(?\FFI\CData $rk, ?int $sockfd, ?string $brokername, ?int $brokerid, ?int $ApiKey, ?int $ApiVersion, ?int $CorrId, ?int $size, $ic_opaque): int
     {
         return static::getFFI()->rd_kafka_interceptor_f_on_request_sent_t($rk, $sockfd, $brokername, $brokerid, $ApiKey, $ApiVersion, $CorrId, $size, $ic_opaque);
     }
@@ -2103,7 +2103,7 @@ trait Methods
      * @param \FFI\CData|object|string|null $ic_opaque void*
      * @return int rd_kafka_resp_err_t
      */
-    public static function rd_kafka_interceptor_f_on_thread_start_t(?\FFI\CData $rk, int $thread_type, ?string $thread_name, $ic_opaque): int 
+    public static function rd_kafka_interceptor_f_on_thread_start_t(?\FFI\CData $rk, int $thread_type, ?string $thread_name, $ic_opaque): int
     {
         return static::getFFI()->rd_kafka_interceptor_f_on_thread_start_t($rk, $thread_type, $thread_name, $ic_opaque);
     }
@@ -2115,7 +2115,7 @@ trait Methods
      * @param \FFI\CData|object|string|null $ic_opaque void*
      * @return int rd_kafka_resp_err_t
      */
-    public static function rd_kafka_interceptor_f_on_thread_exit_t(?\FFI\CData $rk, int $thread_type, ?string $thread_name, $ic_opaque): int 
+    public static function rd_kafka_interceptor_f_on_thread_exit_t(?\FFI\CData $rk, int $thread_type, ?string $thread_name, $ic_opaque): int
     {
         return static::getFFI()->rd_kafka_interceptor_f_on_thread_exit_t($rk, $thread_type, $thread_name, $ic_opaque);
     }
@@ -2127,7 +2127,7 @@ trait Methods
      * @param \FFI\CData|object|string|null $ic_opaque void*
      * @return int rd_kafka_resp_err_t
      */
-    public static function rd_kafka_conf_interceptor_add_on_conf_set(?\FFI\CData $conf, ?string $ic_name, $on_conf_set, $ic_opaque): int 
+    public static function rd_kafka_conf_interceptor_add_on_conf_set(?\FFI\CData $conf, ?string $ic_name, $on_conf_set, $ic_opaque): int
     {
         return static::getFFI()->rd_kafka_conf_interceptor_add_on_conf_set($conf, $ic_name, $on_conf_set, $ic_opaque);
     }
@@ -2139,7 +2139,7 @@ trait Methods
      * @param \FFI\CData|object|string|null $ic_opaque void*
      * @return int rd_kafka_resp_err_t
      */
-    public static function rd_kafka_conf_interceptor_add_on_conf_dup(?\FFI\CData $conf, ?string $ic_name, $on_conf_dup, $ic_opaque): int 
+    public static function rd_kafka_conf_interceptor_add_on_conf_dup(?\FFI\CData $conf, ?string $ic_name, $on_conf_dup, $ic_opaque): int
     {
         return static::getFFI()->rd_kafka_conf_interceptor_add_on_conf_dup($conf, $ic_name, $on_conf_dup, $ic_opaque);
     }
@@ -2151,7 +2151,7 @@ trait Methods
      * @param \FFI\CData|object|string|null $ic_opaque void*
      * @return int rd_kafka_resp_err_t
      */
-    public static function rd_kafka_conf_interceptor_add_on_conf_destroy(?\FFI\CData $conf, ?string $ic_name, $on_conf_destroy, $ic_opaque): int 
+    public static function rd_kafka_conf_interceptor_add_on_conf_destroy(?\FFI\CData $conf, ?string $ic_name, $on_conf_destroy, $ic_opaque): int
     {
         return static::getFFI()->rd_kafka_conf_interceptor_add_on_conf_destroy($conf, $ic_name, $on_conf_destroy, $ic_opaque);
     }
@@ -2163,7 +2163,7 @@ trait Methods
      * @param \FFI\CData|object|string|null $ic_opaque void*
      * @return int rd_kafka_resp_err_t
      */
-    public static function rd_kafka_conf_interceptor_add_on_new(?\FFI\CData $conf, ?string $ic_name, $on_new, $ic_opaque): int 
+    public static function rd_kafka_conf_interceptor_add_on_new(?\FFI\CData $conf, ?string $ic_name, $on_new, $ic_opaque): int
     {
         return static::getFFI()->rd_kafka_conf_interceptor_add_on_new($conf, $ic_name, $on_new, $ic_opaque);
     }
@@ -2175,7 +2175,7 @@ trait Methods
      * @param \FFI\CData|object|string|null $ic_opaque void*
      * @return int rd_kafka_resp_err_t
      */
-    public static function rd_kafka_interceptor_add_on_destroy(?\FFI\CData $rk, ?string $ic_name, $on_destroy, $ic_opaque): int 
+    public static function rd_kafka_interceptor_add_on_destroy(?\FFI\CData $rk, ?string $ic_name, $on_destroy, $ic_opaque): int
     {
         return static::getFFI()->rd_kafka_interceptor_add_on_destroy($rk, $ic_name, $on_destroy, $ic_opaque);
     }
@@ -2187,7 +2187,7 @@ trait Methods
      * @param \FFI\CData|object|string|null $ic_opaque void*
      * @return int rd_kafka_resp_err_t
      */
-    public static function rd_kafka_interceptor_add_on_send(?\FFI\CData $rk, ?string $ic_name, $on_send, $ic_opaque): int 
+    public static function rd_kafka_interceptor_add_on_send(?\FFI\CData $rk, ?string $ic_name, $on_send, $ic_opaque): int
     {
         return static::getFFI()->rd_kafka_interceptor_add_on_send($rk, $ic_name, $on_send, $ic_opaque);
     }
@@ -2199,7 +2199,7 @@ trait Methods
      * @param \FFI\CData|object|string|null $ic_opaque void*
      * @return int rd_kafka_resp_err_t
      */
-    public static function rd_kafka_interceptor_add_on_acknowledgement(?\FFI\CData $rk, ?string $ic_name, $on_acknowledgement, $ic_opaque): int 
+    public static function rd_kafka_interceptor_add_on_acknowledgement(?\FFI\CData $rk, ?string $ic_name, $on_acknowledgement, $ic_opaque): int
     {
         return static::getFFI()->rd_kafka_interceptor_add_on_acknowledgement($rk, $ic_name, $on_acknowledgement, $ic_opaque);
     }
@@ -2211,7 +2211,7 @@ trait Methods
      * @param \FFI\CData|object|string|null $ic_opaque void*
      * @return int rd_kafka_resp_err_t
      */
-    public static function rd_kafka_interceptor_add_on_consume(?\FFI\CData $rk, ?string $ic_name, $on_consume, $ic_opaque): int 
+    public static function rd_kafka_interceptor_add_on_consume(?\FFI\CData $rk, ?string $ic_name, $on_consume, $ic_opaque): int
     {
         return static::getFFI()->rd_kafka_interceptor_add_on_consume($rk, $ic_name, $on_consume, $ic_opaque);
     }
@@ -2223,7 +2223,7 @@ trait Methods
      * @param \FFI\CData|object|string|null $ic_opaque void*
      * @return int rd_kafka_resp_err_t
      */
-    public static function rd_kafka_interceptor_add_on_commit(?\FFI\CData $rk, ?string $ic_name, $on_commit, $ic_opaque): int 
+    public static function rd_kafka_interceptor_add_on_commit(?\FFI\CData $rk, ?string $ic_name, $on_commit, $ic_opaque): int
     {
         return static::getFFI()->rd_kafka_interceptor_add_on_commit($rk, $ic_name, $on_commit, $ic_opaque);
     }
@@ -2235,7 +2235,7 @@ trait Methods
      * @param \FFI\CData|object|string|null $ic_opaque void*
      * @return int rd_kafka_resp_err_t
      */
-    public static function rd_kafka_interceptor_add_on_request_sent(?\FFI\CData $rk, ?string $ic_name, $on_request_sent, $ic_opaque): int 
+    public static function rd_kafka_interceptor_add_on_request_sent(?\FFI\CData $rk, ?string $ic_name, $on_request_sent, $ic_opaque): int
     {
         return static::getFFI()->rd_kafka_interceptor_add_on_request_sent($rk, $ic_name, $on_request_sent, $ic_opaque);
     }
@@ -2247,7 +2247,7 @@ trait Methods
      * @param \FFI\CData|object|string|null $ic_opaque void*
      * @return int rd_kafka_resp_err_t
      */
-    public static function rd_kafka_interceptor_add_on_thread_start(?\FFI\CData $rk, ?string $ic_name, $on_thread_start, $ic_opaque): int 
+    public static function rd_kafka_interceptor_add_on_thread_start(?\FFI\CData $rk, ?string $ic_name, $on_thread_start, $ic_opaque): int
     {
         return static::getFFI()->rd_kafka_interceptor_add_on_thread_start($rk, $ic_name, $on_thread_start, $ic_opaque);
     }
@@ -2259,7 +2259,7 @@ trait Methods
      * @param \FFI\CData|object|string|null $ic_opaque void*
      * @return int rd_kafka_resp_err_t
      */
-    public static function rd_kafka_interceptor_add_on_thread_exit(?\FFI\CData $rk, ?string $ic_name, $on_thread_exit, $ic_opaque): int 
+    public static function rd_kafka_interceptor_add_on_thread_exit(?\FFI\CData $rk, ?string $ic_name, $on_thread_exit, $ic_opaque): int
     {
         return static::getFFI()->rd_kafka_interceptor_add_on_thread_exit($rk, $ic_name, $on_thread_exit, $ic_opaque);
     }
@@ -2268,7 +2268,7 @@ trait Methods
      * @param \FFI\CData|null $topicres rd_kafka_topic_result_t*
      * @return int rd_kafka_resp_err_t
      */
-    public static function rd_kafka_topic_result_error(?\FFI\CData $topicres): int 
+    public static function rd_kafka_topic_result_error(?\FFI\CData $topicres): int
     {
         return static::getFFI()->rd_kafka_topic_result_error($topicres);
     }
@@ -2277,7 +2277,7 @@ trait Methods
      * @param \FFI\CData|null $topicres rd_kafka_topic_result_t*
      * @return string|null const char*
      */
-    public static function rd_kafka_topic_result_error_string(?\FFI\CData $topicres): ?string 
+    public static function rd_kafka_topic_result_error_string(?\FFI\CData $topicres): ?string
     {
         return static::getFFI()->rd_kafka_topic_result_error_string($topicres);
     }
@@ -2286,7 +2286,7 @@ trait Methods
      * @param \FFI\CData|null $topicres rd_kafka_topic_result_t*
      * @return string|null const char*
      */
-    public static function rd_kafka_topic_result_name(?\FFI\CData $topicres): ?string 
+    public static function rd_kafka_topic_result_name(?\FFI\CData $topicres): ?string
     {
         return static::getFFI()->rd_kafka_topic_result_name($topicres);
     }
@@ -2296,7 +2296,7 @@ trait Methods
      * @param int $for_api rd_kafka_admin_op_t
      * @return \FFI\CData|null rd_kafka_AdminOptions_t*
      */
-    public static function rd_kafka_AdminOptions_new(?\FFI\CData $rk, int $for_api): ?\FFI\CData 
+    public static function rd_kafka_AdminOptions_new(?\FFI\CData $rk, int $for_api): ?\FFI\CData
     {
         return static::getFFI()->rd_kafka_AdminOptions_new($rk, $for_api);
     }
@@ -2304,7 +2304,7 @@ trait Methods
     /**
      * @param \FFI\CData|null $options rd_kafka_AdminOptions_t*
      */
-    public static function rd_kafka_AdminOptions_destroy(?\FFI\CData $options): void 
+    public static function rd_kafka_AdminOptions_destroy(?\FFI\CData $options): void
     {
         static::getFFI()->rd_kafka_AdminOptions_destroy($options);
     }
@@ -2316,7 +2316,7 @@ trait Methods
      * @param int|null $errstr_size size_t
      * @return int rd_kafka_resp_err_t
      */
-    public static function rd_kafka_AdminOptions_set_request_timeout(?\FFI\CData $options, ?int $timeout_ms, ?\FFI\CData $errstr, ?int $errstr_size): int 
+    public static function rd_kafka_AdminOptions_set_request_timeout(?\FFI\CData $options, ?int $timeout_ms, ?\FFI\CData $errstr, ?int $errstr_size): int
     {
         return static::getFFI()->rd_kafka_AdminOptions_set_request_timeout($options, $timeout_ms, $errstr, $errstr_size);
     }
@@ -2328,7 +2328,7 @@ trait Methods
      * @param int|null $errstr_size size_t
      * @return int rd_kafka_resp_err_t
      */
-    public static function rd_kafka_AdminOptions_set_operation_timeout(?\FFI\CData $options, ?int $timeout_ms, ?\FFI\CData $errstr, ?int $errstr_size): int 
+    public static function rd_kafka_AdminOptions_set_operation_timeout(?\FFI\CData $options, ?int $timeout_ms, ?\FFI\CData $errstr, ?int $errstr_size): int
     {
         return static::getFFI()->rd_kafka_AdminOptions_set_operation_timeout($options, $timeout_ms, $errstr, $errstr_size);
     }
@@ -2340,7 +2340,7 @@ trait Methods
      * @param int|null $errstr_size size_t
      * @return int rd_kafka_resp_err_t
      */
-    public static function rd_kafka_AdminOptions_set_validate_only(?\FFI\CData $options, ?int $true_or_false, ?\FFI\CData $errstr, ?int $errstr_size): int 
+    public static function rd_kafka_AdminOptions_set_validate_only(?\FFI\CData $options, ?int $true_or_false, ?\FFI\CData $errstr, ?int $errstr_size): int
     {
         return static::getFFI()->rd_kafka_AdminOptions_set_validate_only($options, $true_or_false, $errstr, $errstr_size);
     }
@@ -2352,7 +2352,7 @@ trait Methods
      * @param int|null $errstr_size size_t
      * @return int rd_kafka_resp_err_t
      */
-    public static function rd_kafka_AdminOptions_set_broker(?\FFI\CData $options, ?int $broker_id, ?\FFI\CData $errstr, ?int $errstr_size): int 
+    public static function rd_kafka_AdminOptions_set_broker(?\FFI\CData $options, ?int $broker_id, ?\FFI\CData $errstr, ?int $errstr_size): int
     {
         return static::getFFI()->rd_kafka_AdminOptions_set_broker($options, $broker_id, $errstr, $errstr_size);
     }
@@ -2361,7 +2361,7 @@ trait Methods
      * @param \FFI\CData|null $options rd_kafka_AdminOptions_t*
      * @param \FFI\CData|object|string|null $ev_opaque void*
      */
-    public static function rd_kafka_AdminOptions_set_opaque(?\FFI\CData $options, $ev_opaque): void 
+    public static function rd_kafka_AdminOptions_set_opaque(?\FFI\CData $options, $ev_opaque): void
     {
         static::getFFI()->rd_kafka_AdminOptions_set_opaque($options, $ev_opaque);
     }
@@ -2374,7 +2374,7 @@ trait Methods
      * @param int|null $errstr_size size_t
      * @return \FFI\CData|null rd_kafka_NewTopic_t*
      */
-    public static function rd_kafka_NewTopic_new(?string $topic, ?int $num_partitions, ?int $replication_factor, ?\FFI\CData $errstr, ?int $errstr_size): ?\FFI\CData 
+    public static function rd_kafka_NewTopic_new(?string $topic, ?int $num_partitions, ?int $replication_factor, ?\FFI\CData $errstr, ?int $errstr_size): ?\FFI\CData
     {
         return static::getFFI()->rd_kafka_NewTopic_new($topic, $num_partitions, $replication_factor, $errstr, $errstr_size);
     }
@@ -2382,7 +2382,7 @@ trait Methods
     /**
      * @param \FFI\CData|null $new_topic rd_kafka_NewTopic_t*
      */
-    public static function rd_kafka_NewTopic_destroy(?\FFI\CData $new_topic): void 
+    public static function rd_kafka_NewTopic_destroy(?\FFI\CData $new_topic): void
     {
         static::getFFI()->rd_kafka_NewTopic_destroy($new_topic);
     }
@@ -2391,7 +2391,7 @@ trait Methods
      * @param \FFI\CData|null $new_topics rd_kafka_NewTopic_t**
      * @param int|null $new_topic_cnt size_t
      */
-    public static function rd_kafka_NewTopic_destroy_array(?\FFI\CData $new_topics, ?int $new_topic_cnt): void 
+    public static function rd_kafka_NewTopic_destroy_array(?\FFI\CData $new_topics, ?int $new_topic_cnt): void
     {
         static::getFFI()->rd_kafka_NewTopic_destroy_array($new_topics, $new_topic_cnt);
     }
@@ -2405,7 +2405,7 @@ trait Methods
      * @param int|null $errstr_size size_t
      * @return int rd_kafka_resp_err_t
      */
-    public static function rd_kafka_NewTopic_set_replica_assignment(?\FFI\CData $new_topic, ?int $partition, ?\FFI\CData $broker_ids, ?int $broker_id_cnt, ?\FFI\CData $errstr, ?int $errstr_size): int 
+    public static function rd_kafka_NewTopic_set_replica_assignment(?\FFI\CData $new_topic, ?int $partition, ?\FFI\CData $broker_ids, ?int $broker_id_cnt, ?\FFI\CData $errstr, ?int $errstr_size): int
     {
         return static::getFFI()->rd_kafka_NewTopic_set_replica_assignment($new_topic, $partition, $broker_ids, $broker_id_cnt, $errstr, $errstr_size);
     }
@@ -2416,7 +2416,7 @@ trait Methods
      * @param string|null $value char*
      * @return int rd_kafka_resp_err_t
      */
-    public static function rd_kafka_NewTopic_set_config(?\FFI\CData $new_topic, ?string $name, ?string $value): int 
+    public static function rd_kafka_NewTopic_set_config(?\FFI\CData $new_topic, ?string $name, ?string $value): int
     {
         return static::getFFI()->rd_kafka_NewTopic_set_config($new_topic, $name, $value);
     }
@@ -2428,7 +2428,7 @@ trait Methods
      * @param \FFI\CData|null $options rd_kafka_AdminOptions_t*
      * @param \FFI\CData|null $rkqu rd_kafka_queue_t*
      */
-    public static function rd_kafka_CreateTopics(?\FFI\CData $rk, ?\FFI\CData $new_topics, ?int $new_topic_cnt, ?\FFI\CData $options, ?\FFI\CData $rkqu): void 
+    public static function rd_kafka_CreateTopics(?\FFI\CData $rk, ?\FFI\CData $new_topics, ?int $new_topic_cnt, ?\FFI\CData $options, ?\FFI\CData $rkqu): void
     {
         static::getFFI()->rd_kafka_CreateTopics($rk, $new_topics, $new_topic_cnt, $options, $rkqu);
     }
@@ -2438,7 +2438,7 @@ trait Methods
      * @param \FFI\CData|null $cntp size_t*
      * @return \FFI\CData|null const rd_kafka_topic_result_t**
      */
-    public static function rd_kafka_CreateTopics_result_topics(?\FFI\CData $result, ?\FFI\CData $cntp): ?\FFI\CData 
+    public static function rd_kafka_CreateTopics_result_topics(?\FFI\CData $result, ?\FFI\CData $cntp): ?\FFI\CData
     {
         return static::getFFI()->rd_kafka_CreateTopics_result_topics($result, $cntp);
     }
@@ -2447,7 +2447,7 @@ trait Methods
      * @param string|null $topic char*
      * @return \FFI\CData|null rd_kafka_DeleteTopic_t*
      */
-    public static function rd_kafka_DeleteTopic_new(?string $topic): ?\FFI\CData 
+    public static function rd_kafka_DeleteTopic_new(?string $topic): ?\FFI\CData
     {
         return static::getFFI()->rd_kafka_DeleteTopic_new($topic);
     }
@@ -2455,7 +2455,7 @@ trait Methods
     /**
      * @param \FFI\CData|null $del_topic rd_kafka_DeleteTopic_t*
      */
-    public static function rd_kafka_DeleteTopic_destroy(?\FFI\CData $del_topic): void 
+    public static function rd_kafka_DeleteTopic_destroy(?\FFI\CData $del_topic): void
     {
         static::getFFI()->rd_kafka_DeleteTopic_destroy($del_topic);
     }
@@ -2464,7 +2464,7 @@ trait Methods
      * @param \FFI\CData|null $del_topics rd_kafka_DeleteTopic_t**
      * @param int|null $del_topic_cnt size_t
      */
-    public static function rd_kafka_DeleteTopic_destroy_array(?\FFI\CData $del_topics, ?int $del_topic_cnt): void 
+    public static function rd_kafka_DeleteTopic_destroy_array(?\FFI\CData $del_topics, ?int $del_topic_cnt): void
     {
         static::getFFI()->rd_kafka_DeleteTopic_destroy_array($del_topics, $del_topic_cnt);
     }
@@ -2476,7 +2476,7 @@ trait Methods
      * @param \FFI\CData|null $options rd_kafka_AdminOptions_t*
      * @param \FFI\CData|null $rkqu rd_kafka_queue_t*
      */
-    public static function rd_kafka_DeleteTopics(?\FFI\CData $rk, ?\FFI\CData $del_topics, ?int $del_topic_cnt, ?\FFI\CData $options, ?\FFI\CData $rkqu): void 
+    public static function rd_kafka_DeleteTopics(?\FFI\CData $rk, ?\FFI\CData $del_topics, ?int $del_topic_cnt, ?\FFI\CData $options, ?\FFI\CData $rkqu): void
     {
         static::getFFI()->rd_kafka_DeleteTopics($rk, $del_topics, $del_topic_cnt, $options, $rkqu);
     }
@@ -2486,7 +2486,7 @@ trait Methods
      * @param \FFI\CData|null $cntp size_t*
      * @return \FFI\CData|null const rd_kafka_topic_result_t**
      */
-    public static function rd_kafka_DeleteTopics_result_topics(?\FFI\CData $result, ?\FFI\CData $cntp): ?\FFI\CData 
+    public static function rd_kafka_DeleteTopics_result_topics(?\FFI\CData $result, ?\FFI\CData $cntp): ?\FFI\CData
     {
         return static::getFFI()->rd_kafka_DeleteTopics_result_topics($result, $cntp);
     }
@@ -2498,7 +2498,7 @@ trait Methods
      * @param int|null $errstr_size size_t
      * @return \FFI\CData|null rd_kafka_NewPartitions_t*
      */
-    public static function rd_kafka_NewPartitions_new(?string $topic, ?int $new_total_cnt, ?\FFI\CData $errstr, ?int $errstr_size): ?\FFI\CData 
+    public static function rd_kafka_NewPartitions_new(?string $topic, ?int $new_total_cnt, ?\FFI\CData $errstr, ?int $errstr_size): ?\FFI\CData
     {
         return static::getFFI()->rd_kafka_NewPartitions_new($topic, $new_total_cnt, $errstr, $errstr_size);
     }
@@ -2506,7 +2506,7 @@ trait Methods
     /**
      * @param \FFI\CData|null $new_parts rd_kafka_NewPartitions_t*
      */
-    public static function rd_kafka_NewPartitions_destroy(?\FFI\CData $new_parts): void 
+    public static function rd_kafka_NewPartitions_destroy(?\FFI\CData $new_parts): void
     {
         static::getFFI()->rd_kafka_NewPartitions_destroy($new_parts);
     }
@@ -2515,7 +2515,7 @@ trait Methods
      * @param \FFI\CData|null $new_parts rd_kafka_NewPartitions_t**
      * @param int|null $new_parts_cnt size_t
      */
-    public static function rd_kafka_NewPartitions_destroy_array(?\FFI\CData $new_parts, ?int $new_parts_cnt): void 
+    public static function rd_kafka_NewPartitions_destroy_array(?\FFI\CData $new_parts, ?int $new_parts_cnt): void
     {
         static::getFFI()->rd_kafka_NewPartitions_destroy_array($new_parts, $new_parts_cnt);
     }
@@ -2529,7 +2529,7 @@ trait Methods
      * @param int|null $errstr_size size_t
      * @return int rd_kafka_resp_err_t
      */
-    public static function rd_kafka_NewPartitions_set_replica_assignment(?\FFI\CData $new_parts, ?int $new_partition_idx, ?\FFI\CData $broker_ids, ?int $broker_id_cnt, ?\FFI\CData $errstr, ?int $errstr_size): int 
+    public static function rd_kafka_NewPartitions_set_replica_assignment(?\FFI\CData $new_parts, ?int $new_partition_idx, ?\FFI\CData $broker_ids, ?int $broker_id_cnt, ?\FFI\CData $errstr, ?int $errstr_size): int
     {
         return static::getFFI()->rd_kafka_NewPartitions_set_replica_assignment($new_parts, $new_partition_idx, $broker_ids, $broker_id_cnt, $errstr, $errstr_size);
     }
@@ -2541,7 +2541,7 @@ trait Methods
      * @param \FFI\CData|null $options rd_kafka_AdminOptions_t*
      * @param \FFI\CData|null $rkqu rd_kafka_queue_t*
      */
-    public static function rd_kafka_CreatePartitions(?\FFI\CData $rk, ?\FFI\CData $new_parts, ?int $new_parts_cnt, ?\FFI\CData $options, ?\FFI\CData $rkqu): void 
+    public static function rd_kafka_CreatePartitions(?\FFI\CData $rk, ?\FFI\CData $new_parts, ?int $new_parts_cnt, ?\FFI\CData $options, ?\FFI\CData $rkqu): void
     {
         static::getFFI()->rd_kafka_CreatePartitions($rk, $new_parts, $new_parts_cnt, $options, $rkqu);
     }
@@ -2551,7 +2551,7 @@ trait Methods
      * @param \FFI\CData|null $cntp size_t*
      * @return \FFI\CData|null const rd_kafka_topic_result_t**
      */
-    public static function rd_kafka_CreatePartitions_result_topics(?\FFI\CData $result, ?\FFI\CData $cntp): ?\FFI\CData 
+    public static function rd_kafka_CreatePartitions_result_topics(?\FFI\CData $result, ?\FFI\CData $cntp): ?\FFI\CData
     {
         return static::getFFI()->rd_kafka_CreatePartitions_result_topics($result, $cntp);
     }
@@ -2560,7 +2560,7 @@ trait Methods
      * @param int $confsource rd_kafka_ConfigSource_t
      * @return string|null const char*
      */
-    public static function rd_kafka_ConfigSource_name(int $confsource): ?string 
+    public static function rd_kafka_ConfigSource_name(int $confsource): ?string
     {
         return static::getFFI()->rd_kafka_ConfigSource_name($confsource);
     }
@@ -2569,7 +2569,7 @@ trait Methods
      * @param \FFI\CData|null $entry rd_kafka_ConfigEntry_t*
      * @return string|null const char*
      */
-    public static function rd_kafka_ConfigEntry_name(?\FFI\CData $entry): ?string 
+    public static function rd_kafka_ConfigEntry_name(?\FFI\CData $entry): ?string
     {
         return static::getFFI()->rd_kafka_ConfigEntry_name($entry);
     }
@@ -2578,7 +2578,7 @@ trait Methods
      * @param \FFI\CData|null $entry rd_kafka_ConfigEntry_t*
      * @return string|null const char*
      */
-    public static function rd_kafka_ConfigEntry_value(?\FFI\CData $entry): ?string 
+    public static function rd_kafka_ConfigEntry_value(?\FFI\CData $entry): ?string
     {
         return static::getFFI()->rd_kafka_ConfigEntry_value($entry);
     }
@@ -2587,7 +2587,7 @@ trait Methods
      * @param \FFI\CData|null $entry rd_kafka_ConfigEntry_t*
      * @return int rd_kafka_ConfigSource_t
      */
-    public static function rd_kafka_ConfigEntry_source(?\FFI\CData $entry): int 
+    public static function rd_kafka_ConfigEntry_source(?\FFI\CData $entry): int
     {
         return static::getFFI()->rd_kafka_ConfigEntry_source($entry);
     }
@@ -2596,7 +2596,7 @@ trait Methods
      * @param \FFI\CData|null $entry rd_kafka_ConfigEntry_t*
      * @return int|null int
      */
-    public static function rd_kafka_ConfigEntry_is_read_only(?\FFI\CData $entry): ?int 
+    public static function rd_kafka_ConfigEntry_is_read_only(?\FFI\CData $entry): ?int
     {
         return static::getFFI()->rd_kafka_ConfigEntry_is_read_only($entry);
     }
@@ -2605,7 +2605,7 @@ trait Methods
      * @param \FFI\CData|null $entry rd_kafka_ConfigEntry_t*
      * @return int|null int
      */
-    public static function rd_kafka_ConfigEntry_is_default(?\FFI\CData $entry): ?int 
+    public static function rd_kafka_ConfigEntry_is_default(?\FFI\CData $entry): ?int
     {
         return static::getFFI()->rd_kafka_ConfigEntry_is_default($entry);
     }
@@ -2614,7 +2614,7 @@ trait Methods
      * @param \FFI\CData|null $entry rd_kafka_ConfigEntry_t*
      * @return int|null int
      */
-    public static function rd_kafka_ConfigEntry_is_sensitive(?\FFI\CData $entry): ?int 
+    public static function rd_kafka_ConfigEntry_is_sensitive(?\FFI\CData $entry): ?int
     {
         return static::getFFI()->rd_kafka_ConfigEntry_is_sensitive($entry);
     }
@@ -2623,7 +2623,7 @@ trait Methods
      * @param \FFI\CData|null $entry rd_kafka_ConfigEntry_t*
      * @return int|null int
      */
-    public static function rd_kafka_ConfigEntry_is_synonym(?\FFI\CData $entry): ?int 
+    public static function rd_kafka_ConfigEntry_is_synonym(?\FFI\CData $entry): ?int
     {
         return static::getFFI()->rd_kafka_ConfigEntry_is_synonym($entry);
     }
@@ -2633,7 +2633,7 @@ trait Methods
      * @param \FFI\CData|null $cntp size_t*
      * @return \FFI\CData|null const rd_kafka_ConfigEntry_t**
      */
-    public static function rd_kafka_ConfigEntry_synonyms(?\FFI\CData $entry, ?\FFI\CData $cntp): ?\FFI\CData 
+    public static function rd_kafka_ConfigEntry_synonyms(?\FFI\CData $entry, ?\FFI\CData $cntp): ?\FFI\CData
     {
         return static::getFFI()->rd_kafka_ConfigEntry_synonyms($entry, $cntp);
     }
@@ -2642,7 +2642,7 @@ trait Methods
      * @param int $restype rd_kafka_ResourceType_t
      * @return string|null const char*
      */
-    public static function rd_kafka_ResourceType_name(int $restype): ?string 
+    public static function rd_kafka_ResourceType_name(int $restype): ?string
     {
         return static::getFFI()->rd_kafka_ResourceType_name($restype);
     }
@@ -2652,7 +2652,7 @@ trait Methods
      * @param string|null $resname char*
      * @return \FFI\CData|null rd_kafka_ConfigResource_t*
      */
-    public static function rd_kafka_ConfigResource_new(int $restype, ?string $resname): ?\FFI\CData 
+    public static function rd_kafka_ConfigResource_new(int $restype, ?string $resname): ?\FFI\CData
     {
         return static::getFFI()->rd_kafka_ConfigResource_new($restype, $resname);
     }
@@ -2660,7 +2660,7 @@ trait Methods
     /**
      * @param \FFI\CData|null $config rd_kafka_ConfigResource_t*
      */
-    public static function rd_kafka_ConfigResource_destroy(?\FFI\CData $config): void 
+    public static function rd_kafka_ConfigResource_destroy(?\FFI\CData $config): void
     {
         static::getFFI()->rd_kafka_ConfigResource_destroy($config);
     }
@@ -2669,7 +2669,7 @@ trait Methods
      * @param \FFI\CData|null $config rd_kafka_ConfigResource_t**
      * @param int|null $config_cnt size_t
      */
-    public static function rd_kafka_ConfigResource_destroy_array(?\FFI\CData $config, ?int $config_cnt): void 
+    public static function rd_kafka_ConfigResource_destroy_array(?\FFI\CData $config, ?int $config_cnt): void
     {
         static::getFFI()->rd_kafka_ConfigResource_destroy_array($config, $config_cnt);
     }
@@ -2680,7 +2680,7 @@ trait Methods
      * @param string|null $value char*
      * @return int rd_kafka_resp_err_t
      */
-    public static function rd_kafka_ConfigResource_set_config(?\FFI\CData $config, ?string $name, ?string $value): int 
+    public static function rd_kafka_ConfigResource_set_config(?\FFI\CData $config, ?string $name, ?string $value): int
     {
         return static::getFFI()->rd_kafka_ConfigResource_set_config($config, $name, $value);
     }
@@ -2690,7 +2690,7 @@ trait Methods
      * @param \FFI\CData|null $cntp size_t*
      * @return \FFI\CData|null const rd_kafka_ConfigEntry_t**
      */
-    public static function rd_kafka_ConfigResource_configs(?\FFI\CData $config, ?\FFI\CData $cntp): ?\FFI\CData 
+    public static function rd_kafka_ConfigResource_configs(?\FFI\CData $config, ?\FFI\CData $cntp): ?\FFI\CData
     {
         return static::getFFI()->rd_kafka_ConfigResource_configs($config, $cntp);
     }
@@ -2699,7 +2699,7 @@ trait Methods
      * @param \FFI\CData|null $config rd_kafka_ConfigResource_t*
      * @return int rd_kafka_ResourceType_t
      */
-    public static function rd_kafka_ConfigResource_type(?\FFI\CData $config): int 
+    public static function rd_kafka_ConfigResource_type(?\FFI\CData $config): int
     {
         return static::getFFI()->rd_kafka_ConfigResource_type($config);
     }
@@ -2708,7 +2708,7 @@ trait Methods
      * @param \FFI\CData|null $config rd_kafka_ConfigResource_t*
      * @return string|null const char*
      */
-    public static function rd_kafka_ConfigResource_name(?\FFI\CData $config): ?string 
+    public static function rd_kafka_ConfigResource_name(?\FFI\CData $config): ?string
     {
         return static::getFFI()->rd_kafka_ConfigResource_name($config);
     }
@@ -2717,7 +2717,7 @@ trait Methods
      * @param \FFI\CData|null $config rd_kafka_ConfigResource_t*
      * @return int rd_kafka_resp_err_t
      */
-    public static function rd_kafka_ConfigResource_error(?\FFI\CData $config): int 
+    public static function rd_kafka_ConfigResource_error(?\FFI\CData $config): int
     {
         return static::getFFI()->rd_kafka_ConfigResource_error($config);
     }
@@ -2726,7 +2726,7 @@ trait Methods
      * @param \FFI\CData|null $config rd_kafka_ConfigResource_t*
      * @return string|null const char*
      */
-    public static function rd_kafka_ConfigResource_error_string(?\FFI\CData $config): ?string 
+    public static function rd_kafka_ConfigResource_error_string(?\FFI\CData $config): ?string
     {
         return static::getFFI()->rd_kafka_ConfigResource_error_string($config);
     }
@@ -2738,7 +2738,7 @@ trait Methods
      * @param \FFI\CData|null $options rd_kafka_AdminOptions_t*
      * @param \FFI\CData|null $rkqu rd_kafka_queue_t*
      */
-    public static function rd_kafka_AlterConfigs(?\FFI\CData $rk, ?\FFI\CData $configs, ?int $config_cnt, ?\FFI\CData $options, ?\FFI\CData $rkqu): void 
+    public static function rd_kafka_AlterConfigs(?\FFI\CData $rk, ?\FFI\CData $configs, ?int $config_cnt, ?\FFI\CData $options, ?\FFI\CData $rkqu): void
     {
         static::getFFI()->rd_kafka_AlterConfigs($rk, $configs, $config_cnt, $options, $rkqu);
     }
@@ -2748,7 +2748,7 @@ trait Methods
      * @param \FFI\CData|null $cntp size_t*
      * @return \FFI\CData|null const rd_kafka_ConfigResource_t**
      */
-    public static function rd_kafka_AlterConfigs_result_resources(?\FFI\CData $result, ?\FFI\CData $cntp): ?\FFI\CData 
+    public static function rd_kafka_AlterConfigs_result_resources(?\FFI\CData $result, ?\FFI\CData $cntp): ?\FFI\CData
     {
         return static::getFFI()->rd_kafka_AlterConfigs_result_resources($result, $cntp);
     }
@@ -2760,7 +2760,7 @@ trait Methods
      * @param \FFI\CData|null $options rd_kafka_AdminOptions_t*
      * @param \FFI\CData|null $rkqu rd_kafka_queue_t*
      */
-    public static function rd_kafka_DescribeConfigs(?\FFI\CData $rk, ?\FFI\CData $configs, ?int $config_cnt, ?\FFI\CData $options, ?\FFI\CData $rkqu): void 
+    public static function rd_kafka_DescribeConfigs(?\FFI\CData $rk, ?\FFI\CData $configs, ?int $config_cnt, ?\FFI\CData $options, ?\FFI\CData $rkqu): void
     {
         static::getFFI()->rd_kafka_DescribeConfigs($rk, $configs, $config_cnt, $options, $rkqu);
     }
@@ -2770,7 +2770,7 @@ trait Methods
      * @param \FFI\CData|null $cntp size_t*
      * @return \FFI\CData|null const rd_kafka_ConfigResource_t**
      */
-    public static function rd_kafka_DescribeConfigs_result_resources(?\FFI\CData $result, ?\FFI\CData $cntp): ?\FFI\CData 
+    public static function rd_kafka_DescribeConfigs_result_resources(?\FFI\CData $result, ?\FFI\CData $cntp): ?\FFI\CData
     {
         return static::getFFI()->rd_kafka_DescribeConfigs_result_resources($result, $cntp);
     }
@@ -2786,7 +2786,7 @@ trait Methods
      * @param int|null $errstr_size size_t
      * @return int rd_kafka_resp_err_t
      */
-    public static function rd_kafka_oauthbearer_set_token(?\FFI\CData $rk, ?string $token_value, ?int $md_lifetime_ms, ?string $md_principal_name, ?\FFI\CData $extensions, ?int $extension_size, ?\FFI\CData $errstr, ?int $errstr_size): int 
+    public static function rd_kafka_oauthbearer_set_token(?\FFI\CData $rk, ?string $token_value, ?int $md_lifetime_ms, ?string $md_principal_name, ?\FFI\CData $extensions, ?int $extension_size, ?\FFI\CData $errstr, ?int $errstr_size): int
     {
         return static::getFFI()->rd_kafka_oauthbearer_set_token($rk, $token_value, $md_lifetime_ms, $md_principal_name, $extensions, $extension_size, $errstr, $errstr_size);
     }
@@ -2796,7 +2796,7 @@ trait Methods
      * @param string|null $errstr char*
      * @return int rd_kafka_resp_err_t
      */
-    public static function rd_kafka_oauthbearer_set_token_failure(?\FFI\CData $rk, ?string $errstr): int 
+    public static function rd_kafka_oauthbearer_set_token_failure(?\FFI\CData $rk, ?string $errstr): int
     {
         return static::getFFI()->rd_kafka_oauthbearer_set_token_failure($rk, $errstr);
     }
@@ -2806,7 +2806,7 @@ trait Methods
      * @param int|null $timeout_ms int
      * @return \FFI\CData|null rd_kafka_error_t*
      */
-    public static function rd_kafka_init_transactions(?\FFI\CData $rk, ?int $timeout_ms): ?\FFI\CData 
+    public static function rd_kafka_init_transactions(?\FFI\CData $rk, ?int $timeout_ms): ?\FFI\CData
     {
         return static::getFFI()->rd_kafka_init_transactions($rk, $timeout_ms);
     }
@@ -2815,7 +2815,7 @@ trait Methods
      * @param \FFI\CData|null $rk rd_kafka_t*
      * @return \FFI\CData|null rd_kafka_error_t*
      */
-    public static function rd_kafka_begin_transaction(?\FFI\CData $rk): ?\FFI\CData 
+    public static function rd_kafka_begin_transaction(?\FFI\CData $rk): ?\FFI\CData
     {
         return static::getFFI()->rd_kafka_begin_transaction($rk);
     }
@@ -2827,7 +2827,7 @@ trait Methods
      * @param int|null $timeout_ms int
      * @return \FFI\CData|null rd_kafka_error_t*
      */
-    public static function rd_kafka_send_offsets_to_transaction(?\FFI\CData $rk, ?\FFI\CData $offsets, ?\FFI\CData $cgmetadata, ?int $timeout_ms): ?\FFI\CData 
+    public static function rd_kafka_send_offsets_to_transaction(?\FFI\CData $rk, ?\FFI\CData $offsets, ?\FFI\CData $cgmetadata, ?int $timeout_ms): ?\FFI\CData
     {
         return static::getFFI()->rd_kafka_send_offsets_to_transaction($rk, $offsets, $cgmetadata, $timeout_ms);
     }
@@ -2837,7 +2837,7 @@ trait Methods
      * @param int|null $timeout_ms int
      * @return \FFI\CData|null rd_kafka_error_t*
      */
-    public static function rd_kafka_commit_transaction(?\FFI\CData $rk, ?int $timeout_ms): ?\FFI\CData 
+    public static function rd_kafka_commit_transaction(?\FFI\CData $rk, ?int $timeout_ms): ?\FFI\CData
     {
         return static::getFFI()->rd_kafka_commit_transaction($rk, $timeout_ms);
     }
@@ -2847,7 +2847,7 @@ trait Methods
      * @param int|null $timeout_ms int
      * @return \FFI\CData|null rd_kafka_error_t*
      */
-    public static function rd_kafka_abort_transaction(?\FFI\CData $rk, ?int $timeout_ms): ?\FFI\CData 
+    public static function rd_kafka_abort_transaction(?\FFI\CData $rk, ?int $timeout_ms): ?\FFI\CData
     {
         return static::getFFI()->rd_kafka_abort_transaction($rk, $timeout_ms);
     }
@@ -2857,7 +2857,7 @@ trait Methods
      * @param int|null $broker_cnt int
      * @return \FFI\CData|null rd_kafka_mock_cluster_t*
      */
-    public static function rd_kafka_mock_cluster_new(?\FFI\CData $rk, ?int $broker_cnt): ?\FFI\CData 
+    public static function rd_kafka_mock_cluster_new(?\FFI\CData $rk, ?int $broker_cnt): ?\FFI\CData
     {
         return static::getFFI()->rd_kafka_mock_cluster_new($rk, $broker_cnt);
     }
@@ -2865,7 +2865,7 @@ trait Methods
     /**
      * @param \FFI\CData|null $mcluster rd_kafka_mock_cluster_t*
      */
-    public static function rd_kafka_mock_cluster_destroy(?\FFI\CData $mcluster): void 
+    public static function rd_kafka_mock_cluster_destroy(?\FFI\CData $mcluster): void
     {
         static::getFFI()->rd_kafka_mock_cluster_destroy($mcluster);
     }
@@ -2874,7 +2874,7 @@ trait Methods
      * @param \FFI\CData|null $mcluster rd_kafka_mock_cluster_t*
      * @return \FFI\CData|null rd_kafka_t*
      */
-    public static function rd_kafka_mock_cluster_handle(?\FFI\CData $mcluster): ?\FFI\CData 
+    public static function rd_kafka_mock_cluster_handle(?\FFI\CData $mcluster): ?\FFI\CData
     {
         return static::getFFI()->rd_kafka_mock_cluster_handle($mcluster);
     }
@@ -2883,7 +2883,7 @@ trait Methods
      * @param \FFI\CData|null $rk rd_kafka_t*
      * @return \FFI\CData|null rd_kafka_mock_cluster_t*
      */
-    public static function rd_kafka_handle_mock_cluster(?\FFI\CData $rk): ?\FFI\CData 
+    public static function rd_kafka_handle_mock_cluster(?\FFI\CData $rk): ?\FFI\CData
     {
         return static::getFFI()->rd_kafka_handle_mock_cluster($rk);
     }
@@ -2892,7 +2892,7 @@ trait Methods
      * @param \FFI\CData|null $mcluster rd_kafka_mock_cluster_t*
      * @return string|null const char*
      */
-    public static function rd_kafka_mock_cluster_bootstraps(?\FFI\CData $mcluster): ?string 
+    public static function rd_kafka_mock_cluster_bootstraps(?\FFI\CData $mcluster): ?string
     {
         return static::getFFI()->rd_kafka_mock_cluster_bootstraps($mcluster);
     }
@@ -2901,9 +2901,9 @@ trait Methods
      * @param \FFI\CData|null $mcluster rd_kafka_mock_cluster_t*
      * @param int|null $ApiKey signed int
      * @param int|null $cnt size_t
-     * @param mixed ...$args 
+     * @param mixed ...$args
      */
-    public static function rd_kafka_mock_push_request_errors(?\FFI\CData $mcluster, ?int $ApiKey, ?int $cnt, ...$args): void 
+    public static function rd_kafka_mock_push_request_errors(?\FFI\CData $mcluster, ?int $ApiKey, ?int $cnt, ...$args): void
     {
         static::getFFI()->rd_kafka_mock_push_request_errors($mcluster, $ApiKey, $cnt, ...$args);
     }
@@ -2913,7 +2913,7 @@ trait Methods
      * @param string|null $topic char*
      * @param int $err rd_kafka_resp_err_t
      */
-    public static function rd_kafka_mock_topic_set_error(?\FFI\CData $mcluster, ?string $topic, int $err): void 
+    public static function rd_kafka_mock_topic_set_error(?\FFI\CData $mcluster, ?string $topic, int $err): void
     {
         static::getFFI()->rd_kafka_mock_topic_set_error($mcluster, $topic, $err);
     }
@@ -2925,7 +2925,7 @@ trait Methods
      * @param int|null $replication_factor int
      * @return int rd_kafka_resp_err_t
      */
-    public static function rd_kafka_mock_topic_create(?\FFI\CData $mcluster, ?string $topic, ?int $partition_cnt, ?int $replication_factor): int 
+    public static function rd_kafka_mock_topic_create(?\FFI\CData $mcluster, ?string $topic, ?int $partition_cnt, ?int $replication_factor): int
     {
         return static::getFFI()->rd_kafka_mock_topic_create($mcluster, $topic, $partition_cnt, $replication_factor);
     }
@@ -2937,7 +2937,7 @@ trait Methods
      * @param int|null $broker_id signed int
      * @return int rd_kafka_resp_err_t
      */
-    public static function rd_kafka_mock_partition_set_leader(?\FFI\CData $mcluster, ?string $topic, ?int $partition, ?int $broker_id): int 
+    public static function rd_kafka_mock_partition_set_leader(?\FFI\CData $mcluster, ?string $topic, ?int $partition, ?int $broker_id): int
     {
         return static::getFFI()->rd_kafka_mock_partition_set_leader($mcluster, $topic, $partition, $broker_id);
     }
@@ -2949,7 +2949,7 @@ trait Methods
      * @param int|null $broker_id signed int
      * @return int rd_kafka_resp_err_t
      */
-    public static function rd_kafka_mock_partition_set_follower(?\FFI\CData $mcluster, ?string $topic, ?int $partition, ?int $broker_id): int 
+    public static function rd_kafka_mock_partition_set_follower(?\FFI\CData $mcluster, ?string $topic, ?int $partition, ?int $broker_id): int
     {
         return static::getFFI()->rd_kafka_mock_partition_set_follower($mcluster, $topic, $partition, $broker_id);
     }
@@ -2962,7 +2962,7 @@ trait Methods
      * @param int|null $hi signed long int
      * @return int rd_kafka_resp_err_t
      */
-    public static function rd_kafka_mock_partition_set_follower_wmarks(?\FFI\CData $mcluster, ?string $topic, ?int $partition, ?int $lo, ?int $hi): int 
+    public static function rd_kafka_mock_partition_set_follower_wmarks(?\FFI\CData $mcluster, ?string $topic, ?int $partition, ?int $lo, ?int $hi): int
     {
         return static::getFFI()->rd_kafka_mock_partition_set_follower_wmarks($mcluster, $topic, $partition, $lo, $hi);
     }
@@ -2972,7 +2972,7 @@ trait Methods
      * @param int|null $broker_id signed int
      * @return int rd_kafka_resp_err_t
      */
-    public static function rd_kafka_mock_broker_set_down(?\FFI\CData $mcluster, ?int $broker_id): int 
+    public static function rd_kafka_mock_broker_set_down(?\FFI\CData $mcluster, ?int $broker_id): int
     {
         return static::getFFI()->rd_kafka_mock_broker_set_down($mcluster, $broker_id);
     }
@@ -2982,7 +2982,7 @@ trait Methods
      * @param int|null $broker_id signed int
      * @return int rd_kafka_resp_err_t
      */
-    public static function rd_kafka_mock_broker_set_up(?\FFI\CData $mcluster, ?int $broker_id): int 
+    public static function rd_kafka_mock_broker_set_up(?\FFI\CData $mcluster, ?int $broker_id): int
     {
         return static::getFFI()->rd_kafka_mock_broker_set_up($mcluster, $broker_id);
     }
@@ -2993,7 +2993,7 @@ trait Methods
      * @param string|null $rack char*
      * @return int rd_kafka_resp_err_t
      */
-    public static function rd_kafka_mock_broker_set_rack(?\FFI\CData $mcluster, ?int $broker_id, ?string $rack): int 
+    public static function rd_kafka_mock_broker_set_rack(?\FFI\CData $mcluster, ?int $broker_id, ?string $rack): int
     {
         return static::getFFI()->rd_kafka_mock_broker_set_rack($mcluster, $broker_id, $rack);
     }
@@ -3005,7 +3005,7 @@ trait Methods
      * @param int|null $broker_id signed int
      * @return int rd_kafka_resp_err_t
      */
-    public static function rd_kafka_mock_coordinator_set(?\FFI\CData $mcluster, ?string $key_type, ?string $key, ?int $broker_id): int 
+    public static function rd_kafka_mock_coordinator_set(?\FFI\CData $mcluster, ?string $key_type, ?string $key, ?int $broker_id): int
     {
         return static::getFFI()->rd_kafka_mock_coordinator_set($mcluster, $key_type, $key, $broker_id);
     }
@@ -3017,9 +3017,8 @@ trait Methods
      * @param int|null $MaxVersion signed int
      * @return int rd_kafka_resp_err_t
      */
-    public static function rd_kafka_mock_set_apiversion(?\FFI\CData $mcluster, ?int $ApiKey, ?int $MinVersion, ?int $MaxVersion): int 
+    public static function rd_kafka_mock_set_apiversion(?\FFI\CData $mcluster, ?int $ApiKey, ?int $MinVersion, ?int $MaxVersion): int
     {
         return static::getFFI()->rd_kafka_mock_set_apiversion($mcluster, $ApiKey, $MinVersion, $MaxVersion);
     }
-
 }

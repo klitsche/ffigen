@@ -20,7 +20,6 @@ class EnumDeclTranslator extends AbstractTranslator
         Expr\UnaryOperator::KIND_BITWISE_NOT => '~',
         Expr\UnaryOperator::KIND_LOGICAL_NOT => '!',
     ];
-
     private const EXPR_BINARY_OPERATORS = [
         Expr\BinaryOperator::KIND_ADD => '+',
         Expr\BinaryOperator::KIND_SUB => '-',

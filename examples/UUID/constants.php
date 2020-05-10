@@ -11,59 +11,74 @@ namespace Klitsche\FFIGen\Examples\UUID;
  * #define
  */
 const UUID_VARIANT_NCS = 0;
+
 /**
  * #define
  */
 const UUID_VARIANT_DCE = 1;
+
 /**
  * #define
  */
 const UUID_VARIANT_MICROSOFT = 2;
+
 /**
  * #define
  */
 const UUID_VARIANT_OTHER = 3;
+
 /**
  * #define
  */
 const UUID_VARIANT_SHIFT = 5;
+
 /**
  * #define
  */
 const UUID_VARIANT_MASK = 7;
+
 /**
  * #define
  */
 const UUID_TYPE_DCE_TIME = 1;
+
 /**
  * #define
  */
 const UUID_TYPE_DCE_SECURITY = 2;
+
 /**
  * #define
  */
 const UUID_TYPE_DCE_MD5 = 3;
+
 /**
  * #define
  */
 const UUID_TYPE_DCE_RANDOM = 4;
+
 /**
  * #define
  */
 const UUID_TYPE_DCE_SHA1 = 5;
+
 /**
  * #define
  */
 const UUID_TYPE_SHIFT = 4;
+
 /**
  * #define
  */
 const UUID_TYPE_MASK = 15;
+
 /**
  * #define
  */
 const UUID_STR_LEN = 37;
+
 /**
+ * uuid/uuid.h
  */
 const FFI_CDEF = 'typedef long time_t;
 typedef unsigned char uuid_t[16];
@@ -86,6 +101,7 @@ extern int uuid_type(const uuid_t uu);
 extern int uuid_variant(const uuid_t uu);
 const extern uuid_t *uuid_get_template(const char *alias);
 ';
+
 /**
  */
 const FFI_LIB = 'libuuid.so.1';

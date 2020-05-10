@@ -19,20 +19,14 @@ use PHPCParser\Printer\C;
 class Parser implements ParserInterface
 {
     protected Config $config;
-
     protected CParser $cparser;
-
     protected Context $context;
-
     /**
-     * @var array|Decl
+     * @var Decl[]
      */
     protected array $declarations;
-
     protected DefinesCollection $defines;
-
     protected TypesCollection $types;
-
     protected string $cDef;
 
     public function __construct(Config $config)

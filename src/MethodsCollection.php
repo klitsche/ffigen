@@ -4,11 +4,9 @@ declare(strict_types=1);
 
 namespace Klitsche\FFIGen;
 
-use function iter\rewindable\filter;
-
 use Klitsche\FFIGen\Types\Function_;
 
-class MethodsCollection implements \IteratorAggregate
+class MethodsCollection implements \IteratorAggregate, \Countable
 {
     private TypesCollection $types;
     private array $exclude;
@@ -19,29 +17,12 @@ class MethodsCollection implements \IteratorAggregate
         $this->exclude = $exclude;
     }
 
+    /**
+     * @return \Generator|\Traversable|Method[]
+     */
     public function getIterator()
     {
-        return filter(
-            $this->getExcludeFilter(),
-            $this->getMethods()
-        );
-    }
-
-    private function getExcludeFilter(): \Closure
-    {
-        $exclude = $this->exclude;
-
-        return \Closure::fromCallable(
-            function (Method $method) use ($exclude) {
-                foreach ($exclude as $pattern) {
-                    if (preg_match($pattern, $method->getName())) {
-                        return false;
-                    }
-                }
-
-                return true;
-            }
-        );
+        yield from $this->getMethods();
     }
 
     /**
@@ -51,18 +32,41 @@ class MethodsCollection implements \IteratorAggregate
     {
         foreach ($this->types as $type) {
             if ($type instanceof Function_) {
-                $return = new MethodParameter($type->getReturn(), null, $type->getReturn()->getCType());
-                $params = [];
-                foreach ($type->getParams() as $name => $paramType) {
-                    $params[] = new MethodParameter($paramType, $name, $paramType->getCType());
+                if ($this->isExcluded($type->getName())) {
+                    continue;
                 }
-                if ($type->isVariadic()) {
-                    $params[] = new MethodParameter(null, 'args', '', true);
-                }
-                yield $type->getName() => new Method($type->getName(), $params, $return, '');
+                yield from $this->getMethod($type);
             }
         }
-//        yield from new \EmptyIterator();
-        yield from [];
+    }
+
+    private function isExcluded(string $name)
+    {
+        foreach ($this->exclude as $pattern) {
+            if (preg_match($pattern, $name) > 0) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private function getMethod(Function_ $type)
+    {
+        $params = [];
+        foreach ($type->getParams() as $name => $paramType) {
+            $params[] = new MethodParameter($paramType, $name, $paramType->getCType());
+        }
+        if ($type->isVariadic()) {
+            $params[] = new MethodParameter(null, 'args', '', true);
+        }
+
+        $return = new MethodReturnParameter($type->getReturn(), $type->getReturn()->getCType());
+
+        yield $type->getName() => new Method($type->getName(), $params, $return, '');
+    }
+
+    public function count()
+    {
+        return iterator_count($this->getIterator());
     }
 }
