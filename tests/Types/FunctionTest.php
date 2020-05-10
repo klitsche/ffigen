@@ -11,7 +11,7 @@ use PHPUnit\Framework\TestCase;
  */
 class FunctionTest extends TestCase
 {
-    public function testGetterWithoutDeclarationName()
+    public function testGetterWithoutDeclarationName(): void
     {
         $type = (new Function_(
             $return = new Builtin('void'),
@@ -33,7 +33,7 @@ class FunctionTest extends TestCase
         $this->assertSame($params, $type->getParams());
     }
 
-    public function testGetterWithDeclarationName()
+    public function testGetterWithDeclarationName(): void
     {
         $type = (new Function_(
             $return = new Builtin('void'),

@@ -11,7 +11,7 @@ use PHPUnit\Framework\TestCase;
  */
 class EnumTest extends TestCase
 {
-    public function testGetterWithDeclarationName()
+    public function testGetterWithDeclarationName(): void
     {
         $type = (new Enum('any'))
             ->withDeclarationName('some')
@@ -28,7 +28,7 @@ class EnumTest extends TestCase
         $this->assertSame(['ONE' => 1, 'TWO' => 2], $type->getValues());
     }
 
-    public function testGetterWithoutDeclarationName()
+    public function testGetterWithoutDeclarationName(): void
     {
         $type = (new Enum('any'))
             ->add('ONE', 1)

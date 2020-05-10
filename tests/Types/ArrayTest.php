@@ -11,7 +11,7 @@ use PHPUnit\Framework\TestCase;
  */
 class ArrayTest extends TestCase
 {
-    public function testGetterWithoutSize()
+    public function testGetterWithoutSize(): void
     {
         $type = (new Array_(new Builtin('int')))
             ->withDeclarationName('some');
@@ -25,7 +25,7 @@ class ArrayTest extends TestCase
         $this->assertSame('\FFI\CData|null', $type->getPhpDocTypes());
     }
 
-    public function testGetterWithSize()
+    public function testGetterWithSize(): void
     {
         $type = (new Array_(new Builtin('int'), 23))
             ->withDeclarationName('some');

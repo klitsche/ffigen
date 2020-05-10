@@ -11,7 +11,7 @@ use PHPUnit\Framework\TestCase;
  */
 class StructTest extends TestCase
 {
-    public function testGetterWithoutDeclarationName()
+    public function testGetterWithoutDeclarationName(): void
     {
         $type = (new Struct('any', false))
             ->add('field1', $field1 = new Builtin('int'))
@@ -28,7 +28,7 @@ class StructTest extends TestCase
         $this->assertFalse($type->isUnion());
     }
 
-    public function testGetterWithDeclarationName()
+    public function testGetterWithDeclarationName(): void
     {
         $type = (new Struct('any', false))
             ->withDeclarationName('some')
@@ -46,7 +46,7 @@ class StructTest extends TestCase
         $this->assertFalse($type->isUnion());
     }
 
-    public function testGetterWithUnionAndWithoutDeclarationName()
+    public function testGetterWithUnionAndWithoutDeclarationName(): void
     {
         $type = (new Struct('any', true))
             ->add('field1', $field1 = new Builtin('int'))

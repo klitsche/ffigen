@@ -11,7 +11,7 @@ use PHPUnit\Framework\TestCase;
  */
 class FunctionPointerTest extends TestCase
 {
-    public function testGetterWithoutDeclarationName()
+    public function testGetterWithoutDeclarationName(): void
     {
         $function = (new Function_(
             new Builtin('void'),
@@ -34,7 +34,7 @@ class FunctionPointerTest extends TestCase
         $this->assertSame('\FFI\CData|\Closure', $type->getPhpDocTypes());
     }
 
-    public function testGetterWithDeclarationName()
+    public function testGetterWithDeclarationName(): void
     {
         $function = (new Function_(
             new Builtin('void'),

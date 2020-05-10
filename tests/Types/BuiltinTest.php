@@ -11,7 +11,7 @@ use PHPUnit\Framework\TestCase;
  */
 class BuiltinTest extends TestCase
 {
-    public function testGetterWithInt()
+    public function testGetterWithInt(): void
     {
         $type = (new Builtin('int16_t'))
             ->withDeclarationName('some');
@@ -24,7 +24,7 @@ class BuiltinTest extends TestCase
         $this->assertSame('int|null', $type->getPhpDocTypes());
     }
 
-    public function testGetterWithFloat()
+    public function testGetterWithFloat(): void
     {
         $type = (new Builtin('long double'))
             ->withDeclarationName('some');
@@ -37,7 +37,7 @@ class BuiltinTest extends TestCase
         $this->assertSame('float|null', $type->getPhpDocTypes());
     }
 
-    public function testGetterWithChar()
+    public function testGetterWithChar(): void
     {
         $type = (new Builtin('unsigned char'))
             ->withDeclarationName('some');
@@ -50,7 +50,7 @@ class BuiltinTest extends TestCase
         $this->assertSame('int|null', $type->getPhpDocTypes());
     }
 
-    public function testGetterWithVoid()
+    public function testGetterWithVoid(): void
     {
         $type = new Builtin('void');
 
@@ -62,7 +62,7 @@ class BuiltinTest extends TestCase
         $this->assertSame('void', $type->getPhpDocTypes());
     }
 
-    public function testNotMappableCType()
+    public function testNotMappableCType(): void
     {
         $this->assertFalse(Builtin::isMappable('nope'));
 

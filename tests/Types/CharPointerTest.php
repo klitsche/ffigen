@@ -12,7 +12,7 @@ use PHPUnit\Framework\TestCase;
  */
 class CharPointerTest extends TestCase
 {
-    public function testGetterWithConst()
+    public function testGetterWithConst(): void
     {
         $type = (new CharPointer(new Builtin('char')))
             ->withDeclarationName('some')
@@ -28,7 +28,7 @@ class CharPointerTest extends TestCase
         $this->assertTrue($type->isConst());
     }
 
-    public function testGetterWithoutConst()
+    public function testGetterWithoutConst(): void
     {
         $type = (new CharPointer(new Builtin('char')))
             ->withDeclarationName('some');

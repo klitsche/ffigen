@@ -11,7 +11,7 @@ use PHPUnit\Framework\TestCase;
  */
 class PointerTest extends TestCase
 {
-    public function testGetterWithNonVoid()
+    public function testGetterWithNonVoid(): void
     {
         $type = (new Pointer(new Builtin('int')))
             ->withDeclarationName('some');
@@ -25,7 +25,7 @@ class PointerTest extends TestCase
         $this->assertSame('\FFI\CData|null', $type->getPhpDocTypes());
     }
 
-    public function testGetterWithVoid()
+    public function testGetterWithVoid(): void
     {
         $type = (new Pointer(new Builtin('void')))
             ->withDeclarationName('some');
