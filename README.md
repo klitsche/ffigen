@@ -1,5 +1,9 @@
 # ffigen - a FFI bindings generator for PHP
 
+[![Build Status](https://travis-ci.org/klitsche/ffigen.svg?branch=master)](https://travis-ci.org/klitsche/ffigen)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/74ba131ab73c58dc2864/test_coverage)](https://codeclimate.com/github/klitsche/ffigen/test_coverage)
+[![Maintainability](https://api.codeclimate.com/v1/badges/74ba131ab73c58dc2864/maintainability)](https://codeclimate.com/github/klitsche/ffigen/maintainability)
+
 `ffigen` is a simple cli helper to quickly generate and update PHP FFI bindings for C libraries. 
 
 It generates two PHP files out of provided C header file(s):
@@ -99,7 +103,7 @@ class Parser extends \Klitsche\FFIGen\Adapter\PHPCParser\Parser
 
 Do not forget to register the Parser namespace in your composer.json for autoloading (dev is okay):
 
-```json
+```jso
     "autoload-dev": {
         "psr-4": {
             "Klitsche\\FFIGen\\Examples\\": "examples"
@@ -122,7 +126,7 @@ This generates the two files in the output path:
 
 Do not forget to add `constants.php` to your compose.json for autoloading:
 
-```json
+```jso
     "autoload": {
         "files": [
           "tweak-path-to/constants.php",
