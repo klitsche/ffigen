@@ -164,4 +164,4 @@ Run rdkafka example (librdkafka 1.4.0 & mock cluster)
 * [ ] Add more examples (and learn from them)
 * [ ] Think about multi version support
 * [ ] Think about custom interface / class generation for types
-* [ ] Think about clang adapter (pp-trace yml & clang ast-dump as json)
+* [ ] Think about clang / cpp / readelf adapter (cpp defines only & clean file, clang -c11 ast-dump=json, readelf --dyn-syms)
