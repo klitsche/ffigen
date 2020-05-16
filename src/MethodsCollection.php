@@ -10,11 +10,16 @@ class MethodsCollection implements \IteratorAggregate, \Countable
 {
     private TypesCollection $types;
     private array $exclude;
+    /**
+     * @var Method[]
+     */
+    private array $additionalMethods;
 
     public function __construct(TypesCollection $types, array $exclude = [])
     {
         $this->types = $types;
         $this->exclude = $exclude;
+        $this->additionalMethods = [];
     }
 
     /**
@@ -23,6 +28,12 @@ class MethodsCollection implements \IteratorAggregate, \Countable
     public function getIterator()
     {
         yield from $this->getMethods();
+        yield from $this->getAdditionalMethods();
+    }
+
+    public function add(Method $method): void
+    {
+        $this->additionalMethods[] = $method;
     }
 
     /**
@@ -70,6 +81,16 @@ class MethodsCollection implements \IteratorAggregate, \Countable
         );
 
         yield $type->getName() => new Method($type->getName(), $params, $return, '');
+    }
+
+    private function getAdditionalMethods(): iterable
+    {
+        foreach ($this->additionalMethods as $method) {
+            if ($this->isExcluded($method->getName())) {
+                continue;
+            }
+            yield $method->getName() => $method;
+        }
     }
 
     public function count()

@@ -39,10 +39,12 @@ class MethodsCollectionTest extends TestCase
                     false
                 ))->withDeclarationName('func3'),
             ),
-            ['/func2$/']
+            ['/func(2|4)$/']
         );
+        $collection->add(new Method('func4', [], null, ''));
+        $collection->add(new Method('func5', [], null, ''));
 
-        $this->assertCount(2, $collection);
+        $this->assertCount(3, $collection);
 
         $methods = [];
         foreach ($collection as $name => $method) {
@@ -52,6 +54,7 @@ class MethodsCollectionTest extends TestCase
             [
                 'func1' => 'func1',
                 'func3' => 'func3',
+                'func5' => 'func5',
             ],
             $methods
         );

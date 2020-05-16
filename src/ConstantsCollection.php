@@ -11,7 +11,6 @@ class ConstantsCollection implements \IteratorAggregate, \Countable
     private DefinesCollection $defines;
     private TypesCollection $types;
     private array $exclude;
-
     /**
      * @var Constant[]
      */
