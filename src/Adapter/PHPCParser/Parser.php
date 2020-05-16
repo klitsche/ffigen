@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Klitsche\FFIGen\Adapter\PHPCParser;
 
-use Klitsche\FFIGen\Config;
+use Klitsche\FFIGen\ConfigInterface;
 use Klitsche\FFIGen\DefinesCollection;
 use Klitsche\FFIGen\ParserInterface;
 use Klitsche\FFIGen\TypesCollection;
@@ -18,7 +18,7 @@ use PHPCParser\Printer\C;
  */
 class Parser implements ParserInterface
 {
-    protected Config $config;
+    protected ConfigInterface $config;
     protected CParser $cparser;
     protected Context $context;
     /**
@@ -29,7 +29,7 @@ class Parser implements ParserInterface
     protected TypesCollection $types;
     protected string $cDef;
 
-    public function __construct(Config $config)
+    public function __construct(ConfigInterface $config)
     {
         $this->config = $config;
         $this->cparser = new CParser();
