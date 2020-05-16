@@ -25,9 +25,7 @@ const SNAPPY_BUFFER_TOO_SMALL = 2;
 /**
  * snappy-c.h
  */
-const FFI_CDEF = 'typedef long int ptrdiff_t;
-typedef int wchar_t;
-typedef enum {
+const FFI_CDEF = 'typedef enum {
   SNAPPY_OK = 0,
   SNAPPY_INVALID_INPUT = 1,
   SNAPPY_BUFFER_TOO_SMALL = 2,

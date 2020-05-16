@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace Klitsche\FFIGen;
 
-use Klitsche\FFIGen\Types\Builtin;
-use Klitsche\FFIGen\Types\Function_;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -16,38 +14,20 @@ class MethodsCollectionTest extends TestCase
     public function testFilter(): void
     {
         $collection = new MethodsCollection(
-            new TypesCollection(
-                (new Function_(
-                    new Builtin('void'),
-                    [
-                        'param1' => new Builtin('int'),
-                    ],
-                    true
-                ))->withDeclarationName('func1'),
-                (new Function_(
-                    new Builtin('float'),
-                    [
-                        'param1' => new Builtin('int'),
-                    ],
-                    false
-                ))->withDeclarationName('func2'),
-                (new Function_(
-                    new Builtin('int'),
-                    [
-                        'param1' => new Builtin('int'),
-                    ],
-                    false
-                ))->withDeclarationName('func3'),
-            ),
-            ['/func(2|4)$/']
+            new Method('func1', [], null, ''),
+            new Method('func2', [], null, ''),
+            new Method('func3', [], null, ''),
         );
         $collection->add(new Method('func4', [], null, ''));
         $collection->add(new Method('func5', [], null, ''));
 
-        $this->assertCount(3, $collection);
+        $this->assertCount(5, $collection);
 
+        $filteredCollections = $collection->filter(['/func(2|4)$/']);
+
+        $this->assertCount(3, $filteredCollections);
         $methods = [];
-        foreach ($collection as $name => $method) {
+        foreach ($filteredCollections as $name => $method) {
             $methods[$name] = $method->getName();
         }
         $this->assertSame(
@@ -62,7 +42,7 @@ class MethodsCollectionTest extends TestCase
 
     public function testEmpty(): void
     {
-        $collection = new MethodsCollection(new TypesCollection());
+        $collection = new MethodsCollection();
 
         $this->assertCount(0, $collection);
     }

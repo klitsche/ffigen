@@ -22,24 +22,25 @@ class Generator implements GeneratorInterface
         $defines = $this->parser->getDefines();
         $types = $this->parser->getTypes();
 
-        $constants = new ConstantsCollection(
+        $constantsCollector = new ConstantsCollector();
+        $constants = $constantsCollector->collect(
             $defines,
             $types,
-            $this->config->getExcludeConstants()
         );
         $constants->add(new Constant('FFI_CDEF', $this->parser->getCDef(), implode(', ', $this->config->getHeaderFiles())));
         $constants->add(new Constant('FFI_LIB', $this->config->getLibraryFile(), 'c library file name'));
 
         $filesystem = new Filesystem();
 
-        $constantsPrinter = new ConstantsPrinter($constants);
+        $constantsPrinter = new ConstantsPrinter($constants->filter($this->config->getExcludeConstants()));
         $filesystem->dumpFile(
             $this->config->getOutputPath() . '/constants.php',
             $constantsPrinter->print($this->config->getNamespace())
         );
 
-        $methods = new MethodsCollection($types, $this->config->getExcludeMethods());
-        $methodsPrinter = new MethodsPrinter($methods);
+        $methodsCollector = new MethodsCollector();
+        $methods = $methodsCollector->collect($types);
+        $methodsPrinter = new MethodsPrinter($methods->filter($this->config->getExcludeMethods()));
         $filesystem->dumpFile(
             $this->config->getOutputPath() . '/Methods.php',
             $methodsPrinter->print($this->config->getNamespace())

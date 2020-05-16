@@ -4,22 +4,19 @@ declare(strict_types=1);
 
 namespace Klitsche\FFIGen;
 
-use Klitsche\FFIGen\Types\Function_;
-
 class MethodsCollection implements \IteratorAggregate, \Countable
 {
-    private TypesCollection $types;
-    private array $exclude;
     /**
      * @var Method[]
      */
-    private array $additionalMethods;
+    private array $methods;
 
-    public function __construct(TypesCollection $types, array $exclude = [])
+    public function __construct(Method ...$methods)
     {
-        $this->types = $types;
-        $this->exclude = $exclude;
-        $this->additionalMethods = [];
+        $this->methods = [];
+        foreach ($methods as $method) {
+            $this->methods[$method->getName()] = $method;
+        }
     }
 
     /**
@@ -27,33 +24,31 @@ class MethodsCollection implements \IteratorAggregate, \Countable
      */
     public function getIterator()
     {
-        yield from $this->getMethods();
-        yield from $this->getAdditionalMethods();
+        foreach ($this->methods as $method) {
+            yield $method->getName() => $method;
+        }
+    }
+
+    public function filter(array $exclude)
+    {
+        $methods = [];
+        foreach ($this->methods as $method) {
+            if ($this->isExcluded($method->getName(), $exclude)) {
+                continue;
+            }
+            $methods[] = $method;
+        }
+        return new static(...$methods);
     }
 
     public function add(Method $method): void
     {
-        $this->additionalMethods[] = $method;
+        $this->methods[$method->getName()] = $method;
     }
 
-    /**
-     * @return iterable|Method[]
-     */
-    private function getMethods(): iterable
+    private function isExcluded(string $name, array $exclude)
     {
-        foreach ($this->types as $type) {
-            if ($type instanceof Function_) {
-                if ($this->isExcluded($type->getName())) {
-                    continue;
-                }
-                yield from $this->getMethod($type);
-            }
-        }
-    }
-
-    private function isExcluded(string $name)
-    {
-        foreach ($this->exclude as $pattern) {
+        foreach ($exclude as $pattern) {
             if (preg_match($pattern, $name) > 0) {
                 return true;
             }
@@ -61,40 +56,8 @@ class MethodsCollection implements \IteratorAggregate, \Countable
         return false;
     }
 
-    private function getMethod(Function_ $type)
-    {
-        $params = [];
-        foreach ($type->getParams() as $name => $paramType) {
-            $params[] = new MethodParameter(
-                $paramType,
-                $name,
-                $paramType->getCType()
-            );
-        }
-        if ($type->isVariadic()) {
-            $params[] = new MethodParameter(null, 'args', '', true);
-        }
-
-        $return = new MethodReturnParameter(
-            $type->getReturn(),
-            $type->getReturn()->getCType()
-        );
-
-        yield $type->getName() => new Method($type->getName(), $params, $return, '');
-    }
-
-    private function getAdditionalMethods(): iterable
-    {
-        foreach ($this->additionalMethods as $method) {
-            if ($this->isExcluded($method->getName())) {
-                continue;
-            }
-            yield $method->getName() => $method;
-        }
-    }
-
     public function count()
     {
-        return iterator_count($this->getIterator());
+        return count($this->methods);
     }
 }
