@@ -20,13 +20,11 @@ class MethodsCollection implements \IteratorAggregate, \Countable
     }
 
     /**
-     * @return \Generator|\Traversable|Method[]
+     * @return \ArrayIterator|\Traversable|Method[]
      */
     public function getIterator()
     {
-        foreach ($this->methods as $method) {
-            yield $method->getName() => $method;
-        }
+        return new \ArrayIterator($this->methods);
     }
 
     public function filter(array $exclude)

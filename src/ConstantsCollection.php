@@ -20,13 +20,11 @@ class ConstantsCollection implements \IteratorAggregate, \Countable
     }
 
     /**
-     * @return \Iterator|\Traversable|Constant[]
+     * @return \ArrayIterator|\Traversable|Constant[]
      */
     public function getIterator()
     {
-        foreach ($this->constants as $constant) {
-            yield $constant->getName() => $constant;
-        }
+        return new \ArrayIterator($this->constants);
     }
 
     public function filter(array $exclude)
