@@ -9,25 +9,25 @@ use Symfony\Component\Filesystem\Filesystem;
 class Generator implements GeneratorInterface
 {
     private ConfigInterface $config;
-    private ParserInterface $parser;
 
-    public function __construct(ConfigInterface $config, ParserInterface $parser)
+    public function __construct(ConfigInterface $config)
     {
         $this->config = $config;
-        $this->parser = $parser;
     }
 
     public function generate(): void
     {
-        $defines = $this->parser->getDefines();
-        $types = $this->parser->getTypes();
+        $parser = $this->createParser();
+
+        $defines = $parser->getDefines();
+        $types = $parser->getTypes();
 
         $constantsCollector = new ConstantsCollector();
         $constants = $constantsCollector->collect(
             $defines,
             $types,
         );
-        $constants->add(new Constant('FFI_CDEF', $this->parser->getCDef(), implode(', ', $this->config->getHeaderFiles())));
+        $constants->add(new Constant('FFI_CDEF', $parser->getCDef(), implode(', ', $this->config->getHeaderFiles())));
         $constants->add(new Constant('FFI_LIB', $this->config->getLibraryFile(), 'c library file name'));
 
         $filesystem = new Filesystem();
@@ -45,5 +45,11 @@ class Generator implements GeneratorInterface
             $this->config->getOutputPath() . '/Methods.php',
             $methodsPrinter->print($this->config->getNamespace())
         );
+    }
+
+    protected function createParser(): ParserInterface
+    {
+        $parserClass = $this->config->getParserClass();
+        return new $parserClass($this->config);
     }
 }

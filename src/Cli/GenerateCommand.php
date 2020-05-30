@@ -7,7 +7,6 @@ namespace Klitsche\FFIGen\Cli;
 use Klitsche\FFIGen\Config;
 use Klitsche\FFIGen\ConfigInterface;
 use Klitsche\FFIGen\GeneratorInterface;
-use Klitsche\FFIGen\ParserInterface;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
@@ -62,12 +61,6 @@ class GenerateCommand extends Command
     private function createGenerator(ConfigInterface $config): GeneratorInterface
     {
         $generatorClass = $config->getGeneratorClass();
-        return new $generatorClass($config, $this->createParser($config));
-    }
-
-    private function createParser(ConfigInterface $config): ParserInterface
-    {
-        $parserClass = $config->getParserClass();
-        return new $parserClass($config);
+        return new $generatorClass($config);
     }
 }
