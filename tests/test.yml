@@ -1,5 +1,8 @@
 headerFiles:
   - test.h
+headerSearchPaths:
+  - temp
+  - /temp
 libraryFile: AnyLibrary
 parserClass: Some\Parser
 generatorClass: Some\Generator

@@ -64,6 +64,13 @@ class Config implements ConfigInterface
             $config->outputPath = dirname($configYamlFile) . rtrim('/' . $config->outputPath, '/');
         }
 
+        // handle relative header search paths
+        foreach ($config->headerSearchPaths as $i => $searchPath) {
+            if ($filesystem->isAbsolutePath($searchPath) === false) {
+                $config->headerSearchPaths[$i] = dirname($configYamlFile) . rtrim('/' . $searchPath, '/');
+            }
+        }
+
         return $config;
     }
 

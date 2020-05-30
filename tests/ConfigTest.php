@@ -17,7 +17,13 @@ class ConfigTest extends TestCase
 
         $this->assertSame(__DIR__ . '/temp', $config->getOutputPath());
         $this->assertSame(['test.h'], $config->getHeaderFiles());
-        $this->assertSame([], $config->getHeaderSearchPaths());
+        $this->assertSame(
+            [
+                __DIR__ . '/temp',
+                '/temp',
+            ],
+            $config->getHeaderSearchPaths()
+        );
         $this->assertSame('Some\Parser', $config->getParserClass());
         $this->assertSame('Some\Generator', $config->getGeneratorClass());
         $this->assertSame(['/^AnyConstants/'], $config->getExcludeConstants());
