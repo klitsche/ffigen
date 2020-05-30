@@ -12,3 +12,9 @@ parameters:
     PhpCsFixer\Fixer\PhpUnit\PhpUnitStrictFixer:
       - tests/Adapter/PHPCParser/TypesCollectorTest.php
       - tests/Adapter/PHPCParser/DefinesCollectorTest.php
+services:
+  PhpCsFixer\Fixer\Import\OrderedImportsFixer:
+    imports_order:
+      - class
+      - const
+      - function
