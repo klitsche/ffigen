@@ -1,6 +1,6 @@
 # ffigen - a FFI bindings generator for PHP
 
-[![Build Status](https://travis-ci.org/klitsche/ffigen.svg?branch=master)](https://travis-ci.org/klitsche/ffigen)
+[![Build Status](https://travis-ci.com/klitsche/ffigen.svg?branch=main)](https://travis-ci.com/klitsche/ffigen)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/74ba131ab73c58dc2864/test_coverage)](https://codeclimate.com/github/klitsche/ffigen/test_coverage)
 [![Maintainability](https://api.codeclimate.com/v1/badges/74ba131ab73c58dc2864/maintainability)](https://codeclimate.com/github/klitsche/ffigen/maintainability)
 
