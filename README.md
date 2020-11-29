@@ -159,7 +159,7 @@ Run rdkafka example (librdkafka 1.5.2 & mock cluster)
 ## Todos
 
 * [x] Add travis 
-* [ ] Add more tests 
+* [x] Add more tests 
 * [ ] Add documentation
 * [ ] Add support for Windows, macOS
 * [ ] Add more examples (and learn from them)
