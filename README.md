@@ -3,7 +3,7 @@
 [![Build Status](https://travis-ci.com/klitsche/ffigen.svg?branch=main)](https://travis-ci.com/klitsche/ffigen)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/74ba131ab73c58dc2864/test_coverage)](https://codeclimate.com/github/klitsche/ffigen/test_coverage)
 [![Maintainability](https://api.codeclimate.com/v1/badges/74ba131ab73c58dc2864/maintainability)](https://codeclimate.com/github/klitsche/ffigen/maintainability)
-![Packagist Version](https://img.shields.io/packagist/v/klitsche/ffigen)
+[![Packagist Version](https://img.shields.io/packagist/v/klitsche/ffigen)](https://packagist.org/packages/klitsche/ffigen)
 
 `ffigen` is a simple cli helper to quickly generate and update low level PHP FFI bindings for C libraries. 
 
