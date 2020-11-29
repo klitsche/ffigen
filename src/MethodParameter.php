@@ -21,7 +21,7 @@ class MethodParameter
         $this->initDocBlockTag($description);
     }
 
-    public function initDocBlockTag(?string $description)
+    public function initDocBlockTag(?string $description): void
     {
         $this->docBlockTag = new DocBlockTag(
             'param',
