@@ -39,6 +39,6 @@ class MethodsCollector
             $type->getReturn()->getCType()
         );
 
-        return new Method($type->getName(), $params, $return, '');
+        return new Method($type->getName(), $params, $return);
     }
 }

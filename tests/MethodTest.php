@@ -23,23 +23,50 @@ class MethodTest extends TestCase
             new MethodReturnParameter(new Builtin('int'), 'some desc3'),
             'some desc4'
         );
-        $method->addDocBlockTag('since', 'some version');
+        $method->getDocBlock()->addTag(new DocBlockTag('since', 'some version'));
 
         $this->assertSame(
-            <<<PHP
+            <<<PHPCODE
                 /**
                  * some desc4
-                 * @since some version
                  * @param float|null \$param1 some desc1
                  * @param int|null ...\$param2 some desc2
                  * @return int|null some desc3
+                 * @since some version
                  */
                 public static function func1(?float \$param1, ?int ...\$param2): ?int
                 {
                     return static::getFFI()->func1(\$param1, ...\$param2);
                 }
-            PHP,
-            $method->getPhpCode('    ')
+            PHPCODE,
+            $method->print('    ')
+        );
+    }
+
+    public function testGetPhpCodeWithVoidParamAndReturn(): void
+    {
+        $method = new Method(
+            'func1',
+            [
+                new MethodParameter(new Builtin('void'), 'param1', 'some desc1', false),
+            ],
+            new MethodReturnParameter(new Builtin('void'), 'some desc3'),
+            'some desc4'
+        );
+        $method->getDocBlock()->addTag(new DocBlockTag('since', 'some version'));
+
+        $this->assertSame(
+            <<<PHPCODE
+                /**
+                 * some desc4
+                 * @since some version
+                 */
+                public static function func1(): void
+                {
+                    static::getFFI()->func1();
+                }
+            PHPCODE,
+            $method->print('    ')
         );
     }
 
@@ -53,25 +80,5 @@ class MethodTest extends TestCase
         );
 
         $this->assertSame('func1', $method->getName());
-    }
-
-    public function testGetDocBlockTags(): void
-    {
-        $method = new Method(
-            'func1',
-            [],
-            null,
-            ''
-        );
-        $method->addDocBlockTag('since', 'some version');
-        $method->addDocBlockTag('since', 'some other');
-
-        $this->assertSame(
-            [
-                ['since', 'some version'],
-                ['since', 'some other'],
-            ],
-            $method->getDocBlockTags()
-        );
     }
 }

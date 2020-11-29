@@ -36,7 +36,7 @@ class ConstantsPrinter
                 '{{constants}}' => implode(
                     "\n\n",
                     array_map(
-                        fn (Constant $constant) => $constant->getPhpCode($ident),
+                        fn (Constant $constant) => $constant->print($ident),
                         iterator_to_array($this->constants)
                     ),
                 ),

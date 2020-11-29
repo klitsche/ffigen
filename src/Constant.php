@@ -8,46 +8,43 @@ use Brick\VarExporter\VarExporter;
 
 class Constant
 {
+    public string $template = <<<PHPCODE
+        {{docblock}}const {{name}} = {{value}};
+        PHPCODE;
+
     private string $name;
     /**
      * @var int|string|array
      */
     private $value;
-    private string $description;
-    private array $docBlockTags;
+    private DocBlock $docBlock;
 
     /**
      * @param int|string|array $value
      */
-    public function __construct(string $name, $value, string $description = '')
+    public function __construct(string $name, $value, ?string $description = null)
     {
         $this->name = $name;
         $this->value = $value;
-        $this->description = $description;
-        $this->docBlockTags = [];
+        $this->initDocBlock($description);
     }
 
-    public function addDocBlockTag(string $name, string $text): void
+    private function initDocBlock(?string $description): void
     {
-        $this->docBlockTags[] = [$name, $text];
+        $this->docBlock = new DocBlock();
+        $this->docBlock->setDescription($description);
     }
 
-    /**
-     * @return array [name, text]
-     */
-    public function getDocBlockTags(): array
+    public function print(string $ident = ''): string
     {
-        return $this->docBlockTags;
-    }
-
-    public function getPhpCode(string $ident = ''): string
-    {
-        $template = <<<PHPCODE
-        %s
-        const %s = %s;
-        PHPCODE;
-
-        $code = sprintf($template, $this->getDocBlock(), $this->name, $this->getPhpValue());
+        $code = strtr(
+            $this->template,
+            [
+                '{{docblock}}' => $this->docBlock->isEmpty() ? '' : $this->docBlock->print() . "\n",
+                '{{name}}' => $this->name,
+                '{{value}}' => $this->getPhpValue(),
+            ]
+        );
 
         if ($ident !== '') {
             $parts = explode("\n", $code);
@@ -59,24 +56,6 @@ class Constant
         }
 
         return $code;
-    }
-
-    public function getDocBlock(): string
-    {
-        $template = <<<PHPDOC
-         /**%s
-          */
-         PHPDOC;
-
-        $lines = [];
-        if (empty($this->description) === false) {
-            $lines[] = sprintf(' * %s', $this->description);
-        }
-        foreach ($this->docBlockTags as $tag) {
-            $lines[] = sprintf(' * @%s %s', $tag[0], $tag[1]);
-        }
-
-        return sprintf($template, empty($lines) ? '' : "\n" . implode("\n", $lines));
     }
 
     private function getPhpValue(): string
@@ -95,5 +74,10 @@ class Constant
     public function getValue()
     {
         return $this->value;
+    }
+
+    public function getDocBlock(): DocBlock
+    {
+        return $this->docBlock;
     }
 }

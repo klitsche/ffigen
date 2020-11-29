@@ -25,7 +25,10 @@ class EnumTest extends TestCase
         $this->assertSame('some*', $type->getCType('*'));
         $this->assertSame('int', $type->getPhpTypes());
         $this->assertSame('int', $type->getPhpDocTypes());
-        $this->assertSame(['ONE' => 1, 'TWO' => 2], $type->getValues());
+        $this->assertSame([
+            'ONE' => 1,
+            'TWO' => 2,
+        ], $type->getValues());
     }
 
     public function testGetterWithoutDeclarationName(): void
@@ -41,6 +44,9 @@ class EnumTest extends TestCase
         $this->assertSame('enum any*', $type->getCType('*'));
         $this->assertSame('int', $type->getPhpTypes());
         $this->assertSame('int', $type->getPhpDocTypes());
-        $this->assertSame(['ONE' => 1, 'TWO' => 2], $type->getValues());
+        $this->assertSame([
+            'ONE' => 1,
+            'TWO' => 2,
+        ], $type->getValues());
     }
 }

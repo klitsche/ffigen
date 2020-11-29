@@ -9,13 +9,20 @@ use Klitsche\FFIGen\Types\Type;
 class MethodReturnParameter
 {
     private ?Type $type;
+    private DocBlockTag $docBlockTag;
 
-    private string $description;
-
-    public function __construct(?Type $type, string $description)
+    public function __construct(?Type $type, ?string $description = null)
     {
         $this->type = $type;
-        $this->description = $description;
+        $this->initDocBlockTag($description);
+    }
+
+    public function initDocBlockTag(?string $description)
+    {
+        $this->docBlockTag = new DocBlockTag(
+            'return',
+            sprintf('%s %s', $this->getDocBlockType(), $description)
+        );
     }
 
     public function getPhpCode(): string
@@ -40,9 +47,9 @@ class MethodReturnParameter
             && $this->type->getCType() === 'void';
     }
 
-    public function getDocBlock(string $ident = ''): string
+    public function getDocBlockTag(): DocBlockTag
     {
-        return sprintf('%s * @return %s %s', $ident, $this->getDocBlockType(), $this->description);
+        return $this->docBlockTag;
     }
 
     public function getDocBlockType(): string

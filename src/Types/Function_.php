@@ -18,6 +18,7 @@ class Function_ extends Type
     public function __construct(Type $return, array $params, bool $isVariadic)
     {
         parent::__construct('');
+
         $this->return = $return;
         $this->params = $params;
         $this->isVariadic = $isVariadic;

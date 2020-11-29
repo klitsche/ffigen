@@ -13,11 +13,21 @@ class ConstantTest extends TestCase
 {
     public function testGetPhpCode(): void
     {
-        $constant = new Constant('ANY', ['stringvalue', 123], 'some desc');
-        $constant->addDocBlockTag('since', 'some version');
-
+        $constant = new Constant('ANY', ['stringvalue', 123]);
         $this->assertSame(
-            <<<PHP
+            <<<PHPCODE
+                const ANY = [
+                    'stringvalue',
+                    123
+                ];
+            PHPCODE,
+            $constant->print('    ')
+        );
+
+        $constant->getDocBlock()->addTag(new DocBlockTag('since', 'some version'));
+        $constant->getDocBlock()->setDescription('some desc');
+        $this->assertSame(
+            <<<PHPCODE
                 /**
                  * some desc
                  * @since some version
@@ -26,8 +36,8 @@ class ConstantTest extends TestCase
                     'stringvalue',
                     123
                 ];
-            PHP,
-            $constant->getPhpCode('    ')
+            PHPCODE,
+            $constant->print('    ')
         );
     }
 
@@ -43,20 +53,5 @@ class ConstantTest extends TestCase
         $constant = new Constant('ANY', 'stringvalue');
 
         $this->assertSame('stringvalue', $constant->getValue());
-    }
-
-    public function testGetDocBlockTags(): void
-    {
-        $constant = new Constant('ANY', ['stringvalue', 123]);
-        $constant->addDocBlockTag('since', 'some version');
-        $constant->addDocBlockTag('since', 'some other');
-
-        $this->assertSame(
-            [
-                ['since', 'some version'],
-                ['since', 'some other'],
-            ],
-            $constant->getDocBlockTags()
-        );
     }
 }

@@ -33,7 +33,8 @@ class Pointer extends Type
     public function getPhpTypes(): string
     {
         if ($this->type->getCName() === 'void') {
-            return ''; // CData, object, string, or null
+            // CData, object, string, or null
+            return '';
         }
         return '?\\' . CData::class;
     }

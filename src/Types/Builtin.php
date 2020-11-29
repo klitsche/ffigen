@@ -42,7 +42,8 @@ class Builtin extends Type
         'float' => 'float',
         'double' => 'float',
         'long double' => 'float',
-        'void' => 'void', // return type only
+        // return type only
+        'void' => 'void',
     ];
 
     private string $phpType;
@@ -50,6 +51,7 @@ class Builtin extends Type
     public function __construct(string $cName)
     {
         parent::__construct($cName);
+
         $this->phpType = self::map($cName);
     }
 

@@ -6,59 +6,59 @@ namespace Klitsche\FFIGen;
 
 class Method
 {
+    public string $template = <<<PHPCODE
+        {{docblock}}public static function {{name}}({{params}}){{returntype}} 
+        {
+            {{returnstatement}}static::getFFI()->{{name}}({{varparams}});
+        }
+        PHPCODE;
+
     private string $name;
-    private string $description;
-    private array $docBlockTags;
     /**
      * @var MethodParameter[]
      */
     private array $params;
     private ?MethodReturnParameter $return;
+    private DocBlock $docBlock;
 
     /**
      * @param MethodParameter[] $params
      */
-    public function __construct(string $name, array $params, ?MethodReturnParameter $return, string $description)
+    public function __construct(string $name, array $params, ?MethodReturnParameter $return, ?string $description = null)
     {
         $this->name = $name;
         $this->params = $params;
         $this->return = $return;
-        $this->description = $description;
-        $this->docBlockTags = [];
+        $this->initDocBlock($description);
     }
 
-    public function addDocBlockTag(string $name, string $text): void
+    private function initDocBlock(?string $description): void
     {
-        $this->docBlockTags[] = [$name, $text];
-    }
+        $this->docBlock = new DocBlock();
+        $this->docBlock->setDescription($description);
 
-    /**
-     * @return array [name, text]
-     */
-    public function getDocBlockTags(): array
-    {
-        return $this->docBlockTags;
-    }
-
-    public function getPhpCode(string $ident = ''): string
-    {
-        $template = <<<PHPCODE
-        %s
-        public static function %s(%s)%s 
-        {
-            %sstatic::getFFI()->%s(%s);
+        if ($this->hasVoidParam() === false) {
+            foreach ($this->params as $param) {
+                $this->docBlock->addTag($param->getDocBlockTag());
+            }
         }
-        PHPCODE;
+        if ($this->return !== null && $this->return->isVoid() === false) {
+            $this->docBlock->addTag($this->return->getDocBlockTag());
+        }
+    }
 
-        $code = sprintf(
-            $template,
-            $this->getDocBlock(),
-            $this->name,
-            $this->getPhpCodeParams(),
-            $this->return->getPhpCode(),
-            $this->return->isVoid() ? '' : 'return ',
-            $this->name,
-            $this->getPhpVarParams(),
+    public function print(string $ident = ''): string
+    {
+        $code = strtr(
+            $this->template,
+            [
+                '{{docblock}}' => $this->docBlock->isEmpty() ? '' : $this->docBlock->print() . "\n",
+                '{{name}}' => $this->name,
+                '{{params}}' => $this->getPhpCodeParams(),
+                '{{returntype}}' => $this->return->getPhpCode(),
+                '{{returnstatement}}' => $this->return->isVoid() ? '' : 'return ',
+                '{{varparams}}' => $this->getPhpVarParams(),
+            ]
         );
 
         if ($ident !== '') {
@@ -103,30 +103,9 @@ class Method
         return false;
     }
 
-    public function getDocBlock(): string
+    public function getDocBlock(): DocBlock
     {
-        $template = <<<PHPDOC
-         /**%s
-          */
-         PHPDOC;
-
-        $lines = [];
-        if (empty($this->description) === false) {
-            $lines[] = sprintf(' * %s', $this->description);
-        }
-        foreach ($this->docBlockTags as $tag) {
-            $lines[] = sprintf(' * @%s %s', $tag[0], $tag[1]);
-        }
-        if ($this->hasVoidParam() === false) {
-            foreach ($this->params as $param) {
-                $lines[] = $param->getDocBlock();
-            }
-        }
-        if ($this->return->isVoid() === false) {
-            $lines[] = $this->return->getDocBlock();
-        }
-
-        return sprintf($template, empty($lines) ? '' : "\n" . implode("\n", $lines));
+        return $this->docBlock;
     }
 
     public function getName(): string

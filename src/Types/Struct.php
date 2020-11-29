@@ -14,6 +14,7 @@ class Struct extends Type
     public function __construct(string $cName, bool $isUnion)
     {
         parent::__construct($cName);
+
         $this->isUnion = $isUnion;
         $this->layout = [];
     }

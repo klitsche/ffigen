@@ -11,6 +11,7 @@ class Enum extends Type
     public function __construct(string $cName)
     {
         parent::__construct($cName);
+
         $this->values = [];
     }
 

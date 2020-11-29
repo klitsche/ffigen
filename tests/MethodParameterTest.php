@@ -24,7 +24,8 @@ class MethodParameterTest extends TestCase
         $this->assertSame('$param1', $parameter->getPhpVar());
         $this->assertSame('int|null', $parameter->getDocBlockType());
         $this->assertSame('?int', $parameter->getPhpCodeType());
-        $this->assertSame('     * @param int|null $param1 some desc', $parameter->getDocBlock('    '));
+        $this->assertSame('param', $parameter->getDocBlockTag()->getName());
+        $this->assertSame('int|null $param1 some desc', $parameter->getDocBlockTag()->getValue());
         $this->assertFalse($parameter->isVoid());
     }
 
@@ -42,7 +43,8 @@ class MethodParameterTest extends TestCase
         $this->assertSame('$param1', $parameter->getPhpVar());
         $this->assertSame('\FFI\CData|object|string|null', $parameter->getDocBlockType());
         $this->assertSame('', $parameter->getPhpCodeType());
-        $this->assertSame('     * @param \FFI\CData|object|string|null $param1 some desc', $parameter->getDocBlock('    '));
+        $this->assertSame('param', $parameter->getDocBlockTag()->getName());
+        $this->assertSame('\FFI\CData|object|string|null $param1 some desc', $parameter->getDocBlockTag()->getValue());
         $this->assertFalse($parameter->isVoid());
     }
 }

@@ -20,7 +20,8 @@ class MethodReturnParameterTest extends TestCase
         $this->assertSame(': ?float', $parameter->getPhpCode());
         $this->assertSame('float|null', $parameter->getDocBlockType());
         $this->assertSame('?float', $parameter->getPhpCodeType());
-        $this->assertSame('     * @return float|null some desc', $parameter->getDocBlock('    '));
+        $this->assertSame('return', $parameter->getDocBlockTag()->getName());
+        $this->assertSame('float|null some desc', $parameter->getDocBlockTag()->getValue());
         $this->assertFalse($parameter->isVoid());
     }
 
@@ -31,7 +32,8 @@ class MethodReturnParameterTest extends TestCase
         $this->assertSame(': void', $parameter->getPhpCode());
         $this->assertSame('void', $parameter->getDocBlockType());
         $this->assertSame('void', $parameter->getPhpCodeType());
-        $this->assertSame('     * @return void some desc', $parameter->getDocBlock('    '));
+        $this->assertSame('return', $parameter->getDocBlockTag()->getName());
+        $this->assertSame('void some desc', $parameter->getDocBlockTag()->getValue());
         $this->assertTrue($parameter->isVoid());
     }
 
@@ -42,7 +44,8 @@ class MethodReturnParameterTest extends TestCase
         $this->assertSame('', $parameter->getPhpCode());
         $this->assertSame('\FFI\CData|object|string|null', $parameter->getDocBlockType());
         $this->assertSame('', $parameter->getPhpCodeType());
-        $this->assertSame('     * @return \FFI\CData|object|string|null some desc', $parameter->getDocBlock('    '));
+        $this->assertSame('return', $parameter->getDocBlockTag()->getName());
+        $this->assertSame('\FFI\CData|object|string|null some desc', $parameter->getDocBlockTag()->getValue());
         $this->assertFalse($parameter->isVoid());
     }
 }

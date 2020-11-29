@@ -24,7 +24,10 @@ class StructTest extends TestCase
         $this->assertSame('struct any*', $type->getCType('*'));
         $this->assertSame('?\FFI\CData', $type->getPhpTypes());
         $this->assertSame('\FFI\CData|null', $type->getPhpDocTypes());
-        $this->assertSame(['field1' => $field1, 'field2' => $field2], $type->getLayout());
+        $this->assertSame([
+            'field1' => $field1,
+            'field2' => $field2,
+        ], $type->getLayout());
         $this->assertFalse($type->isUnion());
     }
 
@@ -42,7 +45,10 @@ class StructTest extends TestCase
         $this->assertSame('some*', $type->getCType('*'));
         $this->assertSame('?\FFI\CData', $type->getPhpTypes());
         $this->assertSame('\FFI\CData|null', $type->getPhpDocTypes());
-        $this->assertSame(['field1' => $field1, 'field2' => $field2], $type->getLayout());
+        $this->assertSame([
+            'field1' => $field1,
+            'field2' => $field2,
+        ], $type->getLayout());
         $this->assertFalse($type->isUnion());
     }
 
@@ -59,7 +65,10 @@ class StructTest extends TestCase
         $this->assertSame('union any*', $type->getCType('*'));
         $this->assertSame('?\FFI\CData', $type->getPhpTypes());
         $this->assertSame('\FFI\CData|null', $type->getPhpDocTypes());
-        $this->assertSame(['field1' => $field1, 'field2' => $field2], $type->getLayout());
+        $this->assertSame([
+            'field1' => $field1,
+            'field2' => $field2,
+        ], $type->getLayout());
         $this->assertTrue($type->isUnion());
     }
 }

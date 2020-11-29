@@ -10,15 +10,23 @@ class MethodParameter
 {
     private ?Type $type;
     private string $name;
-    private string $description;
     private bool $isVariadic;
+    private DocBlockTag $docBlockTag;
 
-    public function __construct(?Type $type, string $name, string $description, bool $isVariadic = false)
+    public function __construct(?Type $type, string $name, ?string $description = null, bool $isVariadic = false)
     {
         $this->type = $type;
         $this->name = $name;
-        $this->description = $description;
         $this->isVariadic = $isVariadic;
+        $this->initDocBlockTag($description);
+    }
+
+    public function initDocBlockTag(?string $description)
+    {
+        $this->docBlockTag = new DocBlockTag(
+            'param',
+            sprintf('%s %s %s', $this->getDocBlockType(), $this->getPhpVar(), $description)
+        );
     }
 
     public function getPhpCode(): string
@@ -44,9 +52,9 @@ class MethodParameter
             && $this->type->getCType() === 'void';
     }
 
-    public function getDocBlock(string $ident = ''): string
+    public function getDocBlockTag(): DocBlockTag
     {
-        return sprintf('%s * @param %s %s %s', $ident, $this->getDocBlockType(), $this->getPhpVar(), $this->description);
+        return $this->docBlockTag;
     }
 
     public function getDocBlockType(): string

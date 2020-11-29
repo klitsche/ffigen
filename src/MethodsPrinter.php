@@ -42,7 +42,7 @@ class MethodsPrinter
                 '{{methods}}' => implode(
                     "\n\n",
                     array_map(
-                        fn (Method $method) => $method->getPhpCode($ident),
+                        fn (Method $method) => $method->print($ident),
                         iterator_to_array($this->methods)
                     ),
                 ),
