@@ -24,7 +24,8 @@ $conf = Library::rd_kafka_conf_new();
 Library::rd_kafka_conf_set($conf, 'test.mock.num.brokers', '3', null, null);
 Library::rd_kafka_conf_set($conf, 'log_level', (string) LOG_DEBUG, null, null);
 Library::rd_kafka_conf_set($conf, 'debug', 'all', null, null);
-Library::rd_kafka_conf_set($conf, 'log.queue', 'true', null, null); // use queue for log events, this prevents segfaults
+// use queue for log events, this prevents segfaults
+Library::rd_kafka_conf_set($conf, 'log.queue', 'true', null, null);
 Library::rd_kafka_conf_set_log_cb(
     $conf,
     \Closure::fromCallable(
@@ -35,7 +36,8 @@ Library::rd_kafka_conf_set_log_cb(
 );
 
 $producer = Library::rd_kafka_new(RD_KAFKA_PRODUCER, $conf, null, null);
-Library::rd_kafka_set_log_queue($producer, null); // use queue for log events, this prevents segfaults
+// use queue for log events, this prevents segfaults
+Library::rd_kafka_set_log_queue($producer, null);
 $topic = Library::rd_kafka_topic_new($producer, 'example', null);
 
 
@@ -80,7 +82,8 @@ $consumerConf = Library::rd_kafka_conf_new();
 Library::rd_kafka_conf_set($consumerConf, 'metadata.broker.list', implode(',', $brokerList), null, null);
 Library::rd_kafka_conf_set($consumerConf, 'log_level', (string) LOG_DEBUG, null, null);
 Library::rd_kafka_conf_set($consumerConf, 'debug', 'all', null, null);
-Library::rd_kafka_conf_set($consumerConf, 'log.queue', 'true', null, null); // use queue for log events, this prevents segfaults
+// use queue for log events, this prevents segfaults
+Library::rd_kafka_conf_set($consumerConf, 'log.queue', 'true', null, null);
 Library::rd_kafka_conf_set($consumerConf, 'enable.partition.eof', 'true', null, null);
 Library::rd_kafka_conf_set($consumerConf, 'auto.offset.reset', 'earliest', null, null);
 Library::rd_kafka_conf_set_log_cb(
@@ -93,7 +96,8 @@ Library::rd_kafka_conf_set_log_cb(
 );
 
 $consumer = Library::rd_kafka_new(RD_KAFKA_CONSUMER, $consumerConf, null, null);
-Library::rd_kafka_set_log_queue($consumer, null); // use queue for log events, this prevents segfaults
+// use queue for log events, this prevents segfaults
+Library::rd_kafka_set_log_queue($consumer, null);
 $consumerTopic = Library::rd_kafka_topic_new($consumer, 'example', null);
 $queue = Library::rd_kafka_queue_new($consumer);
 
@@ -120,13 +124,16 @@ while ($consuming) {
         }
     } else {
         echo sprintf(
-                'consume msg: %s, key: %s',
+                'consume msg: %s, key: %s, partition: %d',
                 FFI::string($message->payload, $message->len),
-                FFI::string($message->key, $message->key_len)
+                FFI::string($message->key, $message->key_len),
+                $message->partition
             ) . PHP_EOL;
     }
-    Library::rd_kafka_message_destroy($messagePtr); // destroy before polling
-    $events = Library::rd_kafka_poll($consumer, 1); // trigger log callbacks
+    // destroy before polling
+    Library::rd_kafka_message_destroy($messagePtr);
+    // trigger log callbacks
+    $events = Library::rd_kafka_poll($consumer, 1);
     echo sprintf('polling triggered %d events', $events) . PHP_EOL;
 }
 

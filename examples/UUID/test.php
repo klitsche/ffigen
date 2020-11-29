@@ -56,11 +56,16 @@ function parse(string $uuid): CData
 function type(CData $uuid)
 {
     $map = [
-        UUID_TYPE_DCE_TIME => 'time', // v1
-        UUID_TYPE_DCE_SECURITY => 'security', // v2
-        UUID_TYPE_DCE_MD5 => 'md5', // v3
-        UUID_TYPE_DCE_RANDOM => 'random', // v4
-        UUID_TYPE_DCE_SHA1 => 'sha1', // v5
+        // v1
+        UUID_TYPE_DCE_TIME => 'time',
+        // v2
+        UUID_TYPE_DCE_SECURITY => 'security',
+        // v3
+        UUID_TYPE_DCE_MD5 => 'md5',
+        // v4
+        UUID_TYPE_DCE_RANDOM => 'random',
+        // v5
+        UUID_TYPE_DCE_SHA1 => 'sha1',
     ];
     return $map[Library::uuid_type($uuid)] ?? 'unknown';
 }

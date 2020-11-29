@@ -150,7 +150,7 @@ Run snappy example (see Snappy class for a simple high level example)
     docker-compose run --rm php74 bin/ffigen generate -c examples/Snappy/.ffigen.yml
     docker-compose run --rm php74 php examples/Snappy/test.php
         
-Run rdkafka example (librdkafka 1.4.0 & mock cluster)
+Run rdkafka example (librdkafka 1.5.2 & mock cluster)
 
     docker-compose run --rm php74 bin/ffigen generate -c examples/RdKafka/.ffigen.yml
     docker-compose run --rm php74 php examples/RdKafka/test.php

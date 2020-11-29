@@ -389,6 +389,15 @@ trait Methods
 
     /**
      * @param \FFI\CData|null $rkmessage rd_kafka_message_t*
+     * @return string|null const char*
+     */
+    public static function rd_kafka_message_errstr(?\FFI\CData $rkmessage): ?string
+    {
+        return static::getFFI()->rd_kafka_message_errstr($rkmessage);
+    }
+
+    /**
+     * @param \FFI\CData|null $rkmessage rd_kafka_message_t*
      * @param \FFI\CData|null $tstype rd_kafka_timestamp_type_t*
      * @return int|null int64_t
      */
@@ -404,6 +413,15 @@ trait Methods
     public static function rd_kafka_message_latency(?\FFI\CData $rkmessage): ?int
     {
         return static::getFFI()->rd_kafka_message_latency($rkmessage);
+    }
+
+    /**
+     * @param \FFI\CData|null $rkmessage rd_kafka_message_t*
+     * @return int|null int32_t
+     */
+    public static function rd_kafka_message_broker_id(?\FFI\CData $rkmessage): ?int
+    {
+        return static::getFFI()->rd_kafka_message_broker_id($rkmessage);
     }
 
     /**
@@ -1588,6 +1606,17 @@ trait Methods
     }
 
     /**
+     * @param \FFI\CData|null $rk rd_kafka_t*
+     * @param \FFI\CData|null $vus rd_kafka_vu_t*
+     * @param int|null $cnt size_t
+     * @return \FFI\CData|null rd_kafka_error_t*
+     */
+    public static function rd_kafka_produceva(?\FFI\CData $rk, ?\FFI\CData $vus, ?int $cnt): ?\FFI\CData
+    {
+        return static::getFFI()->rd_kafka_produceva($rk, $vus, $cnt);
+    }
+
+    /**
      * @param \FFI\CData|null $rkt rd_kafka_topic_t*
      * @param int|null $partition int32_t
      * @param int|null $msgflags int
@@ -1873,6 +1902,17 @@ trait Methods
     public static function rd_kafka_event_log(?\FFI\CData $rkev, ?\FFI\CData $fac, ?\FFI\CData $str, ?\FFI\CData $level): ?int
     {
         return static::getFFI()->rd_kafka_event_log($rkev, $fac, $str, $level);
+    }
+
+    /**
+     * @param \FFI\CData|null $rkev rd_kafka_event_t*
+     * @param \FFI\CData|null $dst char*
+     * @param int|null $dstsize size_t
+     * @return int|null int
+     */
+    public static function rd_kafka_event_debug_contexts(?\FFI\CData $rkev, ?\FFI\CData $dst, ?int $dstsize): ?int
+    {
+        return static::getFFI()->rd_kafka_event_debug_contexts($rkev, $dst, $dstsize);
     }
 
     /**
@@ -2914,6 +2954,19 @@ trait Methods
 
     /**
      * @param \FFI\CData|null $mcluster rd_kafka_mock_cluster_t*
+     * @param int|null $broker_id int32_t
+     * @param int|null $ApiKey int16_t
+     * @param int|null $cnt size_t
+     * @param mixed ...$args
+     * @return int rd_kafka_resp_err_t
+     */
+    public static function rd_kafka_mock_broker_push_request_errors(?\FFI\CData $mcluster, ?int $broker_id, ?int $ApiKey, ?int $cnt, ...$args): int
+    {
+        return static::getFFI()->rd_kafka_mock_broker_push_request_errors($mcluster, $broker_id, $ApiKey, $cnt, ...$args);
+    }
+
+    /**
+     * @param \FFI\CData|null $mcluster rd_kafka_mock_cluster_t*
      * @param string|null $topic const char*
      * @param int $err rd_kafka_resp_err_t
      */
@@ -2989,6 +3042,17 @@ trait Methods
     public static function rd_kafka_mock_broker_set_up(?\FFI\CData $mcluster, ?int $broker_id): int
     {
         return static::getFFI()->rd_kafka_mock_broker_set_up($mcluster, $broker_id);
+    }
+
+    /**
+     * @param \FFI\CData|null $mcluster rd_kafka_mock_cluster_t*
+     * @param int|null $broker_id int32_t
+     * @param int|null $rtt_ms int
+     * @return int rd_kafka_resp_err_t
+     */
+    public static function rd_kafka_mock_broker_set_rtt(?\FFI\CData $mcluster, ?int $broker_id, ?int $rtt_ms): int
+    {
+        return static::getFFI()->rd_kafka_mock_broker_set_rtt($mcluster, $broker_id, $rtt_ms);
     }
 
     /**

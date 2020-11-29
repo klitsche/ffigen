@@ -8,72 +8,72 @@ declare(strict_types=1);
 namespace Klitsche\FFIGen\Examples\UUID;
 
 /**
- * #define
+ * define
  */
 const UUID_VARIANT_NCS = 0;
 
 /**
- * #define
+ * define
  */
 const UUID_VARIANT_DCE = 1;
 
 /**
- * #define
+ * define
  */
 const UUID_VARIANT_MICROSOFT = 2;
 
 /**
- * #define
+ * define
  */
 const UUID_VARIANT_OTHER = 3;
 
 /**
- * #define
+ * define
  */
 const UUID_VARIANT_SHIFT = 5;
 
 /**
- * #define
+ * define
  */
 const UUID_VARIANT_MASK = 7;
 
 /**
- * #define
+ * define
  */
 const UUID_TYPE_DCE_TIME = 1;
 
 /**
- * #define
+ * define
  */
 const UUID_TYPE_DCE_SECURITY = 2;
 
 /**
- * #define
+ * define
  */
 const UUID_TYPE_DCE_MD5 = 3;
 
 /**
- * #define
+ * define
  */
 const UUID_TYPE_DCE_RANDOM = 4;
 
 /**
- * #define
+ * define
  */
 const UUID_TYPE_DCE_SHA1 = 5;
 
 /**
- * #define
+ * define
  */
 const UUID_TYPE_SHIFT = 4;
 
 /**
- * #define
+ * define
  */
 const UUID_TYPE_MASK = 15;
 
 /**
- * #define
+ * define
  */
 const UUID_STR_LEN = 37;
 

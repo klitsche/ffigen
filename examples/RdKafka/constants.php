@@ -8,147 +8,147 @@ declare(strict_types=1);
 namespace Klitsche\FFIGen\Examples\RdKafka;
 
 /**
- * #define
+ * define
  */
-const RD_KAFKA_VERSION = 17039615;
+const RD_KAFKA_VERSION = 17105663;
 
 /**
- * #define
+ * define
  */
 const RD_KAFKA_DESTROY_F_NO_CONSUMER_CLOSE = 8;
 
 /**
- * #define
+ * define
  */
 const RD_KAFKA_PARTITION_UA = -1;
 
 /**
- * #define
+ * define
  */
 const RD_KAFKA_OFFSET_BEGINNING = -2;
 
 /**
- * #define
+ * define
  */
 const RD_KAFKA_OFFSET_END = -1;
 
 /**
- * #define
+ * define
  */
 const RD_KAFKA_OFFSET_STORED = -1000;
 
 /**
- * #define
+ * define
  */
 const RD_KAFKA_OFFSET_INVALID = -1001;
 
 /**
- * #define
+ * define
  */
 const RD_KAFKA_OFFSET_TAIL_BASE = -2000;
 
 /**
- * #define
+ * define
  */
 const RD_KAFKA_MSG_F_FREE = 1;
 
 /**
- * #define
+ * define
  */
 const RD_KAFKA_MSG_F_COPY = 2;
 
 /**
- * #define
+ * define
  */
 const RD_KAFKA_MSG_F_BLOCK = 4;
 
 /**
- * #define
+ * define
  */
 const RD_KAFKA_MSG_F_PARTITION = 8;
 
 /**
- * #define
+ * define
  */
 const RD_KAFKA_PURGE_F_QUEUE = 1;
 
 /**
- * #define
+ * define
  */
 const RD_KAFKA_PURGE_F_INFLIGHT = 2;
 
 /**
- * #define
+ * define
  */
 const RD_KAFKA_PURGE_F_NON_BLOCKING = 4;
 
 /**
- * #define
+ * define
  */
 const RD_KAFKA_EVENT_NONE = 0;
 
 /**
- * #define
+ * define
  */
 const RD_KAFKA_EVENT_DR = 1;
 
 /**
- * #define
+ * define
  */
 const RD_KAFKA_EVENT_FETCH = 2;
 
 /**
- * #define
+ * define
  */
 const RD_KAFKA_EVENT_LOG = 4;
 
 /**
- * #define
+ * define
  */
 const RD_KAFKA_EVENT_ERROR = 8;
 
 /**
- * #define
+ * define
  */
 const RD_KAFKA_EVENT_REBALANCE = 16;
 
 /**
- * #define
+ * define
  */
 const RD_KAFKA_EVENT_OFFSET_COMMIT = 32;
 
 /**
- * #define
+ * define
  */
 const RD_KAFKA_EVENT_STATS = 64;
 
 /**
- * #define
+ * define
  */
 const RD_KAFKA_EVENT_CREATETOPICS_RESULT = 100;
 
 /**
- * #define
+ * define
  */
 const RD_KAFKA_EVENT_DELETETOPICS_RESULT = 101;
 
 /**
- * #define
+ * define
  */
 const RD_KAFKA_EVENT_CREATEPARTITIONS_RESULT = 102;
 
 /**
- * #define
+ * define
  */
 const RD_KAFKA_EVENT_ALTERCONFIGS_RESULT = 103;
 
 /**
- * #define
+ * define
  */
 const RD_KAFKA_EVENT_DESCRIBECONFIGS_RESULT = 104;
 
 /**
- * #define
+ * define
  */
 const RD_KAFKA_EVENT_OAUTHBEARER_TOKEN_REFRESH = 256;
 
@@ -895,7 +895,37 @@ const RD_KAFKA_RESP_ERR_FENCED_INSTANCE_ID = 82;
 /**
  * enum rd_kafka_resp_err_t
  */
-const RD_KAFKA_RESP_ERR_END_ALL = 83;
+const RD_KAFKA_RESP_ERR_ELIGIBLE_LEADERS_NOT_AVAILABLE = 83;
+
+/**
+ * enum rd_kafka_resp_err_t
+ */
+const RD_KAFKA_RESP_ERR_ELECTION_NOT_NEEDED = 84;
+
+/**
+ * enum rd_kafka_resp_err_t
+ */
+const RD_KAFKA_RESP_ERR_NO_REASSIGNMENT_IN_PROGRESS = 85;
+
+/**
+ * enum rd_kafka_resp_err_t
+ */
+const RD_KAFKA_RESP_ERR_GROUP_SUBSCRIBED_TO_TOPIC = 86;
+
+/**
+ * enum rd_kafka_resp_err_t
+ */
+const RD_KAFKA_RESP_ERR_INVALID_RECORD = 87;
+
+/**
+ * enum rd_kafka_resp_err_t
+ */
+const RD_KAFKA_RESP_ERR_UNSTABLE_OFFSET_COMMIT = 88;
+
+/**
+ * enum rd_kafka_resp_err_t
+ */
+const RD_KAFKA_RESP_ERR_END_ALL = 89;
 
 /**
  * enum rd_kafka_vtype_t
@@ -1167,6 +1197,7 @@ typedef struct rd_kafka_op_s rd_kafka_event_t;
 typedef struct rd_kafka_topic_result_s rd_kafka_topic_result_t;
 typedef struct rd_kafka_consumer_group_metadata_s rd_kafka_consumer_group_metadata_t;
 typedef struct rd_kafka_error_s rd_kafka_error_t;
+typedef struct rd_kafka_headers_s rd_kafka_headers_t;
 typedef enum {
   RD_KAFKA_RESP_ERR__BEGIN = (- 200),
   RD_KAFKA_RESP_ERR__BAD_MSG = (- 199),
@@ -1311,6 +1342,12 @@ typedef enum {
   RD_KAFKA_RESP_ERR_PREFERRED_LEADER_NOT_AVAILABLE = 80,
   RD_KAFKA_RESP_ERR_GROUP_MAX_SIZE_REACHED = 81,
   RD_KAFKA_RESP_ERR_FENCED_INSTANCE_ID = 82,
+  RD_KAFKA_RESP_ERR_ELIGIBLE_LEADERS_NOT_AVAILABLE = 83,
+  RD_KAFKA_RESP_ERR_ELECTION_NOT_NEEDED = 84,
+  RD_KAFKA_RESP_ERR_NO_REASSIGNMENT_IN_PROGRESS = 85,
+  RD_KAFKA_RESP_ERR_GROUP_SUBSCRIBED_TO_TOPIC = 86,
+  RD_KAFKA_RESP_ERR_INVALID_RECORD = 87,
+  RD_KAFKA_RESP_ERR_UNSTABLE_OFFSET_COMMIT = 88,
   RD_KAFKA_RESP_ERR_END_ALL,
 } rd_kafka_resp_err_t;
 struct rd_kafka_err_desc {
@@ -1373,7 +1410,28 @@ typedef enum rd_kafka_vtype_t {
   RD_KAFKA_VTYPE_HEADER,
   RD_KAFKA_VTYPE_HEADERS,
 } rd_kafka_vtype_t;
-typedef struct rd_kafka_headers_s rd_kafka_headers_t;
+typedef struct rd_kafka_vu_s {
+  rd_kafka_vtype_t vtype;
+  union {
+    char *cstr;
+    rd_kafka_topic_t *rkt;
+    int i;
+    int32_t i32;
+    int64_t i64;
+    struct {
+      void *ptr;
+      size_t size;
+    } mem;
+    struct {
+      char *name;
+      void *val;
+      ssize_t size;
+    } header;
+    rd_kafka_headers_t *headers;
+    void *ptr;
+    char _pad[64];
+  } u;
+} rd_kafka_vu_t;
 rd_kafka_headers_t *rd_kafka_headers_new(size_t initial_count);
 void rd_kafka_headers_destroy(rd_kafka_headers_t *hdrs);
 rd_kafka_headers_t *rd_kafka_headers_copy(const rd_kafka_headers_t *src);
@@ -1394,8 +1452,10 @@ typedef struct rd_kafka_message_s {
   void *_private;
 } rd_kafka_message_t;
 void rd_kafka_message_destroy(rd_kafka_message_t *rkmessage);
+const char *rd_kafka_message_errstr(const rd_kafka_message_t *rkmessage);
 int64_t rd_kafka_message_timestamp(const rd_kafka_message_t *rkmessage, rd_kafka_timestamp_type_t *tstype);
 int64_t rd_kafka_message_latency(const rd_kafka_message_t *rkmessage);
+int32_t rd_kafka_message_broker_id(const rd_kafka_message_t *rkmessage);
 rd_kafka_resp_err_t rd_kafka_message_headers(const rd_kafka_message_t *rkmessage, rd_kafka_headers_t **hdrsp);
 rd_kafka_resp_err_t rd_kafka_message_detach_headers(rd_kafka_message_t *rkmessage, rd_kafka_headers_t **hdrsp);
 void rd_kafka_message_set_headers(rd_kafka_message_t *rkmessage, rd_kafka_headers_t *hdrs);
@@ -1534,6 +1594,7 @@ rd_kafka_error_t *rd_kafka_consumer_group_metadata_write(const rd_kafka_consumer
 rd_kafka_error_t *rd_kafka_consumer_group_metadata_read(rd_kafka_consumer_group_metadata_t **cgmdp, const void *buffer, size_t size);
 int rd_kafka_produce(rd_kafka_topic_t *rkt, int32_t partition, int msgflags, void *payload, size_t len, const void *key, size_t keylen, void *msg_opaque);
 rd_kafka_resp_err_t rd_kafka_producev(rd_kafka_t *rk, ...);
+rd_kafka_error_t *rd_kafka_produceva(rd_kafka_t *rk, const rd_kafka_vu_t *vus, size_t cnt);
 int rd_kafka_produce_batch(rd_kafka_topic_t *rkt, int32_t partition, int msgflags, rd_kafka_message_t *rkmessages, int message_cnt);
 rd_kafka_resp_err_t rd_kafka_flush(rd_kafka_t *rk, int timeout_ms);
 rd_kafka_resp_err_t rd_kafka_purge(rd_kafka_t *rk, int purge_flags);
@@ -1621,6 +1682,7 @@ const char *rd_kafka_event_error_string(rd_kafka_event_t *rkev);
 int rd_kafka_event_error_is_fatal(rd_kafka_event_t *rkev);
 void *rd_kafka_event_opaque(rd_kafka_event_t *rkev);
 int rd_kafka_event_log(rd_kafka_event_t *rkev, const char **fac, const char **str, int *level);
+int rd_kafka_event_debug_contexts(rd_kafka_event_t *rkev, char *dst, size_t dstsize);
 const char *rd_kafka_event_stats(rd_kafka_event_t *rkev);
 rd_kafka_topic_partition_list_t *rd_kafka_event_topic_partition_list(rd_kafka_event_t *rkev);
 rd_kafka_topic_partition_t *rd_kafka_event_topic_partition(rd_kafka_event_t *rkev);
@@ -1758,6 +1820,7 @@ rd_kafka_t *rd_kafka_mock_cluster_handle(const rd_kafka_mock_cluster_t *mcluster
 rd_kafka_mock_cluster_t *rd_kafka_handle_mock_cluster(const rd_kafka_t *rk);
 const char *rd_kafka_mock_cluster_bootstraps(const rd_kafka_mock_cluster_t *mcluster);
 void rd_kafka_mock_push_request_errors(rd_kafka_mock_cluster_t *mcluster, int16_t ApiKey, size_t cnt, ...);
+rd_kafka_resp_err_t rd_kafka_mock_broker_push_request_errors(rd_kafka_mock_cluster_t *mcluster, int32_t broker_id, int16_t ApiKey, size_t cnt, ...);
 void rd_kafka_mock_topic_set_error(rd_kafka_mock_cluster_t *mcluster, const char *topic, rd_kafka_resp_err_t err);
 rd_kafka_resp_err_t rd_kafka_mock_topic_create(rd_kafka_mock_cluster_t *mcluster, const char *topic, int partition_cnt, int replication_factor);
 rd_kafka_resp_err_t rd_kafka_mock_partition_set_leader(rd_kafka_mock_cluster_t *mcluster, const char *topic, int32_t partition, int32_t broker_id);
@@ -1765,6 +1828,7 @@ rd_kafka_resp_err_t rd_kafka_mock_partition_set_follower(rd_kafka_mock_cluster_t
 rd_kafka_resp_err_t rd_kafka_mock_partition_set_follower_wmarks(rd_kafka_mock_cluster_t *mcluster, const char *topic, int32_t partition, int64_t lo, int64_t hi);
 rd_kafka_resp_err_t rd_kafka_mock_broker_set_down(rd_kafka_mock_cluster_t *mcluster, int32_t broker_id);
 rd_kafka_resp_err_t rd_kafka_mock_broker_set_up(rd_kafka_mock_cluster_t *mcluster, int32_t broker_id);
+rd_kafka_resp_err_t rd_kafka_mock_broker_set_rtt(rd_kafka_mock_cluster_t *mcluster, int32_t broker_id, int rtt_ms);
 rd_kafka_resp_err_t rd_kafka_mock_broker_set_rack(rd_kafka_mock_cluster_t *mcluster, int32_t broker_id, const char *rack);
 rd_kafka_resp_err_t rd_kafka_mock_coordinator_set(rd_kafka_mock_cluster_t *mcluster, const char *key_type, const char *key, int32_t broker_id);
 rd_kafka_resp_err_t rd_kafka_mock_set_apiversion(rd_kafka_mock_cluster_t *mcluster, int16_t ApiKey, int16_t MinVersion, int16_t MaxVersion);
