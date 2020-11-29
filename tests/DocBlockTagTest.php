@@ -24,9 +24,9 @@ class DocBlockTagTest extends TestCase
 
     public function testPrint(): void
     {
-        $tag = new DocBlockTag('any', 'text');
+        $tag = new DocBlockTag('any', "text\nnewline");
 
-        $this->assertSame('@any text', $tag->print());
+        $this->assertSame("@any text\nnewline", $tag->print());
 
         $tag->setValue(null);
 

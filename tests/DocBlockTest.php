@@ -61,22 +61,25 @@ class DocBlockTest extends TestCase
             $block->print()
         );
 
-        $block->addTag(new DocBlockTag('any', 'text'));
+        $block->addTag(new DocBlockTag('any', "text\non newline"));
         $this->assertSame(
             <<<TEST
             /**
              * @any text
+             * on newline
              */
             TEST,
             $block->print()
         );
 
-        $block->setDescription('desc');
+        $block->setDescription("desc\non newline");
         $this->assertSame(
             <<<TEST
             /**
              * desc
+             * on newline
              * @any text
+             * on newline
              */
             TEST,
             $block->print()

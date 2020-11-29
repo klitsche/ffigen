@@ -85,10 +85,10 @@ class DocBlock
     {
         $lines = [];
         if ($this->description !== null) {
-            $lines[] = sprintf(' * %s', $this->description);
+            $lines[] = sprintf(' * %s', str_replace("\n", "\n * ", $this->description));
         }
         foreach ($this->tags as $tag) {
-            $lines[] = sprintf(' * %s', $tag->print());
+            $lines[] = sprintf(' * %s', str_replace("\n", "\n * ", $tag->print()));
         }
 
         return sprintf($this->template, empty($lines) ? '' : "\n" . implode("\n", $lines));
