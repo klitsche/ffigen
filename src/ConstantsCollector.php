@@ -13,7 +13,7 @@ class ConstantsCollector
         $constants = [];
 
         foreach ($defines as $define) {
-            $constants[] = new Constant($define->getName(), $define->getValue(), '#define');
+            $constants[] = new Constant($define->getName(), $define->getValue(), 'define');
         }
 
         foreach ($types as $type) {
