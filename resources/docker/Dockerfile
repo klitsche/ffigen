@@ -18,7 +18,7 @@ RUN set -e; \
     rm -rf /var/lib/apt/lists/*; \
     rm -rf /tmp/*;
 
-ARG LIBRDKAFKA_VERSION=v1.4.0
+ARG LIBRDKAFKA_VERSION=v1.5.2
 ENV LIBRDKAFKA_VERSION=$LIBRDKAFKA_VERSION
 RUN git clone --branch "${LIBRDKAFKA_VERSION}" --depth 1 https://github.com/edenhill/librdkafka.git /tmp/librdkafka; \
     cd /tmp/librdkafka; \
@@ -32,7 +32,7 @@ ARG XDEBUG_VERSION=stable
 RUN pecl install xdebug-${XDEBUG_VERSION}; \
     docker-php-ext-enable xdebug;
 
-ENV COMPOSER_HOME /tmp/.composer
+ENV COMPOSER_HOME /tmp
 ENV COMPOSER_ALLOW_SUPERUSER 1
 COPY --from=composer /usr/bin/composer /usr/bin/composer
 RUN composer global require hirak/prestissimo;
@@ -40,7 +40,7 @@ RUN composer global require hirak/prestissimo;
 RUN useradd -Ms /bin/bash --user-group --uid 2000 phpdev; \
     mkdir /app; \
     chown phpdev -R /app; \
-    chown phpdev -R /tmp/.composer;
+    chown phpdev -R /tmp;
 
 USER phpdev
 
