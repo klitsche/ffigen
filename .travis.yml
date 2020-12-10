@@ -5,6 +5,7 @@ sudo: true
 env:
   global:
     - CC_TEST_REPORTER_ID=b1d819eafb45dd064e0cca0c20e616aee7833b0688ea5c21dc2e978a1768137a
+    - XDEBUG_MODE=coverage
 cache:
   directories:
     - $HOME/.composer/cache
