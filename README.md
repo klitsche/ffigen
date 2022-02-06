@@ -1,6 +1,6 @@
 # ffigen - a FFI bindings generator for PHP
 
-[![Build Status](https://travis-ci.com/klitsche/ffigen.svg?branch=main)](https://travis-ci.com/klitsche/ffigen)
+[![Build Status](https://github.com/klitsche/ffigen/actions/workflows/test.yml/badge.svg)](https://github.com/klitsche/ffigen/actions/workflows/test.yml)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/74ba131ab73c58dc2864/test_coverage)](https://codeclimate.com/github/klitsche/ffigen/test_coverage)
 [![Maintainability](https://api.codeclimate.com/v1/badges/74ba131ab73c58dc2864/maintainability)](https://codeclimate.com/github/klitsche/ffigen/maintainability)
 [![Packagist Version](https://img.shields.io/packagist/v/klitsche/ffigen)](https://packagist.org/packages/klitsche/ffigen)
@@ -18,7 +18,7 @@ __WIP__: Expect breaking changes along all 0.* pre-releases.
 
 ## Requirements
 
-* PHP ^7.4
+* PHP ^7.4 || ^8.0
 * For examples: FFI extension must be available and enabled
 
 ## Quick Start
