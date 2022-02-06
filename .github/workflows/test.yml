@@ -1,0 +1,66 @@
+name: Build
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  tests:
+    name: Test & Build
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - php: '8.0'
+            publish: true
+        exclude:
+          - php: '8.0'
+            publish: false
+        php:
+          - '7.4'
+          - '8.0'
+          - '8.1'
+        publish:
+          - false
+    continue-on-error: ${{ matrix.php == '8.1' }}
+    env:
+      PHP_VERSION: ${{ matrix.php }}
+      COMPOSER_AUTH: ${{ secrets.COMPOSER_AUTH }}
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Install PHP ${{ matrix.php }}
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+          coverage: pcov
+
+      - name: Get composer cache directory
+        id: composer-cache
+        run: |
+          echo "::set-output name=dir::$(composer config cache-files-dir)"
+      - name: Cache composer cache directory
+        uses: actions/cache@v2
+        with:
+          path: ${{ steps.composer-cache.outputs.dir }}
+          key: ${{ runner.os }}-${{ matrix.php }}-composer-${{ hashFiles('**/composer.json') }}
+          restore-keys: ${{ runner.os }}-${{ matrix.php }}-composer-
+      - name: Install dependencies
+        run: |
+          composer update --prefer-dist --prefer-stable --no-interaction
+
+      - name: Run tests
+        run: |
+          composer test-coverage
+
+      - name: Publish code coverage to codeclimate
+        if: matrix.publish == true && github.event_name == 'push' && (github.ref == 'refs/heads/main' || startsWith(github.ref, 'refs/tags/'))
+        uses: paambaati/codeclimate-action@v3.0.0
+        env:
+          CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
