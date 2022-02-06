@@ -22,7 +22,7 @@ class MethodsCollection implements \IteratorAggregate, \Countable
     /**
      * @return \ArrayIterator|\Traversable|Method[]
      */
-    public function getIterator()
+    public function getIterator(): \Traversable
     {
         return new \ArrayIterator($this->methods);
     }
@@ -54,7 +54,7 @@ class MethodsCollection implements \IteratorAggregate, \Countable
         return false;
     }
 
-    public function count()
+    public function count(): int
     {
         return count($this->methods);
     }

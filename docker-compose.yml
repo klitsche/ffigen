@@ -7,6 +7,7 @@ services:
   php74:
     build:
       context: resources/docker
+      dockerfile: php74.Dockerfile
     image: php74-ffigen-examples
     volumes:
       - .:/app
@@ -15,5 +16,27 @@ services:
     environment:
       XDEBUG_CONFIG: "remote_enable=1 remote_mode=req remote_port=9000 remote_host=host.docker.internal remote_connect_back=0 idekey=PHPSTORM"
       PHP_IDE_CONFIG: "serverName=127.0.0.1"
-#    devices:
-#      - /dev/snd
+  php80:
+    build:
+      context: resources/docker
+      dockerfile: php80.Dockerfile
+    image: php80-ffigen-examples
+    volumes:
+      - .:/app
+    networks:
+      - ffigen
+    environment:
+      XDEBUG_CONFIG: "remote_enable=1 remote_mode=req remote_port=9000 remote_host=host.docker.internal remote_connect_back=0 idekey=PHPSTORM"
+      PHP_IDE_CONFIG: "serverName=127.0.0.1"
+  php81:
+    build:
+      context: resources/docker
+      dockerfile: php81.Dockerfile
+    image: php81-ffigen-examples
+    volumes:
+      - .:/app
+    networks:
+      - ffigen
+    environment:
+      XDEBUG_CONFIG: "remote_enable=1 remote_mode=req remote_port=9000 remote_host=host.docker.internal remote_connect_back=0 idekey=PHPSTORM"
+      PHP_IDE_CONFIG: "serverName=127.0.0.1"

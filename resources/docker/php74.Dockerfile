@@ -35,7 +35,6 @@ RUN pecl install xdebug-${XDEBUG_VERSION}; \
 ENV COMPOSER_HOME /tmp
 ENV COMPOSER_ALLOW_SUPERUSER 1
 COPY --from=composer /usr/bin/composer /usr/bin/composer
-RUN composer global require hirak/prestissimo;
 
 RUN useradd -Ms /bin/bash --user-group --uid 2000 phpdev; \
     mkdir /app; \

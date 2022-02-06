@@ -21,7 +21,7 @@ class TypesCollection implements \IteratorAggregate, \Countable
     /**
      * @return \ArrayIterator|\Traversable|Type[]
      */
-    public function getIterator()
+    public function getIterator(): \Traversable
     {
         return new \ArrayIterator($this->types);
     }

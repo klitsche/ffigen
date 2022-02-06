@@ -22,7 +22,7 @@ class ConstantsCollection implements \IteratorAggregate, \Countable
     /**
      * @return \ArrayIterator|\Traversable|Constant[]
      */
-    public function getIterator()
+    public function getIterator(): \Traversable
     {
         return new \ArrayIterator($this->constants);
     }
@@ -54,7 +54,7 @@ class ConstantsCollection implements \IteratorAggregate, \Countable
         return false;
     }
 
-    public function count()
+    public function count(): int
     {
         return iterator_count($this->getIterator());
     }

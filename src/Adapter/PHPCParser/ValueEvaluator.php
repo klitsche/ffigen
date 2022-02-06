@@ -21,7 +21,7 @@ class ValueEvaluator
 
         try {
             $value = eval('return ' . trim($value) . ';');
-        } catch (\ParseError $exception) {
+        } catch (\Throwable $exception) {
             $value = null;
         }
 

@@ -19,7 +19,7 @@ class DefinesCollection implements \IteratorAggregate, \Countable
     /**
      * @return \ArrayIterator|\Traversable|Define[]
      */
-    public function getIterator()
+    public function getIterator(): \Traversable
     {
         return new \ArrayIterator($this->defines);
     }
