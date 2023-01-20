@@ -23,7 +23,6 @@ class TypesCollector
      */
     public function collect(iterable $declarations): TypesCollection
     {
-        $this->typeDefs = [];
         $types = [];
 
         foreach ($declarations as $declaration) {

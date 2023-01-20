@@ -11,6 +11,8 @@ use PHPCParser\PreProcessor\Token;
 
 class DefinesCollector
 {
+    private CONST PHPCPARSER_BUILT_IN_FILE = 'built-in';
+
     private ValueEvaluator $evaluator;
 
     public function __construct(?ValueEvaluator $evaluator = null)
@@ -26,6 +28,9 @@ class DefinesCollector
         $defines = [];
         foreach ($defineTokens as $identifier => $token) {
             if ($token === null) {
+                continue;
+            }
+            if ($token->file == self::PHPCPARSER_BUILT_IN_FILE) {
                 continue;
             }
             $value = '';
