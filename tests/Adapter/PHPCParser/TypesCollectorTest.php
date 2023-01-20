@@ -94,7 +94,7 @@ class TypesCollectorTest extends TestCase
                 (new Function_(
                     (new CharPointer(new Builtin('char')))->withConst(true),
                     [
-                        'arg1' =>(new CharPointer(new Builtin('char')))->withConst(true),
+                        'arg1' => (new CharPointer(new Builtin('char')))->withConst(true),
                         'arg2' => new CharPointer(new Builtin('char')),
                     ],
                     false
