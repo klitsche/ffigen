@@ -109,7 +109,7 @@ $eofPartitions = [];
 $consuming = true;
 while ($consuming) {
     $messagePtr = Library::rd_kafka_consume_queue($queue, 100);
-//    print_r($messagePtr);
+    //    print_r($messagePtr);
     if ($messagePtr === null) {
         echo 'NONE' . PHP_EOL;
         continue;
@@ -124,11 +124,11 @@ while ($consuming) {
         }
     } else {
         echo sprintf(
-                'consume msg: %s, key: %s, partition: %d',
-                FFI::string($message->payload, $message->len),
-                FFI::string($message->key, $message->key_len),
-                $message->partition
-            ) . PHP_EOL;
+            'consume msg: %s, key: %s, partition: %d',
+            FFI::string($message->payload, $message->len),
+            FFI::string($message->key, $message->key_len),
+            $message->partition
+        ) . PHP_EOL;
     }
     // destroy before polling
     Library::rd_kafka_message_destroy($messagePtr);

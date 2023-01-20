@@ -18,7 +18,6 @@ class ConstantsCollectionTest extends TestCase
             new Constant('DEF_TWO', 2),
             new Constant('ENUM_A_ONE', 1),
             new Constant('ENUM_A_TWO', 2),
-
         );
         $collection->add(new Constant('EXTRA_ONE', 1));
         $collection->add(new Constant('EXTRA_TWO', 2));
