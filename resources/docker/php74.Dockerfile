@@ -18,9 +18,9 @@ RUN set -e; \
     rm -rf /var/lib/apt/lists/*; \
     rm -rf /tmp/*;
 
-ARG LIBRDKAFKA_VERSION=v1.5.2
+ARG LIBRDKAFKA_VERSION=v1.9.2
 ENV LIBRDKAFKA_VERSION=$LIBRDKAFKA_VERSION
-RUN git clone --branch "${LIBRDKAFKA_VERSION}" --depth 1 https://github.com/edenhill/librdkafka.git /tmp/librdkafka; \
+RUN git clone --branch "${LIBRDKAFKA_VERSION}" --depth 1 https://github.com/confluentinc/librdkafka.git /tmp/librdkafka; \
     cd /tmp/librdkafka; \
     ./configure --prefix=/usr; \
     make; \
@@ -28,7 +28,7 @@ RUN git clone --branch "${LIBRDKAFKA_VERSION}" --depth 1 https://github.com/eden
     rm -rf /tmp/librdkafka;
 
 # install xdebug
-ARG XDEBUG_VERSION=stable
+ARG XDEBUG_VERSION=3.1.6
 RUN pecl install xdebug-${XDEBUG_VERSION}; \
     docker-php-ext-enable xdebug;
 

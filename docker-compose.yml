@@ -40,3 +40,15 @@ services:
     environment:
       XDEBUG_CONFIG: "remote_enable=1 remote_mode=req remote_port=9000 remote_host=host.docker.internal remote_connect_back=0 idekey=PHPSTORM"
       PHP_IDE_CONFIG: "serverName=127.0.0.1"
+  php82:
+    build:
+      context: resources/docker
+      dockerfile: php82.Dockerfile
+    image: php82-ffigen-examples
+    volumes:
+      - .:/app
+    networks:
+      - ffigen
+    environment:
+      XDEBUG_CONFIG: "remote_enable=1 remote_mode=req remote_port=9000 remote_host=host.docker.internal remote_connect_back=0 idekey=PHPSTORM"
+      PHP_IDE_CONFIG: "serverName=127.0.0.1"
