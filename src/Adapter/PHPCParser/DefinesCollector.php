@@ -11,7 +11,7 @@ use PHPCParser\PreProcessor\Token;
 
 class DefinesCollector
 {
-    private CONST PHPCPARSER_BUILT_IN_FILE = 'built-in';
+    private const PHPCPARSER_BUILT_IN_FILE = 'built-in';
 
     private ValueEvaluator $evaluator;
 
@@ -30,7 +30,7 @@ class DefinesCollector
             if ($token === null) {
                 continue;
             }
-            if ($token->file == self::PHPCPARSER_BUILT_IN_FILE) {
+            if ($token->file === self::PHPCPARSER_BUILT_IN_FILE) {
                 continue;
             }
             $value = '';
