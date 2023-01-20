@@ -51,6 +51,7 @@ class ParserTest extends TestCase
             typedef long baz[][];
             typedef char *(*(**hairy[][8])())[];
             extern char **func1(char_t arg1, hairy arg2);
+            const char *func2(const char *arg1, char *arg2);
             void func2(void);
             
             CDEF,
@@ -65,6 +66,6 @@ class ParserTest extends TestCase
 
     public function testGetTypes(): void
     {
-        $this->assertCount(12, $this->parser->getTypes());
+        $this->assertCount(13, $this->parser->getTypes());
     }
 }

@@ -52,7 +52,7 @@ class TypesCollectorTest extends TestCase
         $collector = new TypesCollector();
         $collection = $collector->collect($ast->declarations);
 
-        $this->assertSame(12, iterator_count($collection));
+        $this->assertSame(13, iterator_count($collection));
         $this->assertEquals(
             new TypesCollection(
                 (new Builtin('int'))->withDeclarationName('int_t'),
@@ -91,6 +91,14 @@ class TypesCollectorTest extends TestCase
                     ],
                     false
                 ))->withDeclarationName('func1'),
+                (new Function_(
+                    (new CharPointer(new Builtin('char')))->withConst(true),
+                    [
+                        'arg1' =>(new CharPointer(new Builtin('char')))->withConst(true),
+                        'arg2' => new CharPointer(new Builtin('char')),
+                    ],
+                    false
+                ))->withDeclarationName('func2'),
                 (new Function_(
                     new Builtin('void'),
                     [

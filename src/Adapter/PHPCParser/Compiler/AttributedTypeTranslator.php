@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Klitsche\FFIGen\Adapter\PHPCParser\Compiler;
 
+use Klitsche\FFIGen\Types\Function_;
 use Klitsche\FFIGen\Types\Type;
 use PHPCParser\Node\Type\AttributedType;
 use PHPCParser\Node\Type\ExplicitAttributedType;
@@ -20,6 +21,13 @@ class AttributedTypeTranslator extends AbstractTranslator
     {
         $compiledType = $this->compiler->compile($node->parent);
         if ($node->kind === ExplicitAttributedType::KIND_CONST) {
+            if ($compiledType instanceof Function_) {
+                return new Function_(
+                    $compiledType->getReturn()->withConst(true),
+                    $compiledType->getParams(),
+                    $compiledType->isVariadic()
+                );
+            }
             return $compiledType->withConst(true);
         } elseif ($node->kind === ExplicitAttributedType::KIND_EXTERN) {
             return $compiledType;
