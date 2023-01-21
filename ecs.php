@@ -25,18 +25,11 @@ return static function (ECSConfig $config): void {
         ],
     ]);
 
-    $services = $config->services();
-    $services->set(OrderedImportsFixer::class)
-        ->call(
-            'configure',
-            [
-                [
-                    'imports_order' => [
-                        'class',
-                        'const',
-                        'function',
-                    ],
-                ],
-            ]
-        );
+    $config->ruleWithConfiguration(OrderedImportsFixer::class, [
+        'imports_order' => [
+            'class',
+            'const',
+            'function',
+        ],
+    ]);
 };
