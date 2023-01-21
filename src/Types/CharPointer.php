@@ -23,17 +23,6 @@ class CharPointer extends Pointer
         return $this->type->getCName();
     }
 
-    public function getCType(string $pointer = ''): string
-    {
-        if (parent::isConst() && $this->type->isConst() === false) {
-            $const = 'const ';
-        } else {
-            $const = '';
-        }
-
-        return $const . $this->type->getCType($pointer . '*');
-    }
-
     public function getPhpTypes(): string
     {
         if ($this->isConst()) {

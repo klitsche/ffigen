@@ -35,4 +35,4 @@ typedef char *(*(**hairy[][8])())[];
 // function
 extern char** func1(char_t arg1, hairy arg2);
 const char* func2(const char* arg1, char* arg2);
-void func2(void);
+void func3(void);

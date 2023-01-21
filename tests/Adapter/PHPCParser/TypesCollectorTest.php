@@ -105,7 +105,7 @@ class TypesCollectorTest extends TestCase
                         'arg0' => new Builtin('void'),
                     ],
                     false
-                ))->withDeclarationName('func2')
+                ))->withDeclarationName('func3')
             ),
             $collection
         );

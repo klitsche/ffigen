@@ -27,7 +27,13 @@ class Pointer extends Type
 
     public function getCType(string $pointer = ''): string
     {
-        return $this->type->getCType($pointer . '*');
+        if (parent::isConst() && $this->type->isConst() === false) {
+            $const = 'const ';
+        } else {
+            $const = '';
+        }
+
+        return $const . $this->type->getCType($pointer . '*');
     }
 
     public function getPhpTypes(): string
